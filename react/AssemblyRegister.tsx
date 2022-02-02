@@ -1,21 +1,15 @@
 import React from 'react'
-import { createSystem, Page, PageHeader, PageTitle } from '@vtex/admin-ui'
+import { PageHeader } from 'vtex.styleguide'
 
 const AssemblyRegister = () => {
-  const [ThemeProvider] = createSystem({
-    key: 'assembly-register-theme',
-  })
-
   return (
-    <ThemeProvider>
-      {
-        <Page>
-          <PageHeader>
-            <PageTitle>Assembly Options</PageTitle>
-          </PageHeader>
-        </Page>
-      }
-    </ThemeProvider>
+    <PageHeader
+      title="Assembly Register"
+      linkLabel="Assembly Options"
+      onLinkClick={() => {
+        alert('Voltar')
+      }}
+    />
   )
 }
 
