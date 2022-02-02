@@ -1,8 +1,7 @@
-<p align="center">
-  <img alt="VTEX Admin" src="./assets/vtex-logo.svg" height="100" width="117" />
-  <h3 align="center">Admin-ui app Example</h3>
-  <p align="center">Reach us on #team-admin channel on Slack | Tag us with @dev-team-admin on Slack</p>
-</p>
+
+<img alt="VTEX Admin" src="./assets/vtex-logo.svg" height="100" width="117" />
+
+# Assembly Options (On Progress)
 
 ---
 
@@ -11,11 +10,7 @@ VTEX IO based admin app example with the [admin-ui design system](https://admin-
 Live demo on [adminuiexample--teamadmin.myvtex.com/admin/example](https://adminuiexample--teamadmin.myvtex.com/admin/example/)
 
 ## Features
-
-- Admin v4 & Typescript ready
-- VTEX IO page navigation via `useRuntime`
-- Several Admin-ui components implemented
-- Localized in 3 languages with `react-intl`
+- Register Form of a new Assembly Options ans its related SKUs
 
 ## Contribute
 
