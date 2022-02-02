@@ -20,7 +20,7 @@ const AssemblyRegister = () => {
       <form className="">
         <PageBlock>
           <h3 className="f5 mb2">Main Config</h3>
-          <p className="f6 gray pb4 mb3">
+          <p className="f6 gray pb4 mb2">
             Main information related to the entire Assembly Options
           </p>
           <div className="flex mv6 items-center mb2">
@@ -36,42 +36,46 @@ const AssemblyRegister = () => {
                 placeholder="ID"
                 dataAttributes={{ 'hj-white-list': true, test: 'string' }}
                 label="ID"
+                type="number"
+                disabled
               />
             </div>
           </div>
           <div className="flex mv6 items-center ">
             <div className="mr3 w-50">
               <Input
-                placeholder="Minimum items applied"
-                dataAttributes={{ 'hj-white-list': true, test: 'string' }}
-                label="Minimum Integer Number"
+                placeholder="Minimum Integer Number"
+                label="Minimum items applied "
+                type="number"
+                min="0"
               />
             </div>
             <div className="w-50">
               <Input
-                placeholder="Maximum items applied"
-                dataAttributes={{ 'hj-white-list': true, test: 'string' }}
-                label="Maximum Integer Number"
+                placeholder="Maximum Integer Number"
+                label="Maximum items applied "
+                type="number"
+                min="0"
               />
             </div>
           </div>
           <div className="flex mv6 items-center ">
             <Checkbox
               checked={active}
-              id="option-0"
+              id="is-active"
               label="Active"
               name="default-checkbox-group"
               onChange={() => setActive(!active)}
-              value="option-0"
+              value="is-active"
             />
             <Checkbox
               checked={required}
-              id="option-0"
-              s
+              id="is-required"
+              className="mr5"
               label="Required"
               name="default-checkbox-group"
               onChange={() => setRequired(!required)}
-              value="option-0"
+              value="is-required"
             />
           </div>
         </PageBlock>
