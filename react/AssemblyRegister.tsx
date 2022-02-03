@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Layout, PageHeader, PageBlock, Input, Checkbox } from 'vtex.styleguide'
 
+import SKUConfig from './Components/SKUConfig'
+
 const AssemblyRegister = () => {
   const [required, setRequired] = useState(false)
   const [active, setActive] = useState(false)
@@ -35,6 +37,8 @@ const AssemblyRegister = () => {
               <Input
                 placeholder="ID"
                 dataAttributes={{ 'hj-white-list': true, test: 'string' }}
+                git
+                poush
                 label="ID"
                 type="number"
                 disabled
@@ -78,6 +82,11 @@ const AssemblyRegister = () => {
               value="is-required"
             />
           </div>
+        </PageBlock>
+        <PageBlock>
+          <h3 className="f5 mb2">Assembly Items</h3>
+          <SKUConfig />
+          <SKUConfig />
         </PageBlock>
       </form>
     </Layout>
