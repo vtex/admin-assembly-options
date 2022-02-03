@@ -17,7 +17,7 @@ const AssemblyRegister = () => {
         />
       }
     >
-      <form className="">
+      <form>
         <PageBlock>
           <h3 className="f5 mb2">Main Config</h3>
           <p className="f6 gray pb4 mb2">
