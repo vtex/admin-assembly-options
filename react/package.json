@@ -12,9 +12,11 @@
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime"
   },
   "dependencies": {
-    "@vtex/admin-ui": "^0.117.0",
+    "@vtex/admin-formik": "^0.4.1-next.0",
+    "@vtex/admin-ui": "^0.117.1-next.1",
     "@vtex/styleguide": "^9.145.2",
     "faker": "^5.5.3",
+    "formik": "^2.2.9",
     "react-intl": "^5.21.0"
   }
 }

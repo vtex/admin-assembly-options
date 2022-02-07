@@ -1,4 +1,20 @@
 {
-  "admin-example.navigation.label-group": "Assembly Options",
-  "admin-example.navigation.label-main": "Registrar"
+  "admin/assembly.navigation.label-group": "Assembly Options",
+  "admin/assembly.navigation.label-main": "Registrar",
+
+  "admin/assembly.register.page-title": "Registrar Assembly",
+  "admin/assembly.register.assembly-form-title": "Configuración de Assembly",
+  "admin/assembly.register.assembly-form-description": "Dados relacionados con las opciones de Assembly Options en su conjunto",
+
+  "admin/assembly.register.assembly-name": "Nombre",
+  "admin/assembly.register.assembly-name-placeholder": "Nombre del Assembly Options",
+
+  "admin/assembly.register.assembly-minimum-placeholder": "Ex: 1",
+  "admin/assembly.register.assembly-minimum-label": "Número mínimo aplicable",
+
+  "admin/assembly.register.assembly-maximum-placeholder": "Ex: 3",
+  "admin/assembly.register.assembly-maximum-label": "Número máximo aplicable",
+
+  "admin/assembly.register.assembly-active": "Ativo",
+  "admin/assembly.register.assembly-required": "Obligatorio"
 }

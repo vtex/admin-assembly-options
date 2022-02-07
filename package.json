@@ -32,6 +32,7 @@
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.131.0/public/@types/vtex.render-runtime"
   },
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "@vtex/styleguide": "^9.145.2"
   }
 }

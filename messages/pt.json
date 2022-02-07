@@ -1,4 +1,17 @@
 {
-  "admin-example.navigation.label-group": "Assembly Options",
-  "admin-example.navigation.label-main": "Cadastrar"
+  "admin/assembly.navigation.label-group": "Assembly Options",
+  "admin/assembly.navigation.label-main": "Cadastrar",
+
+  "admin/assembly.register.page-title": "Cadastrar Assembly",
+  "admin/assembly.register.assembly-form-title": "Configuração do Assembly",
+  "admin/assembly.register.assembly-form-description": "Dados relacionados ao Assembly Options como um todo",
+
+  "admin/assembly.register.assembly-name": "Nome",
+  "admin/assembly.register.assembly-name-placeholder": "Nome do Assembly Options",
+  "admin/assembly.register.assembly-minimum-placeholder": "Ex: 1",
+  "admin/assembly.register.assembly-minimum-label": "Número mínimo aplicável",
+  "admin/assembly.register.assembly-maximum-placeholder": "Ex: 3",
+  "admin/assembly.register.assembly-maximum-label": "Número máximo aplicável",
+  "admin/assembly.register.assembly-active": "Ativo",
+  "admin/assembly.register.assembly-required": "Obrigatório"
 }
