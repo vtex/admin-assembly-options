@@ -1,10 +1,11 @@
 /* eslint-disable no-alert */
 import React from 'react'
 import { useIntl } from 'react-intl'
-import { Card, Heading, Paragraph, Flex, Box } from '@vtex/admin-ui'
+import { Card, Heading, Paragraph, Flex, Box, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox } from '@vtex/admin-formik'
 
+import KeyRegister from '../KeyRegister'
 import { messages } from '../../utils/messages'
 
 const RegisterForm = () => {
@@ -59,6 +60,12 @@ const RegisterForm = () => {
             </Box>
           </Flex>
         </Card>
+        <Flex csx={{ margin: '10px 0px' }} justify="flex-end">
+          <Button variant="secondary">ADD NEW KEY</Button>
+        </Flex>
+        <Flex>
+          <KeyRegister />
+        </Flex>
       </form>
     </Formik>
   )
