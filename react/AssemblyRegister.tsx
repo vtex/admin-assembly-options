@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react'
 import { useIntl } from 'react-intl'
 import {
@@ -24,7 +23,7 @@ const AssemblyRegister = () => {
   return (
     <ThemeProvider>
       <Page csx={{ background: '#F8F9FA' }}>
-        <PageHeader onPopNavigation={() => alert('onPopNavigation()')}>
+        <PageHeader>
           <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
           <PageActions>
             <Button>Save</Button>

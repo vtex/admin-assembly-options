@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react'
 import { useIntl } from 'react-intl'
 import { Card, Heading, Paragraph, Flex, Box } from '@vtex/admin-ui'
@@ -10,6 +9,7 @@ import { messages } from '../../utils/messages'
 const RegisterForm = () => {
   const intl = useIntl()
   const handleSubmit = () => {
+    /* eslint-disable no-alert */
     alert('Values submitted: ')
   }
 
