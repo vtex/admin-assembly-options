@@ -1,10 +1,10 @@
 {
   "section": "products",
-  "titleId": "admin-example.navigation.label-group",
+  "titleId": "admin/assembly.navigation.label-group",
   "subSection": "example",
   "subSectionItems": [
     {
-      "labelId": "admin-example.navigation.label-main",
+      "labelId": "admin/assembly.navigation.label-main",
       "path": "/admin/assembly-register"
     }
   ]
