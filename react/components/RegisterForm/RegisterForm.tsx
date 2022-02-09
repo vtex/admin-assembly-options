@@ -1,17 +1,26 @@
 /* eslint-disable no-alert */
-import React from 'react'
+import React, { useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Card, Heading, Paragraph, Flex, Box, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox } from '@vtex/admin-formik'
 
-import KeyRegister from '../KeyRegister'
+import RegisterKey from '../RegisterKey'
 import { messages } from '../../utils/messages'
 
 const RegisterForm = () => {
+  const [keyQuantity, setKeyQuantity] = useState<number[]>([])
   const intl = useIntl()
   const handleSubmit = () => {
     alert('Values submitted: ')
+  }
+
+  const handleAddKey = () => {
+    const i = 0
+
+    setKeyQuantity([...[i]])
+    // eslint-disable-next-line no-console
+    console.log(keyQuantity)
   }
 
   return (
@@ -23,6 +32,18 @@ const RegisterForm = () => {
           id: '',
           active: false,
           required: false,
+          key: {
+            name: '',
+            minimum: 0,
+            maximum: 0,
+            sku: {
+              id: 0,
+              priceTable: '',
+              minimum: 0,
+              maximum: 0,
+              initial: 0,
+            },
+          },
         },
       }}
     >
@@ -61,10 +82,14 @@ const RegisterForm = () => {
           </Flex>
         </Card>
         <Flex csx={{ margin: '10px 0px' }} justify="flex-end">
-          <Button variant="secondary">ADD NEW KEY</Button>
+          <Button variant="secondary" onClick={handleAddKey}>
+            ADD NEW KEY
+          </Button>
         </Flex>
-        <Flex>
-          <KeyRegister />
+        <Flex direction="column">
+          {keyQuantity.map((index: number) => {
+            return <RegisterKey key={index} />
+          })}
         </Flex>
       </form>
     </Formik>
