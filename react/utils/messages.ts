@@ -30,28 +30,70 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.assembly-name-placeholder',
     defaultMessage: '',
   },
-  assemblyMinimumPlaceholder: {
-    id: 'admin/assembly.register.assembly-minimum-placeholder',
-    defaultMessage: '',
-  },
-  assemblyMinimumLabel: {
-    id: 'admin/assembly.register.assembly-minimum-label',
-    defaultMessage: '',
-  },
-  assemblyMaximumPlaceholder: {
-    id: 'admin/assembly.register.assembly-maximum-placeholder',
-    defaultMessage: '',
-  },
-  assemblyMaximumLabel: {
-    id: 'admin/assembly.register.assembly-maximum-label',
-    defaultMessage: '',
-  },
   assemblyActive: {
     id: 'admin/assembly.register.assembly-active',
     defaultMessage: '',
   },
   assemblyRequired: {
     id: 'admin/assembly.register.assembly-required',
+    defaultMessage: '',
+  },
+
+  addKeyButton: {
+    id: 'admin/assembly.register.add-key',
+    defaultMessage: '',
+  },
+  keyName: {
+    id: 'admin/assembly.register.key-name',
+    defaultMessage: '',
+  },
+  keyNameLabel: {
+    id: 'admin/assembly.register.key-name-label',
+    defaultMessage: '',
+  },
+  keyMinimumLabel: {
+    id: 'admin/assembly.register.key-minimum-label',
+    defaultMessage: '',
+  },
+  keyMaximumLabel: {
+    id: 'admin/assembly.register.key-maximum-label',
+    defaultMessage: '',
+  },
+  addSKUButton: {
+    id: 'admin/assembly.register.sku-add',
+    defaultMessage: '',
+  },
+  SKUPriceTableLabel: {
+    id: 'admin/assembly.register.sku-price-table',
+    defaultMessage: '',
+  },
+  SKUItemHeading: {
+    id: 'admin/assembly.register.sku-items',
+    defaultMessage: '',
+  },
+  SKUItemMin: {
+    id: 'admin/assembly.register.sku-items-min',
+    defaultMessage: '',
+  },
+  SKUItemMax: {
+    id: 'admin/assembly.register.sku-items-max',
+    defaultMessage: '',
+  },
+  SKUItemInitial: {
+    id: 'admin/assembly.register.sku-items-initial',
+    defaultMessage: '',
+  },
+  SKUItemConfirm: {
+    id: 'admin/assembly.register.sku-items-confirm',
+    defaultMessage: '',
+  },
+
+  SKUPriceTable: {
+    id: 'admin/assembly.register.price-table',
+    defaultMessage: '',
+  },
+  SKUActions: {
+    id: 'admin/assembly.register.actions',
     defaultMessage: '',
   },
 })

@@ -1,4 +1,6 @@
-import React from 'react'
+/* eslint-disable prettier/prettier */
+import type { ChangeEvent } from 'react'
+import React, { useState } from 'react'
 import {
   Collapsible,
   CollapsibleHeader,
@@ -9,37 +11,50 @@ import {
   Label,
 } from '@vtex/admin-ui'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
+import { useIntl } from 'react-intl'
 
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
+import { messages } from '../../utils/messages'
 
-const RegisterKey = () => {
+const AssemblyKey = () => {
   const state = useCollapsibleState()
+  const intl = useIntl()
+  const [keyName, setKeyName] = useState<string>('')
 
   return (
     <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
-      <CollapsibleHeader label="Key Example" />
+      <CollapsibleHeader
+        label={`${intl.formatMessage(messages.keyName)} ${keyName}`}
+      />
       <CollapsibleContent>
         <Flex direction="row" justify="space-between">
           <Box csx={{ width: '80%' }}>
             <Flex direction="row" align="end">
               <Box csx={{ width: '38%', paddingRight: 3 }}>
-                <FormikInput name="assembly.key.name" label="Key Name" />
-              </Box>
-              <Box csx={{ paddingRight: 3 }}>
-                <Label>Minimum Items applicable</Label>
-                <FormikNumericStepper
-                  minValue={0}
-                  name="assembly.key.minimum"
-                  label="Minimum Items applicable"
+                <FormikInput
+                  name="assembly.key.name"
+                  label={`${intl.formatMessage(messages.keyNameLabel)}`}
+                  csx={{ margin: '0px' }}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    setKeyName(e.target.value)
+                  }
                 />
               </Box>
               <Box csx={{ paddingRight: 3 }}>
-                <Label>Maximum Items applicable</Label>
+                <Label>{intl.formatMessage(messages.keyMinimumLabel)}</Label>
+                <FormikNumericStepper
+                  minValue={0}
+                  name="assembly.key.minimum"
+                  label={`${intl.formatMessage(messages.keyMinimumLabel)}`}
+                />
+              </Box>
+              <Box csx={{ paddingRight: 3 }}>
+                <Label>{intl.formatMessage(messages.keyMaximumLabel)}</Label>
                 <FormikNumericStepper
                   minValue={0}
                   name="assembly.key.maximum"
-                  label="Maximum Items applicable"
+                  label={`${intl.formatMessage(messages.keyMaximumLabel)}`}
                 />
               </Box>
             </Flex>
@@ -48,7 +63,7 @@ const RegisterKey = () => {
             <SKUModal />
           </Box>
         </Flex>
-        <Flex>
+        <Flex csx={{ marginTop: 5 }}>
           <SKUGrid />
         </Flex>
       </CollapsibleContent>
@@ -56,4 +71,4 @@ const RegisterKey = () => {
   )
 }
 
-export default RegisterKey
+export default AssemblyKey

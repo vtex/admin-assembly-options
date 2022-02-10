@@ -8,10 +8,21 @@
 
   "admin/assembly.register.assembly-name": "Nome",
   "admin/assembly.register.assembly-name-placeholder": "Nome do Assembly Options",
-  "admin/assembly.register.assembly-minimum-placeholder": "Ex: 1",
-  "admin/assembly.register.assembly-minimum-label": "Número mínimo aplicável",
-  "admin/assembly.register.assembly-maximum-placeholder": "Ex: 3",
-  "admin/assembly.register.assembly-maximum-label": "Número máximo aplicável",
   "admin/assembly.register.assembly-active": "Ativo",
-  "admin/assembly.register.assembly-required": "Obrigatório"
+  "admin/assembly.register.assembly-required": "Obrigatório",
+
+  "admin/assembly.register.add-key": "Adicionar Nova Chave",
+  "admin/assembly.register.key-name": "Chave",
+  "admin/assembly.register.key-name-label": "Nome da Chave",
+  "admin/assembly.register.key-minimum-label": "Quantidade Mínima",
+  "admin/assembly.register.key-maximum-label": "Quantidade Máxima",
+  "admin/assembly.register.sku-price-table": "Nome da table de preço vinculada",
+  "admin/assembly.register.sku-add": "Adicionar novo SKU",
+  "admin/assembly.register.sku-items": "Item",
+  "admin/assembly.register.sku-items-min": "Quantidade mínima",
+  "admin/assembly.register.sku-items-max": "Quantidade máxima",
+  "admin/assembly.register.sku-items-initial": "Quantidade inicial",
+  "admin/assembly.register.sku-items-confirm": "Confirmar",
+  "admin/assembly.register.price-table": "Tabela de Preço",
+  "admin/assembly.register.actions": "Ações"
 }
