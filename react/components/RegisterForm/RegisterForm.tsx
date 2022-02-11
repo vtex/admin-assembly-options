@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { useIntl } from 'react-intl'
 import { Card, Heading, Paragraph, Flex, Box, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
