@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
 - Base Assembly Options page and form created
 - Base Key and SKU sections added to the Assembly Form
 - All Intl messages added

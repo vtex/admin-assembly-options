@@ -1,5 +1,5 @@
-/* eslint-disable no-alert */
 import React, { useState } from 'react'
+
 import { useIntl } from 'react-intl'
 import { Card, Heading, Paragraph, Flex, Box, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
@@ -12,6 +12,7 @@ const RegisterForm = () => {
   const [keyQuantity, setKeyQuantity] = useState<number[]>([])
   const intl = useIntl()
   const handleSubmit = () => {
+    /* eslint-disable no-alert */
     alert('Values submitted: ')
   }
 
