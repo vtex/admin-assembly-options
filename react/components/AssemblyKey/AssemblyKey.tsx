@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import type { ChangeEvent } from 'react'
 import React, { useState } from 'react'
 import {
