@@ -8,13 +8,21 @@
 
   "admin/assembly.register.assembly-name": "Name",
   "admin/assembly.register.assembly-name-placeholder": "Assembly Options name",
-
-  "admin/assembly.register.assembly-minimum-placeholder": "Ex: 1",
-  "admin/assembly.register.assembly-minimum-label": "Minimum Number Applicable",
-
-  "admin/assembly.register.assembly-maximum-placeholder": "Ex: 3",
-  "admin/assembly.register.assembly-maximum-label": "Número máximo applicable",
-
   "admin/assembly.register.assembly-active": "Active",
-  "admin/assembly.register.assembly-required": "Required"
+  "admin/assembly.register.assembly-required": "Required",
+
+  "admin/assembly.register.add-key": "Add New Key",
+  "admin/assembly.register.key-name": "Key",
+  "admin/assembly.register.key-name-label": "Key Name",
+  "admin/assembly.register.key-minimum-label": "Minimum Quantity",
+  "admin/assembly.register.key-maximum-label": "Maximum Quantity",
+  "admin/assembly.register.sku-add": "Add new SKU",
+  "admin/assembly.register.sku-price-table": "Linked price table name",
+  "admin/assembly.register.sku-items": "Item",
+  "admin/assembly.register.sku-items-min": "Min Quantity",
+  "admin/assembly.register.sku-items-max": "Max Quantity",
+  "admin/assembly.register.sku-items-initial": "Initial Quantity",
+  "admin/assembly.register.sku-items-confirm": "Confirm",
+  "admin/assembly.register.price-table": "Price Table",
+  "admin/assembly.register.actions": "Actions"
 }
