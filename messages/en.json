@@ -3,7 +3,7 @@
   "admin/assembly.navigation.label-main": "Register",
 
   "admin/assembly.register.page-title": "Assembly Register",
-  "admin/assembly.register.assembly-form-title": "Assembly Configuration",
+  "admin/assembly.register.assembly-form-title": "Basic Information",
   "admin/assembly.register.assembly-form-description": "Data related to the entire Assembly Options",
 
   "admin/assembly.register.assembly-name": "Name",
@@ -11,8 +11,8 @@
   "admin/assembly.register.assembly-active": "Active",
   "admin/assembly.register.assembly-required": "Required",
 
-  "admin/assembly.register.add-key": "Add New Key",
-  "admin/assembly.register.key-name": "Key",
+  "admin/assembly.register.add-key": "Add New Group",
+  "admin/assembly.register.key-name": "Group",
   "admin/assembly.register.key-name-label": "Key Name",
   "admin/assembly.register.key-minimum-label": "Minimum Quantity",
   "admin/assembly.register.key-maximum-label": "Maximum Quantity",
@@ -24,5 +24,7 @@
   "admin/assembly.register.sku-items-initial": "Initial Quantity",
   "admin/assembly.register.sku-items-confirm": "Confirm",
   "admin/assembly.register.price-table": "Price Table",
-  "admin/assembly.register.actions": "Actions"
+  "admin/assembly.register.actions": "Actions",
+  "admin/assembly-groups-title": "SKU Groups",
+  "admin/assembly.register.sku-items-quantity": "Quantity"
 }

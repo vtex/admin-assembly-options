@@ -39,6 +39,10 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     defaultMessage: '',
   },
 
+  assemblyGroupsTitle: {
+    id: 'admin/assembly-groups-title',
+    defaultMessage: '',
+  },
   addKeyButton: {
     id: 'admin/assembly.register.add-key',
     defaultMessage: '',
@@ -94,6 +98,10 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
   },
   SKUActions: {
     id: 'admin/assembly.register.actions',
+    defaultMessage: '',
+  },
+  SKUItemQuantity: {
+    id: 'admin/assembly.register.sku-items-quantity',
     defaultMessage: '',
   },
 })
