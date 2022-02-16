@@ -12,6 +12,7 @@ import {
 
 import { messages } from './utils/messages'
 import RegisterForm from './components/RegisterForm'
+import RegisterProvider from './provider/RegisterProvider'
 
 const AssemblyRegister = () => {
   const intl = useIntl()
@@ -22,17 +23,19 @@ const AssemblyRegister = () => {
 
   return (
     <ThemeProvider>
-      <Page>
-        <PageHeader>
-          <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
-          <PageActions>
-            <Button>Save</Button>
-          </PageActions>
-        </PageHeader>
-        <PageContent>
-          <RegisterForm />
-        </PageContent>
-      </Page>
+      <RegisterProvider>
+        <Page>
+          <PageHeader>
+            <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
+            <PageActions>
+              <Button>Save</Button>
+            </PageActions>
+          </PageHeader>
+          <PageContent>
+            <RegisterForm />
+          </PageContent>
+        </Page>
+      </RegisterProvider>
     </ThemeProvider>
   )
 }
