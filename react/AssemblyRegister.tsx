@@ -22,7 +22,7 @@ const AssemblyRegister = () => {
 
   return (
     <ThemeProvider>
-      <Page csx={{ background: '#F8F9FA' }}>
+      <Page>
         <PageHeader>
           <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
           <PageActions>

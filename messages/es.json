@@ -3,7 +3,7 @@
   "admin/assembly.navigation.label-main": "Registrar",
 
   "admin/assembly.register.page-title": "Registrar Assembly",
-  "admin/assembly.register.assembly-form-title": "Configuración de Assembly",
+  "admin/assembly.register.assembly-form-title": "Informaciones Basicas",
   "admin/assembly.register.assembly-form-description": "Dados relacionados con las opciones de Assembly Options en su conjunto",
 
   "admin/assembly.register.assembly-name": "Nombre",
@@ -11,8 +11,8 @@
   "admin/assembly.register.assembly-active": "Ativo",
   "admin/assembly.register.assembly-required": "Obligatorio",
 
-  "admin/assembly.register.add-key": "Agregar Nueva Clave",
-  "admin/assembly.register.key-name": "Clave",
+  "admin/assembly.register.add-key": "Agregar Nuevo Grupo",
+  "admin/assembly.register.key-name": "Grupo",
   "admin/assembly.register.key-name-label": "Nombre Clave",
   "admin/assembly.register.key-minimum-label": "Cantidad Mínima",
   "admin/assembly.register.key-maximum-label": "Cantidad Máxima",
@@ -24,5 +24,7 @@
   "admin/assembly.register.sku-items-initial": "Cantidad inicial",
   "admin/assembly.register.sku-items-confirm": "Confirmar",
   "admin/assembly.register.price-table": "Tabla de precios",
-  "admin/assembly.register.actions": "Operaciones"
+  "admin/assembly.register.actions": "Operaciones",
+  "admin/assembly-groups-title": "Grupos SKU",
+  "admin/assembly.register.sku-items-quantity": "Cantidad"
 }

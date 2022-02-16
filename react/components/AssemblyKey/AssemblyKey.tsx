@@ -24,46 +24,55 @@ const AssemblyKey = () => {
   return (
     <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
       <CollapsibleHeader
+        csx={{ padding: '10px 0px' }}
         label={`${intl.formatMessage(messages.keyName)} ${keyName}`}
       />
       <CollapsibleContent>
-        <Flex direction="row" justify="space-between">
-          <Box csx={{ width: '80%' }}>
-            <Flex direction="row" align="end">
-              <Box csx={{ width: '38%', paddingRight: 3 }}>
-                <FormikInput
-                  name="assembly.key.name"
-                  label={`${intl.formatMessage(messages.keyNameLabel)}`}
-                  csx={{ margin: '0px' }}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                    setKeyName(e.target.value)
-                  }
-                />
-              </Box>
-              <Box csx={{ paddingRight: 3 }}>
-                <Label>{intl.formatMessage(messages.keyMinimumLabel)}</Label>
+        <Flex direction="column" justify="space-between">
+          <Flex direction="column">
+            <FormikInput
+              name="assembly.key.name"
+              label={`${intl.formatMessage(messages.keyNameLabel)}`}
+              csx={{ margin: '0px' }}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setKeyName(e.target.value)
+              }
+            />
+            <Flex csx={{ paddingRight: 3 }}>
+              <Box csx={{ width: '1/2', paddingRight: 2, marginTop: 3 }}>
+                <Label csx={{ width: '100%' }}>
+                  {intl.formatMessage(messages.keyMinimumLabel)}
+                </Label>
                 <FormikNumericStepper
+                  csx={{ width: '100%' }}
                   minValue={0}
                   name="assembly.key.minimum"
                   label={`${intl.formatMessage(messages.keyMinimumLabel)}`}
                 />
               </Box>
-              <Box csx={{ paddingRight: 3 }}>
-                <Label>{intl.formatMessage(messages.keyMaximumLabel)}</Label>
-                <FormikNumericStepper
-                  minValue={0}
-                  name="assembly.key.maximum"
-                  label={`${intl.formatMessage(messages.keyMaximumLabel)}`}
-                />
+              <Box csx={{ width: '1/2', marginTop: 3 }}>
+                <Label csx={{ width: '100%' }}>
+                  {intl.formatMessage(messages.keyMaximumLabel)}
+                </Label>
+                <Box csx={{ width: '100%' }}>
+                  <FormikNumericStepper
+                    csx={{ width: '100%' }}
+                    minValue={0}
+                    name="assembly.key.maximum"
+                    label={`${intl.formatMessage(messages.keyMaximumLabel)}`}
+                  />
+                </Box>
               </Box>
             </Flex>
-          </Box>
-          <Box>
-            <SKUModal />
-          </Box>
+          </Flex>
         </Flex>
         <Flex csx={{ marginTop: 5 }}>
           <SKUGrid />
+        </Flex>
+        <Flex>
+          <Box>
+            <SKUModal />
+          </Box>
         </Flex>
       </CollapsibleContent>
     </Collapsible>

@@ -3,9 +3,13 @@ import {
   useDataGridState,
   DataGrid,
   Flex,
-  FlexSpacer,
-  IconTrash,
+  Menu,
+  MenuList,
+  MenuButton,
+  MenuItem,
+  useMenuState,
   IconPencil,
+  IconTrash,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 
@@ -13,6 +17,7 @@ import { messages } from '../../utils/messages'
 
 const SKUGrid = () => {
   const intl = useIntl()
+  const menuState = useMenuState()
 
   const state = useDataGridState({
     columns: [
@@ -25,15 +30,11 @@ const SKUGrid = () => {
         header: `${intl.formatMessage(messages.SKUPriceTable)}`,
       },
       {
-        id: 'minimumValue',
-        header: `${intl.formatMessage(messages.SKUItemMin)}`,
+        id: 'quantity',
+        header: `${intl.formatMessage(messages.SKUItemQuantity)}`,
       },
       {
-        id: 'maximumValue',
-        header: `${intl.formatMessage(messages.SKUItemMax)}`,
-      },
-      {
-        id: 'initialValue',
+        id: 'initialQuantity',
         header: `${intl.formatMessage(messages.SKUItemInitial)}`,
       },
       {
@@ -44,9 +45,16 @@ const SKUGrid = () => {
           render: function Actions() {
             return (
               <Flex direction="row" csx={{ maxWidth: '80px' }}>
-                <IconPencil />
-                <FlexSpacer />
-                <IconTrash />
+                <Menu state={menuState} hideOnClick>
+                  <MenuButton display="actions" variant="tertiary" />
+                  <MenuList aria-label="actions" state={menuState}>
+                    <MenuItem icon={<IconPencil />}> Edit </MenuItem>
+                    <MenuItem icon={<IconTrash />} csx={{ color: '#CC3E3E' }}>
+                      {' '}
+                      Delete{' '}
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
               </Flex>
             )
           },
@@ -58,9 +66,8 @@ const SKUGrid = () => {
       {
         skuId: 1,
         priceTable: 'Teste',
-        minimumValue: 1,
-        maximumValue: 3,
-        initialValue: 1,
+        quantity: 1,
+        initialQuantity: 1,
       },
     ],
   })

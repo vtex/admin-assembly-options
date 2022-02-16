@@ -24,23 +24,19 @@ const SKUModal = () => {
   return (
     <Box>
       <ModalDisclosure state={modal}>
-        <Button variant="tertiary">
+        <Button variant="secondary" csx={{ marginTop: 3 }}>
           {intl.formatMessage(messages.addSKUButton)}
         </Button>
       </ModalDisclosure>
       <Modal aria-label="SKU modal" state={modal} size="regular">
         <ModalHeader title="SKU" />
         <ModalContent>
-          <Flex direction="row">
-            <Box csx={{ width: '1/2', paddingRight: 2 }}>
-              <FormikInput name="assembly.key.sku.id" label="SKU ID" />
-            </Box>
-            <Box csx={{ width: '1/2' }}>
-              <FormikInput
-                name="assembly.key.sku.priceTable"
-                label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
-              />
-            </Box>
+          <Flex direction="column">
+            <FormikInput name="assembly.key.sku.id" label="SKU ID" />
+            <FormikInput
+              name="assembly.key.sku.priceTable"
+              label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
+            />
           </Flex>
           <Heading csx={{ marginTop: 5 }}>
             {intl.formatMessage(messages.SKUItemHeading)}
@@ -80,7 +76,13 @@ const SKUModal = () => {
           </Flex>
         </ModalContent>
         <ModalFooter>
-          <Button>{intl.formatMessage(messages.SKUItemConfirm)}</Button>
+          <Flex justify="end">
+            <Button variant="secondary">
+              {' '}
+              {intl.formatMessage(messages.SKUItemConfirm)}
+            </Button>
+            <Button>{intl.formatMessage(messages.SKUItemConfirm)}</Button>
+          </Flex>
         </ModalFooter>
       </Modal>
     </Box>
