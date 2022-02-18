@@ -13,6 +13,7 @@ import {
   Heading,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
+import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 
 import { messages } from '../../utils/messages'
@@ -20,6 +21,19 @@ import { messages } from '../../utils/messages'
 const SKUModal = () => {
   const intl = useIntl()
   const modal = useModalState()
+
+  const initialValue = {
+    id: 0,
+    priceTable: '',
+    minimum: 0,
+    maximum: 0,
+    initial: 0,
+  }
+
+  const handleSubmit = () => {
+    /* eslint-disable no-alert */
+    alert('Values submitted: ')
+  }
 
   return (
     <Box>
@@ -29,61 +43,65 @@ const SKUModal = () => {
         </Button>
       </ModalDisclosure>
       <Modal aria-label="SKU modal" state={modal} size="regular">
-        <ModalHeader title="SKU" />
-        <ModalContent>
-          <Flex direction="column">
-            <FormikInput name="assembly.key.sku.id" label="SKU ID" />
-            <FormikInput
-              name="assembly.key.sku.priceTable"
-              label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
-            />
-          </Flex>
-          <Heading csx={{ marginTop: 5 }}>
-            {intl.formatMessage(messages.SKUItemHeading)}
-          </Heading>
-          <Flex csx={{ marginTop: 2 }}>
-            <Box csx={{ width: '1/2', paddingRight: 2 }}>
-              <Flex direction="row">
-                <Box csx={{ width: '1/2' }}>
-                  <Label csx={{ width: '100px', display: 'flex' }}>
-                    {intl.formatMessage(messages.SKUItemMin)}
-                  </Label>
-                  <FormikNumericStepper
-                    name="assembly.key.sku.minimum"
-                    label={`${intl.formatMessage(messages.SKUItemMin)}`}
-                  />
+        <Formik initialValues={initialValue} onSubmit={handleSubmit}>
+          <form>
+            <ModalHeader title="SKU" />
+            <ModalContent>
+              <Flex direction="column">
+                <FormikInput name="id" label="SKU ID" />
+                <FormikInput
+                  name="priceTable"
+                  label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
+                />
+              </Flex>
+              <Heading csx={{ marginTop: 5 }}>
+                {intl.formatMessage(messages.SKUItemHeading)}
+              </Heading>
+              <Flex csx={{ marginTop: 2 }}>
+                <Box csx={{ width: '1/2', paddingRight: 2 }}>
+                  <Flex direction="row">
+                    <Box csx={{ width: '1/2' }}>
+                      <Label csx={{ width: '100px', display: 'flex' }}>
+                        {intl.formatMessage(messages.SKUItemMin)}
+                      </Label>
+                      <FormikNumericStepper
+                        name="minimum"
+                        label={`${intl.formatMessage(messages.SKUItemMin)}`}
+                      />
+                    </Box>
+                    <Box csx={{ width: '1/2' }}>
+                      <Label csx={{ width: '100px', display: 'flex' }}>
+                        {intl.formatMessage(messages.SKUItemMax)}
+                      </Label>
+                      <FormikNumericStepper
+                        name="maximum"
+                        label={`${intl.formatMessage(messages.SKUItemMax)}`}
+                      />
+                    </Box>
+                  </Flex>
                 </Box>
                 <Box csx={{ width: '1/2' }}>
                   <Label csx={{ width: '100px', display: 'flex' }}>
-                    {intl.formatMessage(messages.SKUItemMax)}
+                    {intl.formatMessage(messages.SKUItemInitial)}
                   </Label>
                   <FormikNumericStepper
-                    name="assembly.key.sku.maximum"
-                    label={`${intl.formatMessage(messages.SKUItemMax)}`}
+                    name="initial"
+                    label={`${intl.formatMessage(messages.SKUItemInitial)}`}
                   />
                 </Box>
               </Flex>
-            </Box>
-            <Box csx={{ width: '1/2' }}>
-              <Label csx={{ width: '100px', display: 'flex' }}>
-                {intl.formatMessage(messages.SKUItemInitial)}
-              </Label>
-              <FormikNumericStepper
-                name="assembly.key.sku.initial"
-                label={`${intl.formatMessage(messages.SKUItemInitial)}`}
-              />
-            </Box>
-          </Flex>
-        </ModalContent>
-        <ModalFooter>
-          <Flex justify="end">
-            <Button variant="secondary">
-              {' '}
-              {intl.formatMessage(messages.SKUItemConfirm)}
-            </Button>
-            <Button>{intl.formatMessage(messages.SKUItemConfirm)}</Button>
-          </Flex>
-        </ModalFooter>
+            </ModalContent>
+            <ModalFooter>
+              <Flex justify="end">
+                <Button variant="secondary">
+                  {' '}
+                  {intl.formatMessage(messages.SKUItemConfirm)}
+                </Button>
+                <Button>{intl.formatMessage(messages.SKUItemConfirm)}</Button>
+              </Flex>
+            </ModalFooter>
+          </form>
+        </Formik>
       </Modal>
     </Box>
   )
