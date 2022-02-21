@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Modal,
   ModalHeader,
@@ -16,11 +16,24 @@ import { useIntl } from 'react-intl'
 import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 
+import { useRegisterContext } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 
-const SKUModal = () => {
+interface Props {
+  groupIndex: number
+}
+
+const SKUModal = (props: Props) => {
+  const { group, setAssemblyGroup } = useRegisterContext()
+  const { groupIndex } = props
   const intl = useIntl()
   const modal = useModalState()
+
+  const [id, setId] = useState<string>('')
+  const [priceTable, setPriceTable] = useState<string>('')
+  const [minimum, setMinimum] = useState<number>(0)
+  const [maximum, setMaximum] = useState<number>(0)
+  const [initial, setInitial] = useState<number>(0)
 
   const initialValue = {
     id: 0,
@@ -28,6 +41,19 @@ const SKUModal = () => {
     minimum: 0,
     maximum: 0,
     initial: 0,
+  }
+
+  const newSKU = {
+    id,
+    priceTable,
+    minimum,
+    maximum,
+    initial,
+  }
+
+  const handleAddSKU = () => {
+    group[groupIndex].skus.push(newSKU)
+    setAssemblyGroup(group)
   }
 
   const handleSubmit = () => {
@@ -48,10 +74,15 @@ const SKUModal = () => {
             <ModalHeader title="SKU" />
             <ModalContent>
               <Flex direction="column">
-                <FormikInput name="id" label="SKU ID" />
+                <FormikInput
+                  name="id"
+                  label="SKU ID"
+                  onChange={(e) => setId(e.target.value)}
+                />
                 <FormikInput
                   name="priceTable"
                   label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
+                  onChange={(e) => setPriceTable(e.target.value)}
                 />
               </Flex>
               <Heading csx={{ marginTop: 5 }}>
@@ -67,6 +98,7 @@ const SKUModal = () => {
                       <FormikNumericStepper
                         name="minimum"
                         label={`${intl.formatMessage(messages.SKUItemMin)}`}
+                        onChange={(e) => setMinimum(e.value)}
                       />
                     </Box>
                     <Box csx={{ width: '1/2' }}>
@@ -76,6 +108,7 @@ const SKUModal = () => {
                       <FormikNumericStepper
                         name="maximum"
                         label={`${intl.formatMessage(messages.SKUItemMax)}`}
+                        onChange={(e) => setMaximum(e.value)}
                       />
                     </Box>
                   </Flex>
@@ -87,17 +120,16 @@ const SKUModal = () => {
                   <FormikNumericStepper
                     name="initial"
                     label={`${intl.formatMessage(messages.SKUItemInitial)}`}
+                    onChange={(e) => setInitial(e.value)}
                   />
                 </Box>
               </Flex>
             </ModalContent>
             <ModalFooter>
               <Flex justify="end">
-                <Button variant="secondary">
-                  {' '}
+                <Button onClick={handleAddSKU}>
                   {intl.formatMessage(messages.SKUItemConfirm)}
                 </Button>
-                <Button>{intl.formatMessage(messages.SKUItemConfirm)}</Button>
               </Flex>
             </ModalFooter>
           </form>

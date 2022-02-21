@@ -111,7 +111,7 @@ const AssemblyGroup = (props: Props) => {
         </Flex>
         <Flex>
           <Box>
-            <SKUModal />
+            <SKUModal groupIndex={groupIndex} />
           </Box>
         </Flex>
       </CollapsibleContent>

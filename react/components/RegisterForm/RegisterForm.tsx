@@ -33,6 +33,7 @@ const RegisterForm = () => {
         name: '',
         minimum: 0,
         maximum: 0,
+        skus: [],
       },
     ]
 

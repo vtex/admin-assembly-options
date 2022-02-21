@@ -4,6 +4,15 @@ interface AssemblyGroupType {
   name: string
   minimum: number
   maximum: number
+  skus: SKUType[]
+}
+
+interface SKUType {
+  id: string
+  priceTable: string
+  minimum: number
+  maximum: number
+  initial: number
 }
 interface RegisterInterface {
   id: number
