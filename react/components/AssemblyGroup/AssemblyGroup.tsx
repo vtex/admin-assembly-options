@@ -19,22 +19,23 @@ import SKUGrid from '../SKUGrid'
 import { messages } from '../../utils/messages'
 import { useRegisterContext } from '../../context/RegisterContext'
 
-const AssemblyGroup = () => {
+interface Props {
+  groupIndex: number
+}
+
+const AssemblyGroup = (props: Props) => {
   const state = useCollapsibleState()
   const intl = useIntl()
   const [groupName, setGroupName] = useState<string>('')
   const [groupMinimum, setGroupMinimum] = useState<number>(0)
   const [groupMaximum, setGroupMaximum] = useState<number>(0)
   const { group, setAssemblyGroup } = useRegisterContext()
-
-  const thisGroup = {
-    name: groupName,
-    minimum: groupMinimum,
-    maximum: groupMaximum,
-  }
+  const { groupIndex } = props
 
   const handleInfo = () => {
-    group.push(thisGroup)
+    group[groupIndex].name = groupName
+    group[groupIndex].minimum = groupMinimum
+    group[groupIndex].maximum = groupMaximum
     setAssemblyGroup(group)
   }
 
@@ -55,7 +56,11 @@ const AssemblyGroup = () => {
         csx={{ padding: '10px 0px' }}
         label={`${intl.formatMessage(messages.keyName)} ${groupName}`}
       >
-        <Button onClick={handleInfo} csx={{ marginRight: 3 }}>
+        <Button
+          variant="secondary"
+          onClick={handleInfo}
+          csx={{ marginRight: 3 }}
+        >
           Save Group
         </Button>
       </CollapsibleHeader>

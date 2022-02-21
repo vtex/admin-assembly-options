@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-interface AssemblyGroup {
+interface AssemblyGroupType {
   name: string
   minimum: number
   maximum: number
@@ -10,12 +10,12 @@ interface RegisterInterface {
   name: string
   active: boolean
   required: boolean
-  group: AssemblyGroup[]
+  group: AssemblyGroupType[]
   setAssemblyId: (id: React.SetStateAction<number>) => void
   setAssemblyName: (name: React.SetStateAction<string>) => void
   setAssemblyActive: (active: React.SetStateAction<boolean>) => void
   setAssemblyRequired: (required: React.SetStateAction<boolean>) => void
-  setAssemblyGroup: (group: React.SetStateAction<AssemblyGroup[]>) => void
+  setAssemblyGroup: (group: React.SetStateAction<AssemblyGroupType[]>) => void
 }
 
 const initialValue: RegisterInterface = {
@@ -38,4 +38,4 @@ export function useRegisterContext() {
 }
 
 export default RegisterContext
-export type { AssemblyGroup }
+export type { AssemblyGroupType }

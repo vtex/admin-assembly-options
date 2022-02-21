@@ -12,14 +12,14 @@ const RegisterForm = () => {
   const {
     active,
     required,
-    name,
-    id,
+    group,
     setAssemblyActive,
     setAssemblyRequired,
     setAssemblyName,
+    setAssemblyGroup,
   } = useRegisterContext()
 
-  const [keyQuantity, setKeyQuantity] = useState<number[]>([])
+  const [groupRender, setGroupRender] = useState(group)
 
   const intl = useIntl()
   const handleSubmit = () => {
@@ -27,17 +27,22 @@ const RegisterForm = () => {
     alert('Values submitted: ')
   }
 
-  const handleConsole = () => {
-    // eslint-disable-next-line no-console
-    console.log(active, required, name, id)
-  }
+  const handleAddGroup = () => {
+    const emptyGroup = [
+      {
+        name: '',
+        minimum: 0,
+        maximum: 0,
+      },
+    ]
 
-  const handleAddKey = () => {
-    const test = 0
+    const newArray = group.concat(emptyGroup)
 
-    setKeyQuantity([...[test]])
+    setGroupRender(newArray)
+    setAssemblyGroup(newArray)
+
     // eslint-disable-next-line no-console
-    console.log(keyQuantity)
+    console.log(newArray)
   }
 
   return (
@@ -86,13 +91,16 @@ const RegisterForm = () => {
             <Heading>
               {intl.formatMessage(messages.assemblyGroupsTitle)}
             </Heading>
-            <Button variant="secondary" onClick={handleAddKey}>
+            <Button variant="secondary" onClick={handleAddGroup}>
               {intl.formatMessage(messages.addKeyButton)}
             </Button>
           </Flex>
-          <AssemblyGroup />
+          <Flex direction="column">
+            {groupRender.map((_value, index) => {
+              return <AssemblyGroup key={index} groupIndex={index} />
+            })}
+          </Flex>
         </Card>
-        <Button onClick={handleConsole}> Click Here </Button>
       </Flex>
     </>
   )

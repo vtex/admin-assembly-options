@@ -38,7 +38,7 @@ const SKUModal = () => {
   return (
     <Box>
       <ModalDisclosure state={modal}>
-        <Button variant="secondary" csx={{ marginTop: 3 }}>
+        <Button variant="tertiary" csx={{ marginTop: 3 }}>
           {intl.formatMessage(messages.addSKUButton)}
         </Button>
       </ModalDisclosure>
