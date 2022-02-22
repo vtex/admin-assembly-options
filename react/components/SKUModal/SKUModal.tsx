@@ -5,6 +5,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalDisclosure,
+  ModalButton,
   useModalState,
   Button,
   Box,
@@ -53,7 +54,7 @@ const SKUModal = (props: Props) => {
 
   const handleAddSKU = () => {
     group[groupIndex].skus.push(newSKU)
-    setAssemblyGroup(group)
+    setAssemblyGroup([...group])
   }
 
   const handleSubmit = () => {
@@ -127,9 +128,9 @@ const SKUModal = (props: Props) => {
             </ModalContent>
             <ModalFooter>
               <Flex justify="end">
-                <Button onClick={handleAddSKU}>
+                <ModalButton onClick={handleAddSKU} closeModalOnClick>
                   {intl.formatMessage(messages.SKUItemConfirm)}
-                </Button>
+                </ModalButton>
               </Flex>
             </ModalFooter>
           </form>

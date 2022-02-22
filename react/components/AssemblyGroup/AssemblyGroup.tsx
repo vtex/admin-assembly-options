@@ -107,7 +107,7 @@ const AssemblyGroup = (props: Props) => {
           </form>
         </Formik>
         <Flex csx={{ marginTop: 5 }}>
-          <SKUGrid />
+          <SKUGrid groupIndex={groupIndex} />
         </Flex>
         <Flex>
           <Box>
