@@ -1,14 +1,16 @@
 {
   "name": "admin-assembly-options",
   "vendor": "vtexbr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "title": "Assembly Options Functionality inside Admin",
   "description": "",
   "mustUpdateAt": "2022-08-28",
   "scripts": {
     "postreleasy": "vtex publish"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vtexbr.assembly-options-graphql": "0.x"
+  },
   "builders": {
     "react": "3.x",
     "admin": "0.x",
