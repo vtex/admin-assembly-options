@@ -4,6 +4,7 @@ import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
 
+import type { AssemblyGroupType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 import AssemblyGroup from '../AssemblyGroup'
 import { messages } from '../../utils/messages'
@@ -28,12 +29,12 @@ const RegisterForm = () => {
   }
 
   const handleAddGroup = () => {
-    const emptyGroup = [
+    const emptyGroup: AssemblyGroupType[] = [
       {
         name: '',
-        minimum: 0,
-        maximum: 0,
-        skus: [],
+        maxItems: 0,
+        minItems: 0,
+        items: [],
       },
     ]
 

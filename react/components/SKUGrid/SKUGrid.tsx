@@ -26,12 +26,12 @@ const SKUGrid = (props: Props) => {
   const intl = useIntl()
   const menuState = useMenuState()
 
-  const skuListNew = group[groupIndex].skus.map((value) => {
+  const skuListNew = group[groupIndex].items.map((value) => {
     return {
-      skuId: value.id,
+      skuId: value.skuId,
       priceTable: value.priceTable,
-      quantity: `${value.minimum} - ${value.maximum}`,
-      initialQuantity: value.initial,
+      quantity: `${value.minValue} - ${value.maxValue}`,
+      initialQuantity: value.defaultValue,
     }
   })
 

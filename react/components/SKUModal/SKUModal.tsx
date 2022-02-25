@@ -17,6 +17,7 @@ import { useIntl } from 'react-intl'
 import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 
+import type { SKUType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 
@@ -36,24 +37,24 @@ const SKUModal = (props: Props) => {
   const [maximum, setMaximum] = useState<number>(0)
   const [initial, setInitial] = useState<number>(0)
 
-  const initialValue = {
-    id: 0,
+  const initialValue: SKUType = {
+    skuId: '0',
     priceTable: '',
-    minimum: 0,
-    maximum: 0,
-    initial: 0,
+    minValue: 0,
+    maxValue: 0,
+    defaultValue: 0,
   }
 
-  const newSKU = {
-    id,
+  const newSKU: SKUType = {
+    skuId: id,
     priceTable,
-    minimum,
-    maximum,
-    initial,
+    minValue: minimum,
+    maxValue: maximum,
+    defaultValue: initial,
   }
 
   const handleAddSKU = () => {
-    group[groupIndex].skus.push(newSKU)
+    group[groupIndex].items.push(newSKU)
     setAssemblyGroup([...group])
   }
 
@@ -97,7 +98,7 @@ const SKUModal = (props: Props) => {
                         {intl.formatMessage(messages.SKUItemMin)}
                       </Label>
                       <FormikNumericStepper
-                        name="minimum"
+                        name="minValue"
                         label={`${intl.formatMessage(messages.SKUItemMin)}`}
                         onChange={(e) => setMinimum(e.value)}
                       />
@@ -107,7 +108,7 @@ const SKUModal = (props: Props) => {
                         {intl.formatMessage(messages.SKUItemMax)}
                       </Label>
                       <FormikNumericStepper
-                        name="maximum"
+                        name="maxValue"
                         label={`${intl.formatMessage(messages.SKUItemMax)}`}
                         onChange={(e) => setMaximum(e.value)}
                       />
@@ -119,7 +120,7 @@ const SKUModal = (props: Props) => {
                     {intl.formatMessage(messages.SKUItemInitial)}
                   </Label>
                   <FormikNumericStepper
-                    name="initial"
+                    name="defaultValue"
                     label={`${intl.formatMessage(messages.SKUItemInitial)}`}
                     onChange={(e) => setInitial(e.value)}
                   />

@@ -2,17 +2,17 @@ import React, { useContext } from 'react'
 
 interface AssemblyGroupType {
   name: string
-  minimum: number
-  maximum: number
-  skus: SKUType[]
+  minItems: number
+  maxItems: number
+  items: SKUType[]
 }
 
 interface SKUType {
-  id: string
+  skuId: string
   priceTable: string
-  minimum: number
-  maximum: number
-  initial: number
+  minValue: number
+  maxValue: number
+  defaultValue: number
 }
 interface RegisterInterface {
   id: number
@@ -47,4 +47,4 @@ export function useRegisterContext() {
 }
 
 export default RegisterContext
-export type { AssemblyGroupType }
+export type { AssemblyGroupType, SKUType }

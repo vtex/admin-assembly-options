@@ -34,8 +34,8 @@ const AssemblyGroup = (props: Props) => {
 
   const handleInfo = () => {
     group[groupIndex].name = groupName
-    group[groupIndex].minimum = groupMinimum
-    group[groupIndex].maximum = groupMaximum
+    group[groupIndex].minItems = groupMinimum
+    group[groupIndex].maxItems = groupMaximum
     setAssemblyGroup(group)
   }
 

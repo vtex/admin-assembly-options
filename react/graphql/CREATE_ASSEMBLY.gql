@@ -1,32 +1,5 @@
-mutation CreateAssembly(
-  $name: String!
-  $isRequired: Boolean!
-  $isActive: Boolean!
-  $configs: [AssemblyOptionConfigInput]!
-) {
-  createAssemblyOption(
-    assemblyOption: {
-      name: $name
-      isRequired: $isRequired
-      isActive: $isActive
-      configs: [
-        {
-          name: "key 1"
-          minItems: 0
-          maxItems: 3
-          items: [
-            {
-              skuId: "123"
-              minValue: 0
-              maxValue: 2
-              defaultValue: 1
-              priceTable: "testeTable"
-            }
-          ]
-        }
-      ]
-    }
-  ) {
+mutation CreateAssembly($assemblyOption: AssemblyOptionInput!) {
+  createAssemblyOption(assemblyOption: $assemblyOption) {
     id
     name
     isRequired
