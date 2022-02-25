@@ -21,7 +21,7 @@ import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 
 const RegisterPage = () => {
   const intl = useIntl()
-  const { id, name, required, active, group } = useRegisterContext()
+  const { name, required, active, group } = useRegisterContext()
   const [createAssembly] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
@@ -37,15 +37,6 @@ const RegisterPage = () => {
           configs: group,
         },
       },
-    })
-
-    // eslint-disable-next-line no-console
-    console.log({
-      id,
-      name,
-      required,
-      active,
-      group,
     })
   }
 

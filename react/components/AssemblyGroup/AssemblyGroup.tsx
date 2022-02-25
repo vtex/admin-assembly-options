@@ -8,7 +8,6 @@ import {
   Box,
   Label,
   Button,
-  NumericStepper,
 } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
@@ -41,8 +40,8 @@ const AssemblyGroup = (props: Props) => {
 
   const initialValues = {
     name: '',
-    minimum: 0,
-    maximum: 0,
+    minItems: 0,
+    maxItems: 0,
   }
 
   const handleSubmit = () => {
@@ -81,11 +80,9 @@ const AssemblyGroup = (props: Props) => {
                     <Label csx={{ width: '100%' }}>
                       {intl.formatMessage(messages.keyMinimumLabel)}
                     </Label>
-                    <NumericStepper
-                      value={groupMinimum}
-                      id="Minimum"
-                      name="minimum"
-                      label="teste1"
+                    <FormikNumericStepper
+                      name="minItems"
+                      label="Minimum Items"
                       minValue={0}
                       onChange={(e) => setGroupMinimum(e.value)}
                     />
@@ -95,8 +92,8 @@ const AssemblyGroup = (props: Props) => {
                       {intl.formatMessage(messages.keyMaximumLabel)}
                     </Label>
                     <FormikNumericStepper
-                      name="maximum"
-                      label=""
+                      name="maxItems"
+                      label="Maximum Items"
                       minValue={groupMinimum}
                       onChange={(e) => setGroupMaximum(e.value)}
                     />

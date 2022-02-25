@@ -5,8 +5,7 @@ import RegisterContext from '../context/RegisterContext'
 import type { AssemblyGroupType } from '../context/RegisterContext'
 
 const RegisterProvider: FC = ({ children }) => {
-  const random = Math.floor(Math.random() * 10000)
-  const [assemblyId, setAssemblyId] = useState<number>(random)
+  const [assemblyId, setAssemblyId] = useState<number>(0)
   const [assemblyName, setAssemblyName] = useState<string>('')
   const [assemblyActive, setAssemblyActive] = useState<boolean>(false)
   const [assemblyRequired, setAssemblyRequired] = useState<boolean>(false)
