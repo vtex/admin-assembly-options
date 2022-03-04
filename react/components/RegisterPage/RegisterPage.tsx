@@ -6,6 +6,7 @@ import {
   PageActions,
   PageContent,
   Button,
+  Alert,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 import { useMutation } from 'react-apollo'
@@ -22,10 +23,34 @@ import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 const RegisterPage = () => {
   const intl = useIntl()
   const { name, required, active, group } = useRegisterContext()
-  const [createAssembly] = useMutation<
+  const [createAssembly, { data, loading, error }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
+
+  if (loading) {
+    // eslint-disable-next-line no-console
+    console.log('submitting')
+  }
+
+  if (error) {
+    // eslint-disable-next-line no-console
+    console.log(error.graphQLErrors[0].extensions.exception.graphQLErrors)
+
+    return (
+      <Alert visible tone="critical">
+        {error.graphQLErrors[0].extensions.exception.graphQLErrors[0].code}
+      </Alert>
+    )
+  }
+
+  if (data) {
+    return (
+      <Alert visible tone="positive">
+        Assembly Option enviado com sucesso
+      </Alert>
+    )
+  }
 
   const handleSave = () => {
     createAssembly({

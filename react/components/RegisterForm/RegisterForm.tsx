@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useIntl } from 'react-intl'
 import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
@@ -20,8 +20,6 @@ const RegisterForm = () => {
     setAssemblyGroup,
   } = useRegisterContext()
 
-  const [groupRender, setGroupRender] = useState(group)
-
   const intl = useIntl()
   const handleSubmit = () => {
     /* eslint-disable no-alert */
@@ -29,22 +27,16 @@ const RegisterForm = () => {
   }
 
   const handleAddGroup = () => {
-    const emptyGroup: AssemblyGroupType[] = [
-      {
-        name: '',
-        maxItems: 0,
-        minItems: 0,
-        items: [],
-      },
-    ]
+    const emptyGroup: AssemblyGroupType = {
+      name: '',
+      maxItems: 0,
+      minItems: 0,
+      items: [],
+    }
 
-    const newArray = group.concat(emptyGroup)
+    const newArray = [...group, emptyGroup]
 
-    setGroupRender(newArray)
     setAssemblyGroup(newArray)
-
-    // eslint-disable-next-line no-console
-    console.log(newArray)
   }
 
   return (
@@ -98,7 +90,7 @@ const RegisterForm = () => {
             </Button>
           </Flex>
           <Flex direction="column">
-            {groupRender.map((_value, index) => {
+            {group.map((_value, index) => {
               return <AssemblyGroup key={index} groupIndex={index} />
             })}
           </Flex>

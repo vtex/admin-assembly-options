@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl'
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
 import { messages } from '../../utils/messages'
+import type { SKUType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 
 interface Props {
@@ -47,6 +48,11 @@ const AssemblyGroup = (props: Props) => {
   const handleSubmit = () => {
     /* eslint-disable no-alert */
     alert('Values submitted: ')
+  }
+
+  const handleClose = (form: SKUType) => {
+    group[groupIndex].items.push(form)
+    setAssemblyGroup([...group])
   }
 
   return (
@@ -108,7 +114,7 @@ const AssemblyGroup = (props: Props) => {
         </Flex>
         <Flex>
           <Box>
-            <SKUModal groupIndex={groupIndex} />
+            <SKUModal handleClose={handleClose} />
           </Box>
         </Flex>
       </CollapsibleContent>

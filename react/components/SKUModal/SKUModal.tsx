@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Modal,
   ModalHeader,
@@ -14,28 +14,20 @@ import {
   Heading,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
-import { Formik } from 'formik'
+import { Formik, Form } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 
 import type { SKUType } from '../../context/RegisterContext'
-import { useRegisterContext } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 
 interface Props {
-  groupIndex: number
+  handleClose: (form: SKUType) => void
 }
 
 const SKUModal = (props: Props) => {
-  const { group, setAssemblyGroup } = useRegisterContext()
-  const { groupIndex } = props
+  const { handleClose } = props
   const intl = useIntl()
   const modal = useModalState()
-
-  const [id, setId] = useState<string>('')
-  const [priceTable, setPriceTable] = useState<string>('')
-  const [minimum, setMinimum] = useState<number>(0)
-  const [maximum, setMaximum] = useState<number>(0)
-  const [initial, setInitial] = useState<number>(0)
 
   const initialValue: SKUType = {
     skuId: '0',
@@ -45,22 +37,21 @@ const SKUModal = (props: Props) => {
     defaultValue: 0,
   }
 
-  const newSKU: SKUType = {
-    skuId: id,
-    priceTable,
-    minValue: minimum,
-    maxValue: maximum,
-    defaultValue: initial,
-  }
+  const handleSubmit = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    values: any,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+  ) => {
+    const newSKU: SKUType = {
+      skuId: values.id,
+      priceTable: values.priceTable,
+      minValue: values.minValue,
+      maxValue: values.maxValue,
+      defaultValue: values.defaultValue,
+    }
 
-  const handleAddSKU = () => {
-    group[groupIndex].items.push(newSKU)
-    setAssemblyGroup([...group])
-  }
-
-  const handleSubmit = () => {
-    /* eslint-disable no-alert */
-    alert('Values submitted: ')
+    handleClose(newSKU)
+    setSubmitting(false)
   }
 
   return (
@@ -72,19 +63,14 @@ const SKUModal = (props: Props) => {
       </ModalDisclosure>
       <Modal aria-label="SKU modal" state={modal} size="regular">
         <Formik initialValues={initialValue} onSubmit={handleSubmit}>
-          <form>
+          <Form>
             <ModalHeader title="SKU" />
             <ModalContent>
               <Flex direction="column">
-                <FormikInput
-                  name="id"
-                  label="SKU ID"
-                  onChange={(e) => setId(e.target.value)}
-                />
+                <FormikInput name="id" label="SKU ID" />
                 <FormikInput
                   name="priceTable"
                   label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
-                  onChange={(e) => setPriceTable(e.target.value)}
                 />
               </Flex>
               <Heading csx={{ marginTop: 5 }}>
@@ -100,7 +86,6 @@ const SKUModal = (props: Props) => {
                       <FormikNumericStepper
                         name="minValue"
                         label={`${intl.formatMessage(messages.SKUItemMin)}`}
-                        onChange={(e) => setMinimum(e.value)}
                       />
                     </Box>
                     <Box csx={{ width: '1/2' }}>
@@ -110,7 +95,6 @@ const SKUModal = (props: Props) => {
                       <FormikNumericStepper
                         name="maxValue"
                         label={`${intl.formatMessage(messages.SKUItemMax)}`}
-                        onChange={(e) => setMaximum(e.value)}
                       />
                     </Box>
                   </Flex>
@@ -122,19 +106,18 @@ const SKUModal = (props: Props) => {
                   <FormikNumericStepper
                     name="defaultValue"
                     label={`${intl.formatMessage(messages.SKUItemInitial)}`}
-                    onChange={(e) => setInitial(e.value)}
                   />
                 </Box>
               </Flex>
             </ModalContent>
             <ModalFooter>
               <Flex justify="end">
-                <ModalButton onClick={handleAddSKU} closeModalOnClick>
+                <ModalButton type="submit" closeModalOnClick>
                   {intl.formatMessage(messages.SKUItemConfirm)}
                 </ModalButton>
               </Flex>
             </ModalFooter>
-          </form>
+          </Form>
         </Formik>
       </Modal>
     </Box>
