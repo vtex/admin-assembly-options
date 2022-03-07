@@ -38,12 +38,11 @@ const SKUModal = (props: Props) => {
   }
 
   const handleSubmit = (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    values: any,
+    values: SKUType,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     const newSKU: SKUType = {
-      skuId: values.id,
+      skuId: values.skuId,
       priceTable: values.priceTable,
       minValue: values.minValue,
       maxValue: values.maxValue,
@@ -67,7 +66,7 @@ const SKUModal = (props: Props) => {
             <ModalHeader title="SKU" />
             <ModalContent>
               <Flex direction="column">
-                <FormikInput name="id" label="SKU ID" />
+                <FormikInput name="skuId" label="SKU ID" />
                 <FormikInput
                   name="priceTable"
                   label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
