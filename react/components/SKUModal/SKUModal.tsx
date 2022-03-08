@@ -38,7 +38,6 @@ const SKUModal = (props: Props) => {
   }
 
   const handleSubmit = (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     values: SKUType,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {

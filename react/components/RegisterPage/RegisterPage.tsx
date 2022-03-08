@@ -16,13 +16,14 @@ import type {
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
+import RegisterMessages from '../RegisterMessages'
 import { useRegisterContext } from '../../context/RegisterContext'
 import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 
 const RegisterPage = () => {
   const intl = useIntl()
   const { name, required, active, group } = useRegisterContext()
-  const [createAssembly] = useMutation<
+  const [createAssembly, { data, loading, error }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
@@ -49,6 +50,7 @@ const RegisterPage = () => {
         </PageActions>
       </PageHeader>
       <PageContent>
+        <RegisterMessages data={data} error={error} loading={loading} />
         <RegisterForm />
       </PageContent>
     </Page>
