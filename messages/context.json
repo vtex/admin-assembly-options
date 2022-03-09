@@ -35,5 +35,6 @@
   "admin/assembly.register.error-sku-max-value": "The quantity of the sku {skuId} is greater than the max quantity of the assembly option {configName}",
   "admin/assembly.register.error-sku-range-assembly": "The quantity of the sku {skuId} is out of range quantity of assembly option {configName}",
   "admin/assembly.register.error-sku-range-assembly-default": "The sum of the default value of the skus is greater than the max quantity of the assembly option {configName}",
-  "admin/assembly.register.error-unique-key": "The assembly option configs must have unique keys"
+  "admin/assembly.register.error-unique-key": "The assembly option configs must have unique keys",
+  "admin/assembly.register.success-graphql": "The Assembly Option was succesfully created"
 }

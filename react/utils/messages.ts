@@ -137,4 +137,8 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.error-unique-key',
     defaultMessage: '',
   },
+  assemblygraphQLSuccess: {
+    id: 'admin/assembly.register.success-graphql',
+    defaultMessage: '',
+  },
 })

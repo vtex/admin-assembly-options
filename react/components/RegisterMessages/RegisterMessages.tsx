@@ -1,7 +1,9 @@
-import { Alert } from '@vtex/admin-ui'
+import { Alert, IconXOctagon, List } from '@vtex/admin-ui'
 import React from 'react'
 import type { AssemblyOption } from 'vtexbr.assembly-options-graphql'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
+
+import { messages } from '../../utils/messages'
 
 interface Props {
   data: AssemblyOption | undefined
@@ -19,6 +21,7 @@ interface ErrorType {
 
 const RegisterMessages = (props: Props) => {
   const { data, error, loading } = props
+  const intl = useIntl()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const errorMessages: any = {
@@ -39,8 +42,16 @@ const RegisterMessages = (props: Props) => {
 
   if (loading === true) {
     return (
-      <Alert visible tone="warning">
-        Loading
+      <Alert
+        visible
+        tone="warning"
+        csx={{
+          display: 'flex important',
+          height: 'fit-content !important',
+          marginTop: '20px',
+        }}
+      >
+        Loading ...
       </Alert>
     )
   }
@@ -50,15 +61,27 @@ const RegisterMessages = (props: Props) => {
       error.graphQLErrors[0].extensions.exception.graphQLErrors
 
     return (
-      <Alert visible tone="critical">
-        <ul>
+      <Alert
+        visible
+        tone="critical"
+        csx={{
+          display: 'flex important',
+          height: 'fit-content !important',
+          marginTop: '20px',
+        }}
+      >
+        <List csx={{ listStyle: 'none' }}>
           {errorsGraphQL.map((value: ErrorType, index: number) => {
             const codeValue = value.code || ''
             const skuId = value.skuId || ''
             const configName = value.configName || ''
 
             return (
-              <li key={index}>
+              <List.Item
+                key={index}
+                csx={{ alignItems: 'center', display: 'flex' }}
+              >
+                <IconXOctagon csx={{ marginRight: '3px', color: '#CC3E3E' }} />
                 <FormattedMessage
                   id={errorMessages[codeValue]}
                   values={{
@@ -66,18 +89,26 @@ const RegisterMessages = (props: Props) => {
                     skuId,
                   }}
                 />
-              </li>
+              </List.Item>
             )
           })}
-        </ul>
+        </List>
       </Alert>
     )
   }
 
   if (data) {
     return (
-      <Alert visible tone="positive">
-        Data
+      <Alert
+        visible
+        tone="positive"
+        csx={{
+          display: 'flex important',
+          height: 'fit-content !important',
+          marginTop: '20px',
+        }}
+      >
+        {intl.formatMessage(messages.assemblygraphQLSuccess)}
       </Alert>
     )
   }

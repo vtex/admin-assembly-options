@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Assembly Option graphQL validation added to the Front-End code
+- Base Error and Success Messages defined
+
+### Added
 - Base Assembly Options page and form created
 - Base Key and SKU sections added to the Assembly Form
 - All Intl messages added
