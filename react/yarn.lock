@@ -1924,6 +1924,10 @@ vtex-tachyons@^3.2.0:
   version "8.132.3"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime#c7dd142e384f38bd7a7c841543b73e9349fadc93"
 
+"vtexbr.assembly-options-graphql@http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.assembly-options-graphql@0.0.1/public/@types/vtexbr.assembly-options-graphql":
+  version "0.0.1"
+  resolved "http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.assembly-options-graphql@0.0.1/public/@types/vtexbr.assembly-options-graphql#d17652475856ae6d5853cdf597f30b026f3f57fc"
+
 warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"

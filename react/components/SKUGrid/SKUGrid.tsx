@@ -14,10 +14,26 @@ import {
 import { useIntl } from 'react-intl'
 
 import { messages } from '../../utils/messages'
+import { useRegisterContext } from '../../context/RegisterContext'
 
-const SKUGrid = () => {
+interface Props {
+  groupIndex: number
+}
+
+const SKUGrid = (props: Props) => {
+  const { group } = useRegisterContext()
+  const { groupIndex } = props
   const intl = useIntl()
   const menuState = useMenuState()
+
+  const skuListNew = group[groupIndex].items.map((value) => {
+    return {
+      skuId: value.skuId,
+      priceTable: value.priceTable,
+      quantity: `${value.minValue} - ${value.maxValue}`,
+      initialQuantity: value.defaultValue,
+    }
+  })
 
   const state = useDataGridState({
     columns: [
@@ -62,14 +78,7 @@ const SKUGrid = () => {
       },
     ],
 
-    items: [
-      {
-        skuId: 1,
-        priceTable: 'Teste',
-        quantity: 1,
-        initialQuantity: 1,
-      },
-    ],
+    items: skuListNew,
   })
 
   return <DataGrid csx={{ marginTop: 5 }} state={state} />

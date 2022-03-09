@@ -1,0 +1,20 @@
+mutation CreateAssembly($assemblyOption: AssemblyOptionInput!) {
+  createAssemblyOption(assemblyOption: $assemblyOption) {
+    id
+    name
+    isRequired
+    isActive
+    configs {
+      name
+      minItems
+      maxItems
+      items {
+        skuId
+        minValue
+        maxValue
+        defaultValue
+        priceTable
+      }
+    }
+  }
+}
