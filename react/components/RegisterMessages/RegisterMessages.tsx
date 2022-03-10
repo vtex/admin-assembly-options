@@ -104,7 +104,7 @@ const RegisterMessages = (props: Props) => {
     )
   }
 
-  return <> </>
+  return null
 }
 
 export default RegisterMessages
