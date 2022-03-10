@@ -24,7 +24,7 @@ const RegisterPage = () => {
   const intl = useIntl()
   const [load, setLoad] = useState(false)
   const { name, required, active, group } = useRegisterContext()
-  const [createAssembly] = useMutation<
+  const [createAssembly, { data, error, loading }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
