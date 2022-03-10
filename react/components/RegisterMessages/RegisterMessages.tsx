@@ -6,25 +6,32 @@ import { FormattedMessage, useIntl } from 'react-intl'
 import { messages } from '../../utils/messages'
 
 interface Props {
-  data: AssemblyOption | undefined
+  data?: AssemblyOption
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: any | undefined
-  loading: boolean | undefined
+  error?: any
 }
 
 interface ErrorType {
   code: string
   message: string
   configName: string
-  skuId: string
+  skuId?: string
 }
 
-const RegisterMessages = (props: Props) => {
-  const { data, error, loading } = props
-  const intl = useIntl()
+type ErrorKeys =
+  | 'configIncreasingValueRange'
+  | 'skuDefaultValueRangeValidate'
+  | 'skuDefaultValueValidate'
+  | 'skuIncreasingValueRange'
+  | 'skuMaxQuantityValidate'
+  | 'skuQuantityOutOfAssemblyOptionRange'
+  | 'skuSumDefaultValueValidate'
+  | 'uniqueKeyValidate'
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const errorMessages: any = {
+const RegisterMessages = (props: Props) => {
+  const { data, error } = props
+  const intl = useIntl()
+  const errorMessages: { [key in ErrorKeys]: string } = {
     configIncreasingValueRange:
       'admin/assembly.register.error-config-value-range',
     skuDefaultValueRangeValidate:
@@ -38,22 +45,6 @@ const RegisterMessages = (props: Props) => {
     skuSumDefaultValueValidate:
       'admin/assembly.register.error-sku-range-assembly-default',
     uniqueKeyValidate: 'admin/assembly.register.error-unique-key',
-  }
-
-  if (loading === true) {
-    return (
-      <Alert
-        visible
-        tone="warning"
-        csx={{
-          display: 'flex important',
-          height: 'fit-content !important',
-          marginTop: '20px',
-        }}
-      >
-        Loading ...
-      </Alert>
-    )
   }
 
   if (error) {
@@ -73,7 +64,7 @@ const RegisterMessages = (props: Props) => {
         <List csx={{ listStyle: 'none' }}>
           {errorsGraphQL.map((value: ErrorType, index: number) => {
             const codeValue = value.code || ''
-            const skuId = value.skuId || ''
+            const skuId = value.skuId ?? ''
             const configName = value.configName || ''
 
             return (
@@ -83,7 +74,7 @@ const RegisterMessages = (props: Props) => {
               >
                 <IconXOctagon csx={{ marginRight: '3px', color: '#CC3E3E' }} />
                 <FormattedMessage
-                  id={errorMessages[codeValue]}
+                  id={errorMessages[codeValue as ErrorKeys]}
                   values={{
                     configName,
                     skuId,

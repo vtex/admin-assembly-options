@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Page,
   PageHeader,
@@ -22,11 +22,16 @@ import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 
 const RegisterPage = () => {
   const intl = useIntl()
+  const [load, setLoad] = useState(false)
   const { name, required, active, group } = useRegisterContext()
   const [createAssembly, { data, loading, error }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
+
+  useEffect(() => {
+    setLoad(loading)
+  }, [loading])
 
   const handleSave = () => {
     createAssembly({
@@ -46,11 +51,13 @@ const RegisterPage = () => {
       <PageHeader>
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
-          <Button onClick={handleSave}>Save</Button>
+          <Button loading={load} onClick={handleSave}>
+            Save
+          </Button>
         </PageActions>
       </PageHeader>
       <PageContent>
-        <RegisterMessages data={data} error={error} loading={loading} />
+        <RegisterMessages data={data} error={error} />
         <RegisterForm />
       </PageContent>
     </Page>
