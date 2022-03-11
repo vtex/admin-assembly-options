@@ -104,39 +104,6 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.sku-items-quantity',
     defaultMessage: '',
   },
-
-  configIncreasingValueRange: {
-    id: 'admin/assembly.register.error-config-value-range',
-    defaultMessage: '',
-  },
-  skuDefaultValueRangeValidate: {
-    id: 'admin/assembly.register.error-sku-value-range',
-    defaultMessage: '',
-  },
-  skuDefaultValueValidate: {
-    id: 'admin/assembly.register.error-sku-value',
-    defaultMessage: '',
-  },
-  skuIncreasingValueRange: {
-    id: 'admin/assembly.register.error-sku-increasing-value',
-    defaultMessage: '',
-  },
-  skuMaxQuantityValidate: {
-    id: 'admin/assembly.register.error-sku-max-value',
-    defaultMessage: '',
-  },
-  skuQuantityOutOfAssemblyOptionRange: {
-    id: 'admin/assembly.register.error-sku-range-assembly',
-    defaultMessage: '',
-  },
-  skuSumDefaultValueValidate: {
-    id: 'admin/assembly.register.error-sku-range-assembly-default',
-    defaultMessage: '',
-  },
-  uniqueKeyValidate: {
-    id: 'admin/assembly.register.error-unique-key',
-    defaultMessage: '',
-  },
   assemblygraphQLSuccess: {
     id: 'admin/assembly.register.success-graphql',
     defaultMessage: '',
