@@ -5,14 +5,25 @@ import { FormattedMessage, useIntl } from 'react-intl'
 
 import { messages } from '../../utils/messages'
 
+interface Extensions {
+  exception: {
+    graphQLErrors: ErrorType[]
+  }
+}
+
+interface ApolloError {
+  graphQLErrors: Array<{
+    extensions: Extensions
+  }>
+}
+
 interface Props {
-  data?: AssemblyOption
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error?: any
+  data: AssemblyOption | null | undefined
+  error?: ApolloError
 }
 
 interface ErrorType {
-  code: string
+  code: ErrorKeys
   message: string
   configName: string
   skuId?: string
@@ -62,7 +73,7 @@ const RegisterMessages = (props: Props) => {
         }}
       >
         <List csx={{ listStyle: 'none' }}>
-          {errorsGraphQL.map((value: ErrorType, index: number) => {
+          {errorsGraphQL.map((value, index: number) => {
             const codeValue = value.code || ''
             const skuId = value.skuId ?? ''
             const configName = value.configName || ''
@@ -74,7 +85,7 @@ const RegisterMessages = (props: Props) => {
               >
                 <IconXOctagon csx={{ marginRight: '3px', color: '#CC3E3E' }} />
                 <FormattedMessage
-                  id={errorMessages[codeValue as ErrorKeys]}
+                  id={errorMessages[codeValue]}
                   values={{
                     configName,
                     skuId,

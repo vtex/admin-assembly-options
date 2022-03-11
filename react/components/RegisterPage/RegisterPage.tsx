@@ -8,11 +8,11 @@ import {
   Button,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
-import { useMutation } from 'react-apollo'
 import type {
   MutationCreateAssemblyOptionArgs,
   AssemblyOption,
 } from 'vtexbr.assembly-options-graphql'
+import { useMutation } from 'react-apollo'
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
