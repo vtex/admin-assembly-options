@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl'
 import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
+import yup from 'yup'
 
 import type { AssemblyGroupType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
@@ -19,6 +20,12 @@ const RegisterForm = () => {
     setAssemblyName,
     setAssemblyGroup,
   } = useRegisterContext()
+
+  const Yup = yup
+
+  const SchemaValidationError = Yup.object({
+    name: Yup.string().required('We need a name'),
+  })
 
   const intl = useIntl()
   const handleSubmit = () => {
@@ -44,20 +51,19 @@ const RegisterForm = () => {
       <Formik
         onSubmit={handleSubmit}
         initialValues={{
-          assembly: {
-            name: '',
-            id: '',
-            active: false,
-            required: false,
-          },
+          name: '',
+          id: '',
+          active: false,
+          required: false,
         }}
+        validationSchema={SchemaValidationError}
       >
         <form>
           <Card csx={{ width: '712px', margin: '15px auto' }}>
             <Heading>{intl.formatMessage(messages.assemblyFormTitle)}</Heading>
             <Flex direction="column" csx={{ marginTop: '20px' }}>
               <FormikInput
-                name="assembly.name"
+                name="name"
                 label={intl.formatMessage(messages.assemblyNameLabel)}
                 onChange={(e) => {
                   setAssemblyName(e.target.value)
@@ -65,13 +71,13 @@ const RegisterForm = () => {
               />
               <FormikToggle
                 csx={{ margin: '5px 0px' }}
-                name="assembly.active"
+                name="active"
                 label={intl.formatMessage(messages.assemblyActive)}
                 onClick={() => setAssemblyActive(!active)}
               />
               <FormikCheckbox
                 csx={{ margin: '5px 0px' }}
-                name="assembly.required"
+                name="required"
                 label={intl.formatMessage(messages.assemblyRequired)}
                 onClick={() => setAssemblyRequired(!required)}
               />
