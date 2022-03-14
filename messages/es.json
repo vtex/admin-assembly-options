@@ -26,5 +26,15 @@
   "admin/assembly.register.price-table": "Tabla de precios",
   "admin/assembly.register.actions": "Operaciones",
   "admin/assembly-groups-title": "Grupos SKU",
-  "admin/assembly.register.sku-items-quantity": "Cantidad"
+  "admin/assembly.register.sku-items-quantity": "Cantidad",
+
+  "admin/assembly.register.error-config-value-range": "El intervalo de valores mínimo y máximo del grupo {configName} no es válido",
+  "admin/assembly.register.error-sku-value-range": "El valor predeterminado de SKU {skuId} está fuera del intervalo máximo y mínimo del propio SKU",
+  "admin/assembly.register.error-sku-value": "El valor predeterminado de SKU {skuId} es mayor que el valor máximo permitido por el grupo {configName}",
+  "admin/assembly.register.error-sku-increasing-value": "El intervalo de valores mínimo y máximo de SKU {skuId} no es válido",
+  "admin/assembly.register.error-sku-max-value": "La cantidad de SKU {skuId} es mayor que el valor máximo permitido por el grupo {configName}",
+  "admin/assembly.register.error-sku-range-assembly": "La cantidad de SKU {skuId} está fuera del rango del grupo {configName}",
+  "admin/assembly.register.error-sku-range-assembly-default": "La suma de los valores de SKU es mayor que la cantidad máxima permitida por el grupo {configName}",
+  "admin/assembly.register.error-unique-key": "El Assembly Option debe tener un nombre único",
+  "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito"
 }

@@ -104,4 +104,8 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.sku-items-quantity',
     defaultMessage: '',
   },
+  assemblygraphQLSuccess: {
+    id: 'admin/assembly.register.success-graphql',
+    defaultMessage: '',
+  },
 })
