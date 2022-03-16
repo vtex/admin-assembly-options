@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import {
   useDataGridState,
   DataGrid,
@@ -21,18 +21,24 @@ interface Props {
 }
 
 const SKUGrid = (props: Props) => {
-  const { group } = useRegisterContext()
+  const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex } = props
   const intl = useIntl()
-  const menuState = useMenuState()
 
   const skuListNew = group[groupIndex].items.map((value, index) => {
     return {
+      id: index,
       skuId: value.skuId,
       priceTable: value.priceTable,
       quantity: `${value.minValue} - ${value.maxValue}`,
       initialQuantity: value.defaultValue,
-      actions: index,
+      handleDelete: () => {
+        const newGroup = [...group]
+
+        newGroup[groupIndex].items.splice(index, 1)
+
+        setAssemblyGroup(newGroup)
+      },
     }
   })
 
@@ -58,33 +64,27 @@ const SKUGrid = (props: Props) => {
         id: 'actions',
         header: `${intl.formatMessage(messages.SKUActions)}`,
         resolver: {
-          type: 'plain',
-          render: function Actions({ data }) {
-            const SKUIndex = data
-            const handleDelete = () => {
-              // eslint-disable-next-line no-console
-              console.log(`${SKUIndex} + ${groupIndex}`)
-            }
+          type: 'root',
+          render: function Actions({ item }) {
+            const menuState = useMenuState()
 
             return (
-              <Fragment key={SKUIndex as number}>
-                <Flex direction="row" csx={{ maxWidth: '80px' }}>
-                  <Menu state={menuState} hideOnClick>
-                    <MenuButton display="actions" variant="tertiary" />
-                    <MenuList aria-label="actions" state={menuState}>
-                      <MenuItem icon={<IconPencil />}> Edit </MenuItem>
-                      <MenuItem
-                        onClick={handleDelete}
-                        icon={<IconTrash />}
-                        csx={{ color: '#CC3E3E' }}
-                      >
-                        {' '}
-                        {data}{' '}
-                      </MenuItem>
-                    </MenuList>
-                  </Menu>
-                </Flex>
-              </Fragment>
+              <Flex direction="row" csx={{ maxWidth: '80px' }}>
+                <Menu state={menuState} hideOnClick>
+                  <MenuButton display="actions" variant="tertiary" />
+                  <MenuList aria-label="actions" state={menuState}>
+                    <MenuItem icon={<IconPencil />}> Edit </MenuItem>
+                    <MenuItem
+                      onClick={item.handleDelete}
+                      icon={<IconTrash />}
+                      csx={{ color: '#CC3E3E' }}
+                    >
+                      {' '}
+                      {'Delete'}{' '}
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
+              </Flex>
             )
           },
         },
