@@ -16,6 +16,7 @@ import {
 import { useIntl } from 'react-intl'
 import { Formik, Form } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
+import * as yup from 'yup'
 
 import type { SKUType } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
@@ -30,12 +31,61 @@ const SKUModal = (props: Props) => {
   const modal = useModalState()
 
   const initialValue: SKUType = {
-    skuId: '0',
+    skuId: '',
     priceTable: '',
     minValue: 0,
     maxValue: 0,
     defaultValue: 0,
   }
+
+  const SchemaValidationError = yup.object({
+    skuId: yup
+      .string()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    priceTable: yup
+      .string()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    minValue: yup
+      .number()
+      .integer()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    maxValue: yup
+      .number()
+      .integer()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`)
+      .when('minValue', (minValue: number) => {
+        return yup
+          .number()
+          .integer()
+          .min(
+            minValue,
+            `${intl.formatMessage(messages.errorNumberComparison)}`
+          )
+      }),
+    // defaultValue: yup.number().when(['minValue', 'maxValue'], {
+    //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    //   is: (minValue: any, maxValue: any) => minValue === maxValue,
+    //   then: yup.number().min(5, 'minimo'),
+    //   otherwise: yup.number().min(10, 'minimo 10'),
+    // }),
+
+    defaultValue: yup
+      .number()
+      .integer()
+      .required()
+      .test(
+        'min',
+        'The Default Value is lower than the minimum value possible',
+        (value: number | undefined, context) =>
+          value !== undefined ? context.parent.minValue <= value : false
+      )
+      .test(
+        'max',
+        'The Default Value is higher than the maximum value possible',
+        (value: number | undefined, context) =>
+          value !== undefined ? context.parent.maxValue >= value : false
+      ),
+  })
 
   const handleSubmit = (
     values: SKUType,
@@ -61,7 +111,11 @@ const SKUModal = (props: Props) => {
         </Button>
       </ModalDisclosure>
       <Modal aria-label="SKU modal" state={modal} size="regular">
-        <Formik initialValues={initialValue} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValue}
+          onSubmit={handleSubmit}
+          validationSchema={SchemaValidationError}
+        >
           <Form>
             <ModalHeader title="SKU" />
             <ModalContent>

@@ -6,22 +6,22 @@
   "admin/assembly.register.assembly-form-title": "Basic Information",
   "admin/assembly.register.assembly-form-description": "Data related to the entire Assembly Options",
 
-  "admin/assembly.register.assembly-name": "Name",
+  "admin/assembly.register.assembly-name": "Name*",
   "admin/assembly.register.assembly-name-placeholder": "Assembly Options name",
   "admin/assembly.register.assembly-active": "Active",
   "admin/assembly.register.assembly-required": "Required",
 
   "admin/assembly.register.add-key": "Add New Group",
   "admin/assembly.register.key-name": "Group",
-  "admin/assembly.register.key-name-label": "Key Name",
-  "admin/assembly.register.key-minimum-label": "Minimum Quantity",
-  "admin/assembly.register.key-maximum-label": "Maximum Quantity",
+  "admin/assembly.register.key-name-label": "Group Name*",
+  "admin/assembly.register.key-minimum-label": "Minimum Quantity*",
+  "admin/assembly.register.key-maximum-label": "Maximum Quantity*",
   "admin/assembly.register.sku-add": "Add new SKU",
-  "admin/assembly.register.sku-price-table": "Linked price table name",
+  "admin/assembly.register.sku-price-table": "Linked price table name*",
   "admin/assembly.register.sku-items": "Item",
-  "admin/assembly.register.sku-items-min": "Min Quantity",
-  "admin/assembly.register.sku-items-max": "Max Quantity",
-  "admin/assembly.register.sku-items-initial": "Initial Quantity",
+  "admin/assembly.register.sku-items-min": "Min Quantity*",
+  "admin/assembly.register.sku-items-max": "Max Quantity*",
+  "admin/assembly.register.sku-items-initial": "Initial Quantity*",
   "admin/assembly.register.sku-items-confirm": "Confirm",
   "admin/assembly.register.price-table": "Price Table",
   "admin/assembly.register.actions": "Actions",
@@ -36,5 +36,8 @@
   "admin/assembly.register.error-sku-range-assembly": "The quantity of the sku {skuId} is out of range quantity of assembly option {configName}",
   "admin/assembly.register.error-sku-range-assembly-default": "The sum of the default value of the skus is greater than the max quantity of the assembly option {configName}",
   "admin/assembly.register.error-unique-key": "The assembly option configs must have unique keys",
-  "admin/assembly.register.success-graphql": "The Assembly Option was succesfully created"
+  "admin/assembly.register.success-graphql": "The Assembly Option was succesfully created",
+
+  "admin/assembly.register.error-name-required": "This field is required",
+  "admin/assembly.register.error-number-comparison": "The maximum number must be higher than the minimum number"
 }

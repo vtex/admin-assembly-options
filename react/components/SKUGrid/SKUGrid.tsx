@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {
   useDataGridState,
   DataGrid,
@@ -26,12 +26,13 @@ const SKUGrid = (props: Props) => {
   const intl = useIntl()
   const menuState = useMenuState()
 
-  const skuListNew = group[groupIndex].items.map((value) => {
+  const skuListNew = group[groupIndex].items.map((value, index) => {
     return {
       skuId: value.skuId,
       priceTable: value.priceTable,
       quantity: `${value.minValue} - ${value.maxValue}`,
       initialQuantity: value.defaultValue,
+      actions: index,
     }
   })
 
@@ -58,20 +59,32 @@ const SKUGrid = (props: Props) => {
         header: `${intl.formatMessage(messages.SKUActions)}`,
         resolver: {
           type: 'plain',
-          render: function Actions() {
+          render: function Actions({ data }) {
+            const SKUIndex = data
+            const handleDelete = () => {
+              // eslint-disable-next-line no-console
+              console.log(`${SKUIndex} + ${groupIndex}`)
+            }
+
             return (
-              <Flex direction="row" csx={{ maxWidth: '80px' }}>
-                <Menu state={menuState} hideOnClick>
-                  <MenuButton display="actions" variant="tertiary" />
-                  <MenuList aria-label="actions" state={menuState}>
-                    <MenuItem icon={<IconPencil />}> Edit </MenuItem>
-                    <MenuItem icon={<IconTrash />} csx={{ color: '#CC3E3E' }}>
-                      {' '}
-                      Delete{' '}
-                    </MenuItem>
-                  </MenuList>
-                </Menu>
-              </Flex>
+              <Fragment key={SKUIndex as number}>
+                <Flex direction="row" csx={{ maxWidth: '80px' }}>
+                  <Menu state={menuState} hideOnClick>
+                    <MenuButton display="actions" variant="tertiary" />
+                    <MenuList aria-label="actions" state={menuState}>
+                      <MenuItem icon={<IconPencil />}> Edit </MenuItem>
+                      <MenuItem
+                        onClick={handleDelete}
+                        icon={<IconTrash />}
+                        csx={{ color: '#CC3E3E' }}
+                      >
+                        {' '}
+                        {data}{' '}
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
+                </Flex>
+              </Fragment>
             )
           },
         },

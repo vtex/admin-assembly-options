@@ -12,6 +12,7 @@ import {
 import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 import { useIntl } from 'react-intl'
+import * as yup from 'yup'
 
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
@@ -40,10 +41,33 @@ const AssemblyGroup = (props: Props) => {
   }
 
   const initialValues = {
-    name: '',
-    minItems: 0,
-    maxItems: 0,
+    name: group[groupIndex].name || '',
+    minItems: group[groupIndex].minItems || 0,
+    maxItems: group[groupIndex].maxItems || 0,
   }
+
+  const SchemaValidationError = yup.object().shape({
+    name: yup
+      .string()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    minItems: yup
+      .number()
+      .integer()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    maxItems: yup
+      .number()
+      .integer()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`)
+      .when('minItems', (minItems: number) => {
+        return yup
+          .number()
+          .min(
+            minItems,
+            `${intl.formatMessage(messages.errorNumberComparison)}`
+          )
+          .required()
+      }),
+  })
 
   const handleSubmit = () => {
     /* eslint-disable no-alert */
@@ -70,7 +94,11 @@ const AssemblyGroup = (props: Props) => {
         </Button>
       </CollapsibleHeader>
       <CollapsibleContent>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={SchemaValidationError}
+        >
           <form>
             <Flex direction="column" justify="space-between">
               <Flex direction="column">

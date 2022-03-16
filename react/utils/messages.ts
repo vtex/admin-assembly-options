@@ -38,7 +38,6 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.assembly-required',
     defaultMessage: '',
   },
-
   assemblyGroupsTitle: {
     id: 'admin/assembly-groups-title',
     defaultMessage: '',
@@ -91,7 +90,6 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.sku-items-confirm',
     defaultMessage: '',
   },
-
   SKUPriceTable: {
     id: 'admin/assembly.register.price-table',
     defaultMessage: '',
@@ -106,6 +104,15 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
   },
   assemblygraphQLSuccess: {
     id: 'admin/assembly.register.success-graphql',
+    defaultMessage: '',
+  },
+
+  errorNameRequired: {
+    id: 'admin/assembly.register.error-name-required',
+    defaultMessage: '',
+  },
+  errorNumberComparison: {
+    id: 'admin/assembly.register.error-number-comparison',
     defaultMessage: '',
   },
 })
