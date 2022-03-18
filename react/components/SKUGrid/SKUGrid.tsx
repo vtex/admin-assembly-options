@@ -9,12 +9,17 @@ import {
   MenuItem,
   useMenuState,
   IconPencil,
+  ModalDisclosure,
+  useModalState,
+  Button,
   IconTrash,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 
+import type { SKUType } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 import { useRegisterContext } from '../../context/RegisterContext'
+import SKUModal from '../SKUModal'
 
 interface Props {
   groupIndex: number
@@ -39,6 +44,8 @@ const SKUGrid = (props: Props) => {
 
         setAssemblyGroup(newGroup)
       },
+      minQuantity: value.minValue,
+      maxQuantity: value.maxValue,
     }
   })
 
@@ -67,13 +74,36 @@ const SKUGrid = (props: Props) => {
           type: 'root',
           render: function Actions({ item }) {
             const menuState = useMenuState()
+            const modal = useModalState()
+
+            const actualSKU = {
+              skuId: item.skuId,
+              priceTable: item.priceTable,
+              minValue: item.minQuantity,
+              maxValue: item.maxQuantity,
+              defaultValue: item.initialQuantity,
+            }
+
+            const handleClose = (form: SKUType) => {
+              group[groupIndex].items[item.id] = form
+              setAssemblyGroup([...group])
+            }
 
             return (
               <Flex direction="row" csx={{ maxWidth: '80px' }}>
                 <Menu state={menuState} hideOnClick>
                   <MenuButton display="actions" variant="tertiary" />
                   <MenuList aria-label="actions" state={menuState}>
-                    <MenuItem icon={<IconPencil />}> Edit </MenuItem>
+                    <ModalDisclosure state={modal}>
+                      <Button icon={<IconPencil />} variant="tertiary">
+                        Edit
+                      </Button>
+                    </ModalDisclosure>
+                    <SKUModal
+                      handleClose={handleClose}
+                      modalState={modal}
+                      initialSKU={actualSKU}
+                    />
                     <MenuItem
                       onClick={item.handleDelete}
                       icon={<IconTrash />}

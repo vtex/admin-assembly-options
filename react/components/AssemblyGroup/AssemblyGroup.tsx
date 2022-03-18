@@ -8,6 +8,8 @@ import {
   Box,
   Label,
   Button,
+  ModalDisclosure,
+  useModalState,
 } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
@@ -32,12 +34,21 @@ const AssemblyGroup = (props: Props) => {
   const [groupMaximum, setGroupMaximum] = useState<number>(0)
   const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex } = props
+  const modal = useModalState()
 
   const handleInfo = () => {
     group[groupIndex].name = groupName
     group[groupIndex].minItems = groupMinimum
     group[groupIndex].maxItems = groupMaximum
     setAssemblyGroup(group)
+  }
+
+  const initialValueSKU: SKUType = {
+    skuId: '',
+    priceTable: '',
+    minValue: 0,
+    maxValue: 0,
+    defaultValue: 0,
   }
 
   const initialValues = {
@@ -142,7 +153,16 @@ const AssemblyGroup = (props: Props) => {
         </Flex>
         <Flex>
           <Box>
-            <SKUModal handleClose={handleClose} />
+            <ModalDisclosure state={modal}>
+              <Button variant="tertiary" csx={{ marginTop: 3 }}>
+                {intl.formatMessage(messages.addSKUButton)}
+              </Button>
+            </ModalDisclosure>
+            <SKUModal
+              handleClose={handleClose}
+              modalState={modal}
+              initialSKU={initialValueSKU}
+            />
           </Box>
         </Flex>
       </CollapsibleContent>

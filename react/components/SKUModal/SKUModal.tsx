@@ -4,10 +4,7 @@ import {
   ModalHeader,
   ModalContent,
   ModalFooter,
-  ModalDisclosure,
   ModalButton,
-  useModalState,
-  Button,
   Box,
   Label,
   Flex,
@@ -23,20 +20,16 @@ import { messages } from '../../utils/messages'
 
 interface Props {
   handleClose: (form: SKUType) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  modalState: any
+  initialSKU: SKUType
 }
 
 const SKUModal = (props: Props) => {
-  const { handleClose } = props
+  const { handleClose, modalState, initialSKU } = props
   const intl = useIntl()
-  const modal = useModalState()
 
-  const initialValue: SKUType = {
-    skuId: '',
-    priceTable: '',
-    minValue: 0,
-    maxValue: 0,
-    defaultValue: 0,
-  }
+  const initialValue: SKUType = initialSKU
 
   const SchemaValidationError = yup.object({
     skuId: yup
@@ -62,12 +55,6 @@ const SKUModal = (props: Props) => {
             `${intl.formatMessage(messages.errorNumberComparison)}`
           )
       }),
-    // defaultValue: yup.number().when(['minValue', 'maxValue'], {
-    //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    //   is: (minValue: any, maxValue: any) => minValue === maxValue,
-    //   then: yup.number().min(5, 'minimo'),
-    //   otherwise: yup.number().min(10, 'minimo 10'),
-    // }),
 
     defaultValue: yup
       .number()
@@ -105,12 +92,7 @@ const SKUModal = (props: Props) => {
 
   return (
     <Box>
-      <ModalDisclosure state={modal}>
-        <Button variant="tertiary" csx={{ marginTop: 3 }}>
-          {intl.formatMessage(messages.addSKUButton)}
-        </Button>
-      </ModalDisclosure>
-      <Modal aria-label="SKU modal" state={modal} size="regular">
+      <Modal aria-label="SKU-modal" state={modalState} size="regular">
         <Formik
           initialValues={initialValue}
           onSubmit={handleSubmit}
