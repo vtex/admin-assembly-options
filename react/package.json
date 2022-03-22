@@ -9,9 +9,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "typescript": "3.9.7",
-    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime",
-    "vtexbr.admin-assembly-options": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1647886616/public/@types/vtexbr.admin-assembly-options",
-    "vtexbr.assembly-options-graphql": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.4+build1647884432/public/@types/vtexbr.assembly-options-graphql"
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime",
+    "vtexbr.admin-assembly-options": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1647971964/public/@types/vtexbr.admin-assembly-options",
+    "vtexbr.assembly-options-graphql": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.5+build1647972637/public/@types/vtexbr.assembly-options-graphql"
   },
   "dependencies": {
     "@vtex/admin-formik": "^0.4.1",

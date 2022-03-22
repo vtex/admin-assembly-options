@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import type { DataGridColumn } from '@vtex/admin-ui'
 import {
+  Search,
+  useSearchState,
   usePaginationState,
   DataGrid,
   DataView,
@@ -39,6 +41,10 @@ const AssemblyOptionDataGrid = () => {
 
   const pagination = usePaginationState({
     pageSize: PAGE_SIZE,
+  })
+
+  const searchState = useSearchState({
+    timeoutMs: 500,
   })
 
   const columns: Array<DataGridColumn<TableColumns>> = [
@@ -103,6 +109,7 @@ const AssemblyOptionDataGrid = () => {
     variables: {
       page: pagination.currentPage,
       perPage: PAGE_SIZE,
+      name: searchState.debouncedValue ?? null,
     },
     onCompleted: (resultData) => {
       if (
@@ -153,6 +160,11 @@ const AssemblyOptionDataGrid = () => {
   return (
     <DataView state={view}>
       <DataViewControls>
+        <Search
+          id="search"
+          state={searchState}
+          placeholder={intl.formatMessage(messages.listSearchPlaceholder)}
+        />
         <FlexSpacer />
         <Pagination
           state={pagination}
