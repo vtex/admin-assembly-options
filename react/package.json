@@ -10,11 +10,12 @@
     "react-dom": "^16.8.6",
     "typescript": "3.9.7",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime",
-    "vtexbr.assembly-options-graphql": "http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.assembly-options-graphql@0.0.1/public/@types/vtexbr.assembly-options-graphql"
+    "vtexbr.admin-assembly-options": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1647886616/public/@types/vtexbr.admin-assembly-options",
+    "vtexbr.assembly-options-graphql": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.4+build1647884432/public/@types/vtexbr.assembly-options-graphql"
   },
   "dependencies": {
-    "@vtex/admin-formik": "^0.4.1-next.0",
-    "@vtex/admin-ui": "^0.117.1-next.1",
+    "@vtex/admin-formik": "^0.4.1",
+    "@vtex/admin-ui": "^0.118.0",
     "@vtex/styleguide": "^9.145.2",
     "faker": "^5.5.3",
     "formik": "^2.2.9",

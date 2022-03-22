@@ -36,5 +36,18 @@
   "admin/assembly.register.error-sku-range-assembly": "The quantity of the sku {skuId} is out of range quantity of assembly option {configName}",
   "admin/assembly.register.error-sku-range-assembly-default": "The sum of the default value of the skus is greater than the max quantity of the assembly option {configName}",
   "admin/assembly.register.error-unique-key": "The assembly option configs must have unique keys",
-  "admin/assembly.register.success-graphql": "The Assembly Option was succesfully created"
+  "admin/assembly.register.success-graphql": "The Assembly Option was succesfully created",
+
+  "admin/assembly.list.page-title": "Assembly Options",
+  "admin/assembly.list.new-assembly-option": "Add Assembly Option",
+  "admin/assembly.list.query-error": "Something went wrong.",
+  "admin/assembly.list.query-no-results": "No results found.",
+  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.name": "Name",
+  "admin/assembly.list.header.status": "Status",
+  "admin/assembly.list.header.required": "Required",
+  "admin/assembly.list.status.active": "Active",
+  "admin/assembly.list.status.inactive": "Inactive",
+  "admin/assembly.list.required.yes": "Yes",
+  "admin/assembly.list.required.no": "No"
 }
