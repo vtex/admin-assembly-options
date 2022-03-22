@@ -49,5 +49,9 @@
   "admin/assembly.list.status.active": "Activo",
   "admin/assembly.list.status.inactive": "Inactivo",
   "admin/assembly.list.required.yes": "Sí",
-  "admin/assembly.list.required.no": "No"
+  "admin/assembly.list.required.no": "No",
+  "admin/assembly.list.pagination.preposition": "de",
+  "admin/assembly.list.pagination.subject": "resultados",
+  "admin/assembly.list.pagination.prevLabel": "Previo",
+  "admin/assembly.list.pagination.nextLabel": "Próximo"
 }

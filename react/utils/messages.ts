@@ -155,4 +155,20 @@ export const messages = defineMessages({
     id: 'admin/assembly.list.required.no',
     defaultMessage: '',
   },
+  paginationPreposition: {
+    id: 'admin/assembly.list.pagination.preposition',
+    defaultMessage: '',
+  },
+  paginationSubject: {
+    id: 'admin/assembly.list.pagination.subject',
+    defaultMessage: '',
+  },
+  paginationPrevLabel: {
+    id: 'admin/assembly.list.pagination.prevLabel',
+    defaultMessage: '',
+  },
+  paginationNextLabel: {
+    id: 'admin/assembly.list.pagination.nextLabel',
+    defaultMessage: '',
+  },
 })
