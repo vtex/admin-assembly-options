@@ -13,7 +13,7 @@
 
   "admin/assembly.register.add-key": "Agregar Nuevo Grupo",
   "admin/assembly.register.key-name": "Grupo",
-  "admin/assembly.register.key-name-label": "Nombre Grupo*",
+  "admin/assembly.register.key-name-label": "Nombre del grupo que se mostrará en la página del producto*",
   "admin/assembly.register.key-minimum-label": "Cantidad Mínima*",
   "admin/assembly.register.key-maximum-label": "Cantidad Máxima*",
   "admin/assembly.register.sku-add": "Agregar nuevo SKU",
@@ -39,5 +39,6 @@
   "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito",
 
   "admin/assembly.register.error-name-required": "El campo es obligatorio",
-  "admin/assembly.register.error-number-comparison": "El número máximo debe ser mayor que el número mínimo"
+  "admin/assembly.register.error-number-comparison": "El número máximo debe ser mayor que el número mínimo",
+  "admin/assembly.register.unamed-group": "Grupo sem nombre"
 }

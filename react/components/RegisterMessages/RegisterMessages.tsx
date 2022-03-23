@@ -59,8 +59,48 @@ const RegisterMessages = (props: Props) => {
   }
 
   if (error) {
-    const errorsGraphQL =
-      error.graphQLErrors[0].extensions.exception.graphQLErrors
+    if (error.graphQLErrors[0].extensions.exception.graphQLErrors) {
+      const errorsGraphQL =
+        error.graphQLErrors[0].extensions.exception.graphQLErrors
+
+      return (
+        <Alert
+          visible
+          tone="critical"
+          csx={{
+            display: 'flex important',
+            height: 'fit-content !important',
+            marginTop: '20px',
+          }}
+        >
+          <List csx={{ listStyle: 'none' }}>
+            {errorsGraphQL.map((value, index: number) => {
+              const codeValue = value.code || ''
+              const skuId = value.skuId ?? ''
+              const configName = value.configName || ''
+
+              return (
+                <List.Item
+                  key={index}
+                  csx={{ alignItems: 'center', display: 'flex' }}
+                >
+                  <IconXOctagon
+                    csx={{ marginRight: '3px', color: '#CC3E3E' }}
+                  />
+                  <FormattedMessage
+                    id={errorMessages[codeValue]}
+                    values={{
+                      configName,
+                      skuId,
+                    }}
+                  />
+                </List.Item>
+              )
+            })}
+          </List>
+        </Alert>
+      )
+    }
 
     return (
       <Alert
@@ -72,29 +112,7 @@ const RegisterMessages = (props: Props) => {
           marginTop: '20px',
         }}
       >
-        <List csx={{ listStyle: 'none' }}>
-          {errorsGraphQL.map((value, index: number) => {
-            const codeValue = value.code || ''
-            const skuId = value.skuId ?? ''
-            const configName = value.configName || ''
-
-            return (
-              <List.Item
-                key={index}
-                csx={{ alignItems: 'center', display: 'flex' }}
-              >
-                <IconXOctagon csx={{ marginRight: '3px', color: '#CC3E3E' }} />
-                <FormattedMessage
-                  id={errorMessages[codeValue]}
-                  values={{
-                    configName,
-                    skuId,
-                  }}
-                />
-              </List.Item>
-            )
-          })}
-        </List>
+        O formulário não foi preenchido corretamente
       </Alert>
     )
   }

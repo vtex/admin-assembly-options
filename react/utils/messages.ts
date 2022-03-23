@@ -115,4 +115,8 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.error-number-comparison',
     defaultMessage: '',
   },
+  unamedGroup: {
+    id: 'admin/assembly.register.unamed-group',
+    defaultMessage: '',
+  },
 })
