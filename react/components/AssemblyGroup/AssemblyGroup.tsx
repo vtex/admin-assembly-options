@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Collapsible,
   CollapsibleHeader,
@@ -43,7 +43,6 @@ const AssemblyGroup = (props: Props) => {
   const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex, groupValue } = props
   const modal = useModalState()
-  const [fresh, setFresh] = useState(false)
 
   const initialValueSKU: SKUType = {
     skuId: '',
@@ -98,12 +97,13 @@ const AssemblyGroup = (props: Props) => {
   }
 
   const handleDelete = () => {
-    const newGroup = [...group]
+    setAssemblyGroup((previews) => {
+      const newGroup = [...previews]
 
-    newGroup.splice(groupIndex, 1)
-    setAssemblyGroup(newGroup)
-    setFresh(true)
-    setInterval(() => setFresh(false), 1000)
+      newGroup.splice(groupIndex, 1)
+
+      return newGroup
+    })
   }
 
   return (
@@ -111,7 +111,7 @@ const AssemblyGroup = (props: Props) => {
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={SchemaValidationError}
-      enableReinitialize={fresh}
+      enableReinitialize
     >
       {({ values, isValid, dirty }) => (
         <Form>
