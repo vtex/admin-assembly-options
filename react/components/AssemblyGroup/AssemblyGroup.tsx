@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Collapsible,
   CollapsibleHeader,
@@ -12,6 +12,7 @@ import {
   useModalState,
   Tooltip,
   IconWarning,
+  IconTrash,
 } from '@vtex/admin-ui'
 import { Formik, Form } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
@@ -21,11 +22,12 @@ import * as yup from 'yup'
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
 import { messages } from '../../utils/messages'
-import type { SKUType } from '../../context/RegisterContext'
+import type { AssemblyGroupType, SKUType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 
 interface Props {
   groupIndex: number
+  groupValue: AssemblyGroupType
 }
 
 interface GroupType {
@@ -39,8 +41,9 @@ const AssemblyGroup = (props: Props) => {
   const { visible } = state
   const intl = useIntl()
   const { group, setAssemblyGroup } = useRegisterContext()
-  const { groupIndex } = props
+  const { groupIndex, groupValue } = props
   const modal = useModalState()
+  const [fresh, setFresh] = useState(false)
 
   const initialValueSKU: SKUType = {
     skuId: '',
@@ -51,10 +54,15 @@ const AssemblyGroup = (props: Props) => {
   }
 
   const initialValues = {
-    name: group[groupIndex].name || '',
-    minItems: group[groupIndex].minItems || 0,
-    maxItems: group[groupIndex].maxItems || 0,
+    name: groupValue.name || '',
+    minItems: groupValue.minItems || 0,
+    maxItems: groupValue.maxItems || 0,
   }
+
+  // eslint-disable-next-line no-console
+  console.log('qlq coisa 2')
+  // eslint-disable-next-line no-console
+  console.log('initial value', initialValues)
 
   const SchemaValidationError = yup.object().shape({
     name: yup
@@ -89,23 +97,28 @@ const AssemblyGroup = (props: Props) => {
     console.log(values)
   }
 
-  // const handleDelete = () => {
-  //   const newGroup = [...group]
+  const handleDelete = () => {
+    const newGroup = [...group]
 
-  //   newGroup.splice(groupIndex, 1)
-  //   setAssemblyGroup(newGroup)
-  //   // eslint-disable-next-line no-console
-  //   console.log(groupIndex, newGroup)
-  // }
+    newGroup.splice(groupIndex, 1)
+    setAssemblyGroup(newGroup)
+    setFresh(true)
+    setInterval(() => setFresh(false), 1000)
+  }
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={SchemaValidationError}
+      enableReinitialize={fresh}
     >
-      {({ values, isValid, dirty, submitForm }) => (
+      {({ values, isValid, dirty }) => (
         <Form>
+          {
+            // eslint-disable-next-line no-console
+            console.log(values, isValid, dirty)
+          }
           <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
             <CollapsibleHeader
               csx={{ padding: '10px 0px' }}
@@ -116,7 +129,7 @@ const AssemblyGroup = (props: Props) => {
               }
             >
               {(dirty && isValid === false) ||
-              (dirty === false && visible === false) ? (
+              (values.name === '' && visible === false) ? (
                 <Tooltip
                   label="Esse grupo precisa de ajustes"
                   placement="right"
@@ -127,15 +140,8 @@ const AssemblyGroup = (props: Props) => {
                   />
                 </Tooltip>
               ) : null}
-              <Button
-                onClick={async () => {
-                  const batata = await submitForm()
-
-                  // eslint-disable-next-line no-console
-                  console.log(`BATATA${batata} and ISVALID${isValid}`)
-                }}
-              >
-                oi
+              <Button onClick={() => handleDelete()}>
+                <IconTrash />
               </Button>
             </CollapsibleHeader>
 

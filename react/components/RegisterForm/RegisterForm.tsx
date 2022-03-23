@@ -27,6 +27,9 @@ const RegisterForm = () => {
     alert('Values submitted: ')
   }
 
+  // eslint-disable-next-line no-console
+  console.log('GROUP FORM', group)
+
   const SchemaValidationError = yup.object().shape({
     name: yup
       .string()
@@ -96,8 +99,14 @@ const RegisterForm = () => {
             </Button>
           </Flex>
           <Flex direction="column">
-            {group.map((_value, index) => {
-              return <AssemblyGroup key={index} groupIndex={index} />
+            {group.map((value, index) => {
+              return (
+                <AssemblyGroup
+                  key={index}
+                  groupIndex={index}
+                  groupValue={value}
+                />
+              )
             })}
           </Flex>
         </Card>
