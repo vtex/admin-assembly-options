@@ -19,26 +19,34 @@ import RegisterForm from '../RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 import { useRegisterContext } from '../../context/RegisterContext'
 import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
+import { useGroupFormContext } from '../../context/GroupFormContext'
 
 const RegisterPage = () => {
   const intl = useIntl()
   const { name, required, active, group } = useRegisterContext()
+
+  const { submitAndValidateForms } = useGroupFormContext()
+
   const [createAssembly, { data, error, loading }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
 
-  const handleSave = () => {
-    createAssembly({
-      variables: {
-        assemblyOption: {
-          name,
-          isRequired: required,
-          isActive: active,
-          configs: group,
+  const handleSave = async () => {
+    const formsAreValid = await submitAndValidateForms()
+
+    if (formsAreValid) {
+      createAssembly({
+        variables: {
+          assemblyOption: {
+            name,
+            isRequired: required,
+            isActive: active,
+            configs: group,
+          },
         },
-      },
-    })
+      })
+    }
   }
 
   return (

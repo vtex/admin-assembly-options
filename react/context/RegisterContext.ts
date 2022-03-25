@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 
 interface AssemblyGroupType {
+  key: string
   name: string
   minItems: number
   maxItems: number
@@ -14,6 +15,7 @@ interface SKUType {
   maxValue: number
   defaultValue: number
 }
+
 interface RegisterInterface {
   id: number
   name: string

@@ -4,6 +4,7 @@ import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
 import * as yup from 'yup'
+import uniqid from 'uniqid'
 
 import type { AssemblyGroupType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
@@ -22,6 +23,7 @@ const RegisterForm = () => {
   } = useRegisterContext()
 
   const intl = useIntl()
+
   const handleSubmit = () => {
     /* eslint-disable no-alert */
     alert('Values submitted: ')
@@ -35,15 +37,14 @@ const RegisterForm = () => {
 
   const handleAddGroup = () => {
     const emptyGroup: AssemblyGroupType = {
+      key: uniqid(),
       name: '',
       maxItems: 0,
       minItems: 0,
       items: [],
     }
 
-    const newArray = [...group, emptyGroup]
-
-    setAssemblyGroup(newArray)
+    setAssemblyGroup((previews) => [...previews, emptyGroup])
   }
 
   return (
@@ -96,15 +97,13 @@ const RegisterForm = () => {
             </Button>
           </Flex>
           <Flex direction="column">
-            {group.map((value, index) => {
-              return (
-                <AssemblyGroup
-                  key={index}
-                  groupIndex={index}
-                  groupValue={value}
-                />
-              )
-            })}
+            {group.map((value, index) => (
+              <AssemblyGroup
+                key={`assembly-group-${value.key}`}
+                groupIndex={index}
+                groupValue={value}
+              />
+            ))}
           </Flex>
         </Card>
       </Flex>
