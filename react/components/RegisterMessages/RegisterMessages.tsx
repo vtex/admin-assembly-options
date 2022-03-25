@@ -43,6 +43,10 @@ type ErrorKeys =
   | 'uniqueKeyValidate'
 
 const RegisterMessages = (props: Props) => {
+  const STATUS_CODES = {
+    CONFLICT: 409,
+  }
+
   const { data, error } = props
   const intl = useIntl()
   const errorMessages: { [key in ErrorKeys]: string } = {
@@ -62,9 +66,12 @@ const RegisterMessages = (props: Props) => {
   }
 
   if (error) {
-    if (error.graphQLErrors[0].extensions.exception.graphQLErrors) {
+    if (error?.graphQLErrors[0]?.extensions?.exception?.graphQLErrors) {
       const errorsGraphQL =
         error.graphQLErrors[0].extensions.exception.graphQLErrors
+
+      // eslint-disable-next-line no-console
+      console.log('ERRORS', error.graphQLErrors[0])
 
       return (
         <Alert
@@ -105,7 +112,10 @@ const RegisterMessages = (props: Props) => {
       )
     }
 
-    if (error.graphQLErrors[0].extensions.exception.response.status === 409) {
+    if (
+      error?.graphQLErrors[0]?.extensions?.exception?.response?.status ===
+      STATUS_CODES.CONFLICT
+    ) {
       return (
         <Alert
           visible

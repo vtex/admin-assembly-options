@@ -11,6 +11,7 @@ import { useIntl } from 'react-intl'
 import type {
   MutationCreateAssemblyOptionArgs,
   AssemblyOption,
+  AssemblyOptionConfigInput,
 } from 'vtexbr.assembly-options-graphql'
 import { useMutation } from 'react-apollo'
 
@@ -45,7 +46,14 @@ const RegisterPage = () => {
             name,
             isRequired: required,
             isActive: active,
-            configs: group,
+            configs: group.map((item) => {
+              return {
+                name: item.name,
+                maxItems: item.maxItems,
+                minItems: item.minItems,
+                items: item.items,
+              } as AssemblyOptionConfigInput
+            }),
           },
         },
       })
