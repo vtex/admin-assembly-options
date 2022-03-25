@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
   Page,
   PageHeader,
@@ -16,16 +16,17 @@ import { useMutation } from 'react-apollo'
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
+import type { RegisterFormHandle } from '../RegisterForm/RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 import { useRegisterContext } from '../../context/RegisterContext'
 import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
-import { useGroupFormContext } from '../../context/GroupFormContext'
 
 const RegisterPage = () => {
   const intl = useIntl()
-  const { name, required, active, group } = useRegisterContext()
 
-  const { submitAndValidateForms } = useGroupFormContext()
+  const registerFormRef = useRef<RegisterFormHandle>(null)
+
+  const { name, required, active, group } = useRegisterContext()
 
   const [createAssembly, { data, error, loading }] = useMutation<
     AssemblyOption,
@@ -33,9 +34,11 @@ const RegisterPage = () => {
   >(CREATE_ASSEMBLY)
 
   const handleSave = async () => {
-    const formsAreValid = await submitAndValidateForms()
+    await registerFormRef.current?.handleSubmit()
 
-    if (formsAreValid) {
+    const formIsValid = registerFormRef.current?.validateForm()
+
+    if (formIsValid) {
       createAssembly({
         variables: {
           assemblyOption: {
@@ -61,7 +64,7 @@ const RegisterPage = () => {
       </PageHeader>
       <PageContent>
         <RegisterMessages data={data} error={error} />
-        <RegisterForm />
+        <RegisterForm ref={registerFormRef} />
       </PageContent>
     </Page>
   )
