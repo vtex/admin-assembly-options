@@ -1,4 +1,5 @@
 import React from 'react'
+import type { ModalStateReturn } from '@vtex/admin-ui'
 import {
   Modal,
   ModalHeader,
@@ -20,16 +21,23 @@ import { messages } from '../../utils/messages'
 
 interface Props {
   handleClose: (form: SKUType) => void
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  modalState: any
-  initialSKU: SKUType
+  modalState: ModalStateReturn
+  initialValue?: SKUType
 }
 
 const SKUModal = (props: Props) => {
-  const { handleClose, modalState, initialSKU } = props
+  const { handleClose, modalState, initialValue } = props
   const intl = useIntl()
 
-  const initialValue: SKUType = initialSKU
+  const defaultValue: SKUType = {
+    skuId: '',
+    priceTable: '',
+    minValue: 0,
+    maxValue: 0,
+    defaultValue: 0,
+  }
+
+  const initialFormValue = initialValue ?? defaultValue
 
   const SchemaValidationError = yup.object({
     skuId: yup
@@ -97,7 +105,7 @@ const SKUModal = (props: Props) => {
     <Box>
       <Modal aria-label="SKU-modal" state={modalState} size="regular">
         <Formik
-          initialValues={initialValue}
+          initialValues={initialFormValue}
           onSubmit={handleSubmit}
           validationSchema={SchemaValidationError}
           enableReinitialize

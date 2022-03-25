@@ -14,16 +14,19 @@ import {
   IconWarning,
   IconTrash,
 } from '@vtex/admin-ui'
+import type { FormikProps } from 'formik'
 import { Formik, Form } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 import { useIntl } from 'react-intl'
 import * as yup from 'yup'
+import useDidMount from '@rooks/use-did-mount'
 
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
 import { messages } from '../../utils/messages'
 import type { AssemblyGroupType, SKUType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
+import { useGroupFormContext } from '../../context/GroupFormContext'
 
 interface Props {
   groupIndex: number
@@ -36,32 +39,29 @@ interface GroupType {
   maxItems: number
 }
 
+interface FormValuesType {
+  name: string
+  minItems: number
+  maxItems: number
+}
+
 const AssemblyGroup = (props: Props) => {
   const state = useCollapsibleState({ visible: true })
   const { visible } = state
   const intl = useIntl()
-  const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex, groupValue } = props
+  const { group, setAssemblyGroup } = useRegisterContext()
+  const { addFormRef, removeFormRef } = useGroupFormContext()
+
   const modal = useModalState()
 
-  const initialValueSKU: SKUType = {
-    skuId: '',
-    priceTable: '',
-    minValue: 0,
-    maxValue: 0,
-    defaultValue: 0,
-  }
+  const formRef = React.useRef<FormikProps<FormValuesType>>(null)
 
-  const initialValues = {
+  const initialValues: FormValuesType = {
     name: groupValue.name || '',
     minItems: groupValue.minItems || 0,
     maxItems: groupValue.maxItems || 0,
   }
-
-  // eslint-disable-next-line no-console
-  console.log('qlq coisa 2')
-  // eslint-disable-next-line no-console
-  console.log('initial value', initialValues)
 
   const SchemaValidationError = yup.object().shape({
     name: yup
@@ -106,19 +106,24 @@ const AssemblyGroup = (props: Props) => {
     })
   }
 
+  useDidMount(() => {
+    addFormRef<FormValuesType>(formRef)
+
+    return () => {
+      removeFormRef<FormValuesType>(formRef)
+    }
+  })
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={SchemaValidationError}
       enableReinitialize
+      innerRef={formRef}
     >
       {({ values, isValid, dirty }) => (
         <Form>
-          {
-            // eslint-disable-next-line no-console
-            console.log(values, isValid, dirty)
-          }
           <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
             <CollapsibleHeader
               csx={{ padding: '10px 0px' }}
@@ -180,7 +185,7 @@ const AssemblyGroup = (props: Props) => {
                       <FormikNumericStepper
                         name="maxItems"
                         label="Maximum Items"
-                        minValue={values.minItems}
+                        minValue={0}
                         onChange={(e) => {
                           group[groupIndex].maxItems = e.value
                           setAssemblyGroup([...group])
@@ -201,11 +206,7 @@ const AssemblyGroup = (props: Props) => {
                       {intl.formatMessage(messages.addSKUButton)}
                     </Button>
                   </ModalDisclosure>
-                  <SKUModal
-                    handleClose={handleClose}
-                    modalState={modal}
-                    initialSKU={initialValueSKU}
-                  />
+                  <SKUModal handleClose={handleClose} modalState={modal} />
                 </Box>
               </Flex>
             </CollapsibleContent>

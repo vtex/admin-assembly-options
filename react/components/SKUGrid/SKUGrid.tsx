@@ -102,7 +102,7 @@ const SKUGrid = (props: Props) => {
                     <SKUModal
                       handleClose={handleClose}
                       modalState={modal}
-                      initialSKU={actualSKU}
+                      initialValue={actualSKU}
                     />
                     <MenuItem
                       onClick={item.handleDelete}

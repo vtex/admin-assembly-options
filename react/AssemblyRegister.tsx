@@ -3,6 +3,7 @@ import { createSystem } from '@vtex/admin-ui'
 
 import RegisterProvider from './provider/RegisterProvider'
 import RegisterPage from './components/RegisterPage/RegisterPage'
+import GroupFormProvider from './provider/GroupFormProvider'
 
 const AssemblyRegister = () => {
   const [ThemeProvider] = createSystem({
@@ -12,7 +13,9 @@ const AssemblyRegister = () => {
   return (
     <ThemeProvider>
       <RegisterProvider>
-        <RegisterPage />
+        <GroupFormProvider>
+          <RegisterPage />
+        </GroupFormProvider>
       </RegisterProvider>
     </ThemeProvider>
   )
