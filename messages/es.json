@@ -40,5 +40,7 @@
 
   "admin/assembly.register.error-name-required": "El campo es obligatorio",
   "admin/assembly.register.error-number-comparison": "El número máximo debe ser mayor que el número mínimo",
-  "admin/assembly.register.unamed-group": "Grupo sem nombre"
+  "admin/assembly.register.unamed-group": "Grupo sem nombre",
+  "admin/assembly.register.name-exists": "Este nombre de Assembly Options ya existe, intente con otro",
+  "admin/assembly.register.form-with-error": "El formulario no se rellenó correctamente, consultar posibles ajustes"
 }

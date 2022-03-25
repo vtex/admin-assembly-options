@@ -27,9 +27,6 @@ const RegisterForm = () => {
     alert('Values submitted: ')
   }
 
-  // eslint-disable-next-line no-console
-  console.log('GROUP FORM', group)
-
   const SchemaValidationError = yup.object().shape({
     name: yup
       .string()

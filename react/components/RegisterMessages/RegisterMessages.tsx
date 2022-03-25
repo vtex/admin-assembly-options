@@ -8,6 +8,9 @@ import { messages } from '../../utils/messages'
 interface Extensions {
   exception: {
     graphQLErrors: ErrorType[]
+    response: {
+      status: number
+    }
   }
 }
 
@@ -102,6 +105,22 @@ const RegisterMessages = (props: Props) => {
       )
     }
 
+    if (error.graphQLErrors[0].extensions.exception.response.status === 409) {
+      return (
+        <Alert
+          visible
+          tone="critical"
+          csx={{
+            display: 'flex important',
+            height: 'fit-content !important',
+            marginTop: '20px',
+          }}
+        >
+          {intl.formatMessage(messages.nameAlreadyExist)}
+        </Alert>
+      )
+    }
+
     return (
       <Alert
         visible
@@ -112,7 +131,7 @@ const RegisterMessages = (props: Props) => {
           marginTop: '20px',
         }}
       >
-        O formulário não foi preenchido corretamente
+        {intl.formatMessage(messages.formWithError)}
       </Alert>
     )
   }

@@ -119,4 +119,12 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.unamed-group',
     defaultMessage: '',
   },
+  nameAlreadyExist: {
+    id: 'admin/assembly.register.name-exists',
+    defaultMessage: '',
+  },
+  formWithError: {
+    id: 'admin/assembly.register.form-with-error',
+    defaultMessage: '',
+  },
 })

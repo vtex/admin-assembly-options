@@ -58,11 +58,6 @@ const AssemblyGroup = (props: Props) => {
     maxItems: groupValue.maxItems || 0,
   }
 
-  // eslint-disable-next-line no-console
-  console.log('qlq coisa 2')
-  // eslint-disable-next-line no-console
-  console.log('initial value', initialValues)
-
   const SchemaValidationError = yup.object().shape({
     name: yup
       .string()
@@ -115,10 +110,6 @@ const AssemblyGroup = (props: Props) => {
     >
       {({ values, isValid, dirty }) => (
         <Form>
-          {
-            // eslint-disable-next-line no-console
-            console.log(values, isValid, dirty)
-          }
           <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
             <CollapsibleHeader
               csx={{ padding: '10px 0px' }}
