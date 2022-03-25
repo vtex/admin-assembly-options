@@ -154,7 +154,7 @@ const AssemblyGroup = (props: Props) => {
               <Flex direction="column" justify="space-between">
                 <Flex direction="column">
                   <FormikInput
-                    id="name"
+                    id={`assembly-group-name-${groupIndex}`}
                     name="name"
                     label={`${intl.formatMessage(messages.keyNameLabel)}`}
                     csx={{ margin: '0px' }}
