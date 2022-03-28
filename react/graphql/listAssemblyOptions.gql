@@ -1,5 +1,5 @@
-query ($page: Int, $perPage: Int) {
-  listAssemblyOptions(page: $page, perPage: $perPage) {
+query ($page: Int, $perPage: Int, $name: String) {
+  listAssemblyOptions(page: $page, perPage: $perPage, name: $name) {
     data {
       id
       assemblyOptionId: id

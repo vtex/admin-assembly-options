@@ -155,6 +155,10 @@ export const messages = defineMessages({
     id: 'admin/assembly.list.required.no',
     defaultMessage: '',
   },
+  listSearchPlaceholder: {
+    id: 'admin/assembly.list.search.placeholder',
+    defaultMessage: '',
+  },
   paginationPreposition: {
     id: 'admin/assembly.list.pagination.preposition',
     defaultMessage: '',

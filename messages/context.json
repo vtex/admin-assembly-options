@@ -50,6 +50,7 @@
   "admin/assembly.list.status.inactive": "Inactive",
   "admin/assembly.list.required.yes": "Yes",
   "admin/assembly.list.required.no": "No",
+  "admin/assembly.list.search.placeholder": "Search",
   "admin/assembly.list.pagination.preposition": "of",
   "admin/assembly.list.pagination.subject": "results",
   "admin/assembly.list.pagination.prevLabel": "Previous",
