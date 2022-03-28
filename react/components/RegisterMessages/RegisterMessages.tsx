@@ -4,6 +4,7 @@ import type { AssemblyOption } from 'vtexbr.assembly-options-graphql'
 import { FormattedMessage, useIntl } from 'react-intl'
 
 import { messages } from '../../utils/messages'
+import { HTTP_STATUS } from '../../utils/httpStatus'
 
 interface Extensions {
   exception: {
@@ -17,6 +18,7 @@ interface Extensions {
 interface ApolloError {
   graphQLErrors: Array<{
     extensions: Extensions
+    message: string
   }>
 }
 
@@ -43,10 +45,6 @@ type ErrorKeys =
   | 'uniqueKeyValidate'
 
 const RegisterMessages = (props: Props) => {
-  const STATUS_CODES = {
-    CONFLICT: 409,
-  }
-
   const { data, error } = props
   const intl = useIntl()
   const errorMessages: { [key in ErrorKeys]: string } = {
@@ -69,9 +67,6 @@ const RegisterMessages = (props: Props) => {
     if (error?.graphQLErrors[0]?.extensions?.exception?.graphQLErrors) {
       const errorsGraphQL =
         error.graphQLErrors[0].extensions.exception.graphQLErrors
-
-      // eslint-disable-next-line no-console
-      console.log('ERRORS', error.graphQLErrors[0])
 
       return (
         <Alert
@@ -114,7 +109,7 @@ const RegisterMessages = (props: Props) => {
 
     if (
       error?.graphQLErrors[0]?.extensions?.exception?.response?.status ===
-      STATUS_CODES.CONFLICT
+      HTTP_STATUS.CONFLICT
     ) {
       return (
         <Alert
@@ -141,7 +136,10 @@ const RegisterMessages = (props: Props) => {
           marginTop: '20px',
         }}
       >
-        {intl.formatMessage(messages.formWithError)}
+        <strong>{intl.formatMessage(messages.formWithError)}</strong>
+        <small>
+          <p>{error.graphQLErrors[0].message}</p>
+        </small>
       </Alert>
     )
   }
