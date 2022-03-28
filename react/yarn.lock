@@ -1961,17 +1961,17 @@ vtex-tachyons@^3.2.0:
   resolved "https://registry.yarnpkg.com/vtex-tachyons/-/vtex-tachyons-3.2.2.tgz#e9e39d939778ef7d80a92c476cecf7417f79a6e8"
   integrity sha512-4M53uuvV+2XEjplVYiPgpBuaI5dtGksVgz/20NNjbZkXklJM7Lwgod/hOoh3PtIn36+95zZVVgXYfs3e6EU8YA==
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime":
-  version "8.132.3"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime#c7dd142e384f38bd7a7c841543b73e9349fadc93"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
+  version "8.132.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
 
-"vtexbr.admin-assembly-options@https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1647886616/public/@types/vtexbr.admin-assembly-options":
+"vtexbr.admin-assembly-options@https://listassemblyoptionspagination--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1648478642/public/@types/vtexbr.admin-assembly-options":
   version "0.1.0"
-  resolved "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1647886616/public/@types/vtexbr.admin-assembly-options#1453478b3d870b5a2facd00a71fc9814e6ee1a04"
+  resolved "https://listassemblyoptionspagination--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.1.0+build1648478642/public/@types/vtexbr.admin-assembly-options#2d48b360087288d47fecf30e8740e52adfa369a9"
 
-"vtexbr.assembly-options-graphql@https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.4+build1647884432/public/@types/vtexbr.assembly-options-graphql":
-  version "0.0.4"
-  resolved "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.4+build1647884432/public/@types/vtexbr.assembly-options-graphql#31b931cc96df37266d041873ac2c20059e560702"
+"vtexbr.assembly-options-graphql@https://listassemblyoptionspagination--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.5+build1648478497/public/@types/vtexbr.assembly-options-graphql":
+  version "0.0.5"
+  resolved "https://listassemblyoptionspagination--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.0.5+build1648478497/public/@types/vtexbr.assembly-options-graphql#35de87d12fb219df6411391eb8e234d43c789ae6"
 
 warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
   version "4.0.3"
