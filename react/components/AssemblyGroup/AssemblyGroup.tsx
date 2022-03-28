@@ -56,7 +56,11 @@ const AssemblyGroup = (props: Props) => {
   }
 
   return (
-    <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
+    <Collapsible
+      csx={{ width: '100%', marginTop: '20px' }}
+      state={state}
+      disabled={false}
+    >
       <CollapsibleHeader
         csx={{ padding: '10px 0px' }}
         label={`${intl.formatMessage(messages.keyName)} ${groupName}`}
