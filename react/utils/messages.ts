@@ -116,11 +116,11 @@ export const messages = defineMessages({
     defaultMessage: '',
   },
   noResults: {
-    id: 'admin/assembly.list.new-assembly-option',
+    id: 'admin/assembly.list.query-no-results',
     defaultMessage: '',
   },
   queryError: {
-    id: 'admin/assembly.list.new-assembly-option',
+    id: 'admin/assembly.list.query-error',
     defaultMessage: '',
   },
   listHeaderId: {
