@@ -1,11 +1,16 @@
-{
-  listAssemblyOptions {
+query ($page: Int, $perPage: Int) {
+  listAssemblyOptions(page: $page, perPage: $perPage) {
     data {
       id
       assemblyOptionId: id
       name
       isRequired
       isActive
+    }
+    pagination {
+      page
+      pageSize
+      total
     }
   }
 }
