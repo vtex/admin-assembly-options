@@ -158,10 +158,6 @@ const AssemblyGroup = (props: Props) => {
                     name="name"
                     label={`${intl.formatMessage(messages.keyNameLabel)}`}
                     csx={{ margin: '0px' }}
-                    // onChange={(e) => {
-                    //   group[groupIndex].name = e.target.value
-                    //   setAssemblyGroup([...group])
-                    // }}
                   />
                   <Flex csx={{ paddingRight: 3 }}>
                     <Box csx={{ width: '1/2', paddingRight: 2, marginTop: 3 }}>
@@ -172,10 +168,6 @@ const AssemblyGroup = (props: Props) => {
                         name="minItems"
                         label="Minimum Items"
                         minValue={0}
-                        // onChange={(e) => {
-                        //   group[groupIndex].minItems = e.value
-                        //   setAssemblyGroup([...group])
-                        // }}
                       />
                     </Box>
                     <Box csx={{ width: '1/2', marginTop: 3 }}>
@@ -186,10 +178,6 @@ const AssemblyGroup = (props: Props) => {
                         name="maxItems"
                         label="Maximum Items"
                         minValue={0}
-                        // onChange={(e) => {
-                        //   group[groupIndex].maxItems = e.value
-                        //   setAssemblyGroup([...group])
-                        // }}
                       />
                     </Box>
                   </Flex>
