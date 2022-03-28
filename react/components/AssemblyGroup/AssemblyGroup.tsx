@@ -20,6 +20,7 @@ import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 import { useIntl } from 'react-intl'
 import * as yup from 'yup'
 import useDidMount from '@rooks/use-did-mount'
+import useWillUnmount from '@rooks/use-will-unmount'
 
 import SKUModal from '../SKUModal'
 import SKUGrid from '../SKUGrid'
@@ -108,10 +109,10 @@ const AssemblyGroup = (props: Props) => {
 
   useDidMount(() => {
     addFormRef<FormValuesType>(formRef)
+  })
 
-    return () => {
-      removeFormRef<FormValuesType>(formRef)
-    }
+  useWillUnmount(() => {
+    removeFormRef<FormValuesType>(formRef)
   })
 
   return (

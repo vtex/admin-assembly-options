@@ -393,6 +393,11 @@
   resolved "https://registry.yarnpkg.com/@rooks/use-did-mount/-/use-did-mount-4.11.2.tgz#b0d33be4eda3423292c25d3df3dca0eefd57f83f"
   integrity sha512-tWveQghpRI2ioRczJn3EfMqNVJjXmwIze3fEAPufCkOUTPz/5UsncrSF1LYkfkNPr6QKFKVMyINWdFpuF0HS4Q==
 
+"@rooks/use-will-unmount@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@rooks/use-will-unmount/-/use-will-unmount-4.11.2.tgz#9ffefd54418b4031d2818a0e3419fd8af7db3733"
+  integrity sha512-FxOTc3XYrue3fTmt41v9gKqajKjMnfK7Wv0O/bxr2YFaiaduFQCa9iHH8vQTdcO0dWtGZPoohnht/6m0Xk+64g==
+
 "@types/faker@^5.5.9":
   version "5.5.9"
   resolved "https://registry.yarnpkg.com/@types/faker/-/faker-5.5.9.tgz#588ede92186dc557bff8341d294335d50d255f0c"
