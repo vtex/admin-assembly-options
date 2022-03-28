@@ -1,0 +1,11 @@
+{
+  listAssemblyOptions {
+    data {
+      id
+      assemblyOptionId: id
+      name
+      isRequired
+      isActive
+    }
+  }
+}

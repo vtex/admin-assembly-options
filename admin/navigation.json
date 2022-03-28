@@ -5,7 +5,11 @@
   "subSectionItems": [
     {
       "labelId": "admin/assembly.navigation.label-main",
-      "path": "/admin/assembly-register"
+      "path": "/admin/assembly-options/register"
+    },
+    {
+      "labelId": "admin/assembly.navigation.label-group",
+      "path": "/admin/assembly-options"
     }
   ]
 }

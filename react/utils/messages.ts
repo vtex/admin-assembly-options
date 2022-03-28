@@ -1,7 +1,6 @@
-import type { MessageDescriptor } from 'react-intl'
 import { defineMessages } from 'react-intl'
 
-export const messages: { [name: string]: MessageDescriptor } = defineMessages({
+export const messages = defineMessages({
   navigationGroup: {
     id: 'admin/assembly.navigation.label-group',
     defaultMessage: '',
@@ -106,6 +105,54 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
   },
   assemblygraphQLSuccess: {
     id: 'admin/assembly.register.success-graphql',
+    defaultMessage: '',
+  },
+  pageTitleList: {
+    id: 'admin/assembly.list.page-title',
+    defaultMessage: '',
+  },
+  addAssemblyOption: {
+    id: 'admin/assembly.list.new-assembly-option',
+    defaultMessage: '',
+  },
+  noResults: {
+    id: 'admin/assembly.list.query-no-results',
+    defaultMessage: '',
+  },
+  queryError: {
+    id: 'admin/assembly.list.query-error',
+    defaultMessage: '',
+  },
+  listHeaderId: {
+    id: 'admin/assembly.list.header.id',
+    defaultMessage: '',
+  },
+  listHeaderName: {
+    id: 'admin/assembly.list.header.name',
+    defaultMessage: '',
+  },
+  listHeaderStatus: {
+    id: 'admin/assembly.list.header.status',
+    defaultMessage: '',
+  },
+  listHeaderRequired: {
+    id: 'admin/assembly.list.header.required',
+    defaultMessage: '',
+  },
+  listColumnStatusTrue: {
+    id: 'admin/assembly.list.status.active',
+    defaultMessage: '',
+  },
+  listColumnStatusFalse: {
+    id: 'admin/assembly.list.status.inactive',
+    defaultMessage: '',
+  },
+  listColumnRequiredTrue: {
+    id: 'admin/assembly.list.required.yes',
+    defaultMessage: '',
+  },
+  listColumnRequiredFalse: {
+    id: 'admin/assembly.list.required.no',
     defaultMessage: '',
   },
 })

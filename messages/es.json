@@ -36,5 +36,18 @@
   "admin/assembly.register.error-sku-range-assembly": "La cantidad de SKU {skuId} está fuera del rango del grupo {configName}",
   "admin/assembly.register.error-sku-range-assembly-default": "La suma de los valores de SKU es mayor que la cantidad máxima permitida por el grupo {configName}",
   "admin/assembly.register.error-unique-key": "El Assembly Option debe tener un nombre único",
-  "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito"
+  "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito",
+
+  "admin/assembly.list.page-title": "Assembly Options",
+  "admin/assembly.list.new-assembly-option": "Agregar Assembly Option",
+  "admin/assembly.list.query-error": "Algo salió mal.",
+  "admin/assembly.list.query-no-results": "Ningún resultado encontrado.",
+  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.name": "Nombre",
+  "admin/assembly.list.header.status": "Estado",
+  "admin/assembly.list.header.required": "Requerido",
+  "admin/assembly.list.status.active": "Activo",
+  "admin/assembly.list.status.inactive": "Inactivo",
+  "admin/assembly.list.required.yes": "Sí",
+  "admin/assembly.list.required.no": "No"
 }
