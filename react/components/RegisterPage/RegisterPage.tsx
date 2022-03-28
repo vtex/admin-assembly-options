@@ -35,9 +35,9 @@ const RegisterPage = () => {
   >(CREATE_ASSEMBLY)
 
   const handleSave = async () => {
-    await registerFormRef.current?.handleSubmit()
+    await registerFormRef?.current?.handleSubmit()
 
-    const formIsValid = registerFormRef.current?.validateForm()
+    const formIsValid = registerFormRef?.current?.validateForm()
 
     if (formIsValid) {
       createAssembly({
@@ -66,7 +66,7 @@ const RegisterPage = () => {
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
           <Button loading={loading} onClick={handleSave}>
-            Save
+            {intl.formatMessage(messages.saveAction)}
           </Button>
         </PageActions>
       </PageHeader>

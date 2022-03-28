@@ -65,7 +65,7 @@ const SKUGrid = (props: Props) => {
       },
       {
         id: 'initialQuantity',
-        header: `${intl.formatMessage(messages.SKUItemInitial)}`,
+        header: `${intl.formatMessage(messages.SKUItemInitialGrid)}`,
       },
       {
         id: 'actions',
@@ -96,7 +96,7 @@ const SKUGrid = (props: Props) => {
                   <MenuList aria-label="actions" state={menuState}>
                     <ModalDisclosure state={modal}>
                       <Button icon={<IconPencil />} variant="tertiary">
-                        Edit
+                        {intl.formatMessage(messages.editAction)}
                       </Button>
                     </ModalDisclosure>
                     <SKUModal
@@ -110,7 +110,7 @@ const SKUGrid = (props: Props) => {
                       csx={{ color: '#CC3E3E' }}
                     >
                       {' '}
-                      {'Delete'}{' '}
+                      {intl.formatMessage(messages.deleteAction)}{' '}
                     </MenuItem>
                   </MenuList>
                 </Menu>

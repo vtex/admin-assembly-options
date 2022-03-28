@@ -22,6 +22,7 @@
   "admin/assembly.register.sku-items-min": "Min Quantity*",
   "admin/assembly.register.sku-items-max": "Max Quantity*",
   "admin/assembly.register.sku-items-initial": "Initial Quantity*",
+  "admin/assembly.register.sku-items-initial-grid": "Initial Quantity",
   "admin/assembly.register.sku-items-confirm": "Confirm",
   "admin/assembly.register.price-table": "Price Table",
   "admin/assembly.register.actions": "Actions",
@@ -42,5 +43,9 @@
   "admin/assembly.register.error-number-comparison": "The maximum number must be higher than the minimum number",
   "admin/assembly.register.unamed-group": "Unamed Group",
   "admin/assembly.register.name-exists": "This Assembly Options name already exists, try another one",
-  "admin/assembly.register.form-with-error": "The form was not filled out correctly, check possible adjustments"
+  "admin/assembly.register.form-with-error": "The form was not filled out correctly, check possible adjustments",
+
+  "admin/assembly.register.delete-action": "Delete",
+  "admin/assembly.register.edit-action": "Edit",
+  "admin/assembly.register.save-action": "Save"
 }

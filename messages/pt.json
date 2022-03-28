@@ -22,6 +22,7 @@
   "admin/assembly.register.sku-items-min": "Quantidade mínima*",
   "admin/sembly.register.sku-items-max": "Quantidade máxima*",
   "admin/assembly.register.sku-items-initial": "Quantidade inicial*",
+  "admin/assembly.register.sku-items-initial-grid": "Quantidade inicial",
   "admin/assembly.register.sku-items-confirm": "Confirmar",
   "admin/assembly.register.price-table": "Tabela de Preço",
   "admin/assembly.register.actions": "Ações",
@@ -41,5 +42,9 @@
   "admin/assembly.register.error-number-comparison": "O número máximo deve ser maior que o número mínimo",
   "admin/assembly.register.unamed-group": "Grupo não nomeado",
   "admin/assembly.register.name-exists": "Esse nome do Assembly Options já existe, tente outro",
-  "admin/assembly.register.form-with-error": "O formulário não foi preenchido corretamente, verifique possíveis ajustes"
+  "admin/assembly.register.form-with-error": "O formulário não foi preenchido corretamente, verifique possíveis ajustes",
+
+  "admin/assembly.register.delete-action": "Deletar",
+  "admin/assembly.register.edit-action": "Editar",
+  "admin/assembly.register.save-action": "Salvar"
 }

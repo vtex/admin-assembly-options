@@ -10,9 +10,12 @@ import {
   Button,
   ModalDisclosure,
   useModalState,
-  Tooltip,
-  IconWarning,
   IconTrash,
+  Menu,
+  MenuList,
+  MenuButton,
+  MenuItem,
+  useMenuState,
 } from '@vtex/admin-ui'
 import type { FormikProps } from 'formik'
 import { Formik, Form } from 'formik'
@@ -47,11 +50,11 @@ interface FormValuesType {
 
 const AssemblyGroup = (props: Props) => {
   const state = useCollapsibleState({ visible: true })
-  const { visible } = state
   const intl = useIntl()
   const { groupIndex, groupValue } = props
   const { group, setAssemblyGroup } = useRegisterContext()
   const { addFormRef, removeFormRef } = useGroupFormContext()
+  const menuState = useMenuState()
 
   const modal = useModalState()
 
@@ -122,7 +125,7 @@ const AssemblyGroup = (props: Props) => {
       enableReinitialize
       innerRef={formRef}
     >
-      {({ values, isValid, dirty }) => (
+      {({ values }) => (
         <Form>
           <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
             <CollapsibleHeader
@@ -133,21 +136,19 @@ const AssemblyGroup = (props: Props) => {
                   : `${intl.formatMessage(messages.unamedGroup)}`
               }
             >
-              {(dirty && isValid === false) ||
-              (values.name === '' && visible === false) ? (
-                <Tooltip
-                  label="Esse grupo precisa de ajustes"
-                  placement="right"
-                >
-                  <Button
-                    icon={<IconWarning csx={{ color: '#CC3E3E' }} />}
-                    variant="tertiary"
-                  />
-                </Tooltip>
-              ) : null}
-              <Button onClick={() => handleDelete()}>
-                <IconTrash />
-              </Button>
+              <Menu state={menuState} hideOnClick>
+                <MenuButton display="actions" variant="tertiary" />
+                <MenuList aria-label="actions" state={state}>
+                  <MenuItem
+                    onClick={handleDelete}
+                    icon={<IconTrash />}
+                    csx={{ color: '#CC3E3E' }}
+                  >
+                    {' '}
+                    {intl.formatMessage(messages.deleteAction)}{' '}
+                  </MenuItem>
+                </MenuList>
+              </Menu>
             </CollapsibleHeader>
 
             <CollapsibleContent>

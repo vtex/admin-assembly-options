@@ -86,6 +86,10 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
     id: 'admin/assembly.register.sku-items-initial',
     defaultMessage: '',
   },
+  SKUItemInitialGrid: {
+    id: 'admin/assembly.register.sku-items-initial-grid',
+    defaultMessage: '',
+  },
   SKUItemConfirm: {
     id: 'admin/assembly.register.sku-items-confirm',
     defaultMessage: '',
@@ -125,6 +129,18 @@ export const messages: { [name: string]: MessageDescriptor } = defineMessages({
   },
   formWithError: {
     id: 'admin/assembly.register.form-with-error',
+    defaultMessage: '',
+  },
+  deleteAction: {
+    id: 'admin/assembly.register.delete-action',
+    defaultMessage: '',
+  },
+  editAction: {
+    id: 'admin/assembly.register.edit-action',
+    defaultMessage: '',
+  },
+  saveAction: {
+    id: 'admin/assembly.register.save-action',
     defaultMessage: '',
   },
 })
