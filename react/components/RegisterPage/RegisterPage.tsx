@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Page,
   PageHeader,
@@ -25,6 +25,8 @@ import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 const RegisterPage = () => {
   const intl = useIntl()
 
+  const [handlingSave, setHandlingSave] = useState(false)
+
   const registerFormRef = useRef<RegisterFormHandle>(null)
 
   const { name, required, active, group } = useRegisterContext()
@@ -40,6 +42,15 @@ const RegisterPage = () => {
     const formIsValid = registerFormRef?.current?.validateForm()
 
     if (formIsValid) {
+      setHandlingSave(true)
+    }
+  }
+
+  // effect to get form values updated from Register Context
+  useEffect(() => {
+    if (handlingSave) {
+      setHandlingSave(false)
+
       createAssembly({
         variables: {
           assemblyOption: {
@@ -58,7 +69,7 @@ const RegisterPage = () => {
         },
       })
     }
-  }
+  }, [name, required, active, group, handlingSave, createAssembly])
 
   return (
     <Page>
