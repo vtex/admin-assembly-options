@@ -130,7 +130,7 @@ const AssemblyGroup = (props: Props) => {
         <Form>
           <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
             <CollapsibleHeader
-              csx={{ padding: '10px 0px' }}
+              csx={{ padding: '10px 15px' }}
               label={
                 values.name
                   ? `${values.name}`
@@ -145,8 +145,7 @@ const AssemblyGroup = (props: Props) => {
                     icon={<IconTrash />}
                     csx={{ color: '#CC3E3E' }}
                   >
-                    {' '}
-                    {intl.formatMessage(messages.deleteAction)}{' '}
+                    {intl.formatMessage(messages.deleteAction)}
                   </MenuItem>
                 </MenuList>
               </Menu>
@@ -159,6 +158,7 @@ const AssemblyGroup = (props: Props) => {
                     id={`assembly-group-name-${groupIndex}`}
                     name="name"
                     label={`${intl.formatMessage(messages.keyNameLabel)}`}
+                    helperText={intl.formatMessage(messages.keyNameLabelHelper)}
                     csx={{ margin: '0px' }}
                   />
                   <Flex csx={{ paddingRight: 3 }}>
