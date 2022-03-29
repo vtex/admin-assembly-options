@@ -128,7 +128,11 @@ const AssemblyGroup = (props: Props) => {
     >
       {({ values }) => (
         <Form>
-          <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
+          <Collapsible
+            csx={{ width: '100%', marginTop: '20px' }}
+            state={state}
+            disabled={false}
+          >
             <CollapsibleHeader
               csx={{ padding: '10px 15px' }}
               label={
@@ -150,7 +154,6 @@ const AssemblyGroup = (props: Props) => {
                 </MenuList>
               </Menu>
             </CollapsibleHeader>
-
             <CollapsibleContent>
               <Flex direction="column" justify="space-between">
                 <Flex direction="column">
