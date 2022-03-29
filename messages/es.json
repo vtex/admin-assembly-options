@@ -48,5 +48,25 @@
 
   "admin/assembly.register.delete-action": "Eliminar",
   "admin/assembly.register.edit-action": "Editar",
-  "admin/assembly.register.save-action": "Ahorrar"
+  "admin/assembly.register.save-action": "Ahorrar",
+  "admin/assembly.list.page-title": "Assembly Options",
+  "admin/assembly.list.new-assembly-option": "Agregar Assembly Option",
+  "admin/assembly.list.query-error": "Algo salió mal.",
+  "admin/assembly.list.query-no-results": "Ningún resultado encontrado.",
+  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.name": "Nombre",
+  "admin/assembly.list.header.status": "Estado",
+  "admin/assembly.list.header.required": "Requerido",
+  "admin/assembly.list.status.active": "Activo",
+  "admin/assembly.list.status.inactive": "Inactivo",
+  "admin/assembly.list.required.yes": "Sí",
+  "admin/assembly.list.required.no": "No",
+  "admin/assembly.list.search.placeholder": "Búsqueda",
+  "admin/assembly.list.pagination.preposition": "de",
+  "admin/assembly.list.pagination.subject": "resultados",
+  "admin/assembly.list.pagination.prevLabel": "Previo",
+  "admin/assembly.list.pagination.nextLabel": "Próximo",
+
+  "admin/assembly.register.error-default-min": "El valor inicial es menor que el valor mínimo",
+  "admin/assembly.register.error-default-max": "El valor inicial es mayor que el valor máximo"
 }

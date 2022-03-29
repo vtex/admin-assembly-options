@@ -109,8 +109,7 @@ const SKUGrid = (props: Props) => {
                       icon={<IconTrash />}
                       csx={{ color: '#CC3E3E' }}
                     >
-                      {' '}
-                      {intl.formatMessage(messages.deleteAction)}{' '}
+                      {intl.formatMessage(messages.deleteAction)}
                     </MenuItem>
                   </MenuList>
                 </Menu>

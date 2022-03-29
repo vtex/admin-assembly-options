@@ -41,11 +41,30 @@
 
   "admin/assembly.register.error-name-required": "Esse campo é obrigatório",
   "admin/assembly.register.error-number-comparison": "O número máximo deve ser maior que o número mínimo",
+  "admin/assembly.register.error-default-min": "O valor inicial é menor que o valor mínimo",
+  "admin/assembly.register.error-default-max": "O valor inicial é maior que o valor máximo",
   "admin/assembly.register.unamed-group": "Grupo não nomeado",
   "admin/assembly.register.name-exists": "Esse nome do Assembly Options já existe, tente outro",
   "admin/assembly.register.form-with-error": "O formulário não foi preenchido corretamente, verifique possíveis ajustes",
 
   "admin/assembly.register.delete-action": "Deletar",
   "admin/assembly.register.edit-action": "Editar",
-  "admin/assembly.register.save-action": "Salvar"
+  "admin/assembly.register.save-action": "Salvar",
+  "admin/assembly.list.page-title": "Assembly Options",
+  "admin/assembly.list.new-assembly-option": "Adicionar Assembly Option",
+  "admin/assembly.list.query-error": "Algo deu errado.",
+  "admin/assembly.list.query-no-results": "Nenhum resultado encontrado.",
+  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.name": "Nome",
+  "admin/assembly.list.header.status": "Status",
+  "admin/assembly.list.header.required": "Obrigatório",
+  "admin/assembly.list.status.active": "Ativo",
+  "admin/assembly.list.status.inactive": "Inativo",
+  "admin/assembly.list.required.yes": "Sim",
+  "admin/assembly.list.required.no": "Não",
+  "admin/assembly.list.search.placeholder": "Buscar",
+  "admin/assembly.list.pagination.preposition": "de",
+  "admin/assembly.list.pagination.subject": "resultados",
+  "admin/assembly.list.pagination.prevLabel": "Anterior",
+  "admin/assembly.list.pagination.nextLabel": "Próximo"
 }

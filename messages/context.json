@@ -48,5 +48,25 @@
 
   "admin/assembly.register.delete-action": "Delete",
   "admin/assembly.register.edit-action": "Edit",
-  "admin/assembly.register.save-action": "Save"
+  "admin/assembly.register.save-action": "Save",
+  "admin/assembly.list.page-title": "Assembly Options",
+  "admin/assembly.list.new-assembly-option": "Add Assembly Option",
+  "admin/assembly.list.query-error": "Something went wrong.",
+  "admin/assembly.list.query-no-results": "No results found.",
+  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.name": "Name",
+  "admin/assembly.list.header.status": "Status",
+  "admin/assembly.list.header.required": "Required",
+  "admin/assembly.list.status.active": "Active",
+  "admin/assembly.list.status.inactive": "Inactive",
+  "admin/assembly.list.required.yes": "Yes",
+  "admin/assembly.list.required.no": "No",
+  "admin/assembly.list.search.placeholder": "Search",
+  "admin/assembly.list.pagination.preposition": "of",
+  "admin/assembly.list.pagination.subject": "results",
+  "admin/assembly.list.pagination.prevLabel": "Previous",
+  "admin/assembly.list.pagination.nextLabel": "Next",
+
+  "admin/assembly.register.error-default-min": "The initial value is lower than the minimum value possible",
+  "admin/assembly.register.error-default-max": "The initial value is higher than the maximum value possible"
 }
