@@ -214,4 +214,12 @@ export const messages = defineMessages({
     id: 'admin/assembly.list.pagination.nextLabel',
     defaultMessage: '',
   },
+  errorDefaultMin: {
+    id: 'admin/assembly.register.error-default-min',
+    defaultMessage: '',
+  },
+  errorDefaultMax: {
+    id: 'admin/assembly.register.error-default-max',
+    defaultMessage: '',
+  },
 })

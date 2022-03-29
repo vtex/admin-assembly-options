@@ -70,13 +70,13 @@ const SKUModal = (props: Props) => {
       .required()
       .test(
         'min',
-        'The Default Value is lower than the minimum value possible',
+        `${intl.formatMessage(messages.errorDefaultMin)}`,
         (value: number | undefined, context) =>
           value !== undefined ? context.parent.minValue <= value : false
       )
       .test(
         'max',
-        'The Default Value is higher than the maximum value possible',
+        `${intl.formatMessage(messages.errorDefaultMax)}`,
         (value: number | undefined, context) =>
           value !== undefined ? context.parent.maxValue >= value : false
       ),
@@ -110,7 +110,7 @@ const SKUModal = (props: Props) => {
           validationSchema={SchemaValidationError}
           enableReinitialize
         >
-          {({ isValid, dirty }) => (
+          {({ values, isValid, dirty }) => (
             <Form>
               <ModalHeader title="SKU" />
               <ModalContent>
@@ -142,6 +142,7 @@ const SKUModal = (props: Props) => {
                         </Label>
                         <FormikNumericStepper
                           name="minValue"
+                          minValue={0}
                           label={`${intl.formatMessage(messages.SKUItemMin)}`}
                         />
                       </Box>
@@ -156,6 +157,7 @@ const SKUModal = (props: Props) => {
                         </Label>
                         <FormikNumericStepper
                           name="maxValue"
+                          minValue={values.minValue}
                           label={`${intl.formatMessage(messages.SKUItemMax)}`}
                         />
                       </Box>
