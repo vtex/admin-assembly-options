@@ -13,7 +13,8 @@
 
   "admin/assembly.register.add-key": "Add New Group",
   "admin/assembly.register.key-name": "Group",
-  "admin/assembly.register.key-name-label": "Group name that will be shown inside the product page*",
+  "admin/assembly.register.key-name-label": "Name*",
+  "admin/assembly.register.key-name-label-helper": "Group name that will be shown inside the product page",
   "admin/assembly.register.key-minimum-label": "Minimum Quantity*",
   "admin/assembly.register.key-maximum-label": "Maximum Quantity*",
   "admin/assembly.register.sku-add": "Add new SKU",

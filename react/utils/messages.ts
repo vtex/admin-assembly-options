@@ -53,6 +53,10 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.key-name-label',
     defaultMessage: '',
   },
+  keyNameLabelHelper: {
+    id: 'admin/assembly.register.key-name-label-helper',
+    defaultMessage: '',
+  },
   keyMinimumLabel: {
     id: 'admin/assembly.register.key-minimum-label',
     defaultMessage: '',
