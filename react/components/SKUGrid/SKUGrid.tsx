@@ -124,7 +124,11 @@ const SKUGrid = (props: Props) => {
     items: skuListNew,
   })
 
-  return <DataGrid csx={{ marginTop: 5 }} state={state} />
+  return (
+    <Flex csx={{ width: '100%', overflowX: 'scroll' }}>
+      <DataGrid csx={{ marginTop: 5, width: '100%' }} state={state} />
+    </Flex>
+  )
 }
 
 export default SKUGrid
