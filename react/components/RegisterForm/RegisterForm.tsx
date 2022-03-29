@@ -78,7 +78,7 @@ const RegisterForm = forwardRef<RegisterFormHandle>((_props, ref) => {
         onSubmit={handleSubmit}
         initialValues={{
           name: '',
-          active: false,
+          active: true,
           required: false,
         }}
         validationSchema={SchemaValidationError}
