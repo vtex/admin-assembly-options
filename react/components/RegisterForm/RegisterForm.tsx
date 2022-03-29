@@ -85,7 +85,7 @@ const RegisterForm = forwardRef<RegisterFormHandle>((_props, ref) => {
         innerRef={formRef}
       >
         <form>
-          <Card csx={{ width: '712px', margin: '15px auto' }}>
+          <Card csx={{ maxWidth: '712px', margin: '15px auto' }}>
             <Heading>{intl.formatMessage(messages.assemblyFormTitle)}</Heading>
             <Flex direction="column" csx={{ marginTop: '20px' }}>
               <FormikInput
@@ -107,7 +107,7 @@ const RegisterForm = forwardRef<RegisterFormHandle>((_props, ref) => {
         </form>
       </Formik>
       <Flex direction="column">
-        <Card csx={{ width: '712px', margin: '15px auto' }}>
+        <Card csx={{ maxWidth: '712px', width: '100%', margin: '15px auto' }}>
           <Flex direction="row" justify="space-between" align="center">
             <Heading>
               {intl.formatMessage(messages.assemblyGroupsTitle)}

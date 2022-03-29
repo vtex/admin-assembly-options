@@ -185,7 +185,6 @@ const AssemblyGroup = (props: Props) => {
                   </Flex>
                 </Flex>
               </Flex>
-
               <Flex csx={{ marginTop: 5 }}>
                 <SKUGrid groupIndex={groupIndex} />
               </Flex>
