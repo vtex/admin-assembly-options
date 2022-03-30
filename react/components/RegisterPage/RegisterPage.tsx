@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Page,
   PageHeader,
@@ -11,35 +11,65 @@ import { useIntl } from 'react-intl'
 import type {
   MutationCreateAssemblyOptionArgs,
   AssemblyOption,
+  AssemblyOptionConfigInput,
 } from 'vtexbr.assembly-options-graphql'
 import { useMutation } from 'react-apollo'
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
+import type { RegisterFormHandle } from '../RegisterForm/RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 import { useRegisterContext } from '../../context/RegisterContext'
 import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 
 const RegisterPage = () => {
   const intl = useIntl()
+
+  const [handlingSave, setHandlingSave] = useState(false)
+
+  const registerFormRef = useRef<RegisterFormHandle>(null)
+
   const { name, required, active, group } = useRegisterContext()
+
   const [createAssembly, { data, error, loading }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
   >(CREATE_ASSEMBLY)
 
-  const handleSave = () => {
-    createAssembly({
-      variables: {
-        assemblyOption: {
-          name,
-          isRequired: required,
-          isActive: active,
-          configs: group,
-        },
-      },
-    })
+  const handleSave = async () => {
+    await registerFormRef?.current?.handleSubmit()
+
+    const formIsValid = registerFormRef?.current?.validateForm()
+
+    if (formIsValid) {
+      setHandlingSave(true)
+    }
   }
+
+  // effect to get form values updated from Register Context
+  useEffect(() => {
+    if (handlingSave) {
+      setHandlingSave(false)
+
+      createAssembly({
+        variables: {
+          assemblyOption: {
+            name,
+            isRequired: required,
+            isActive: active,
+            configs: group.map((item) => {
+              return {
+                name: item.name,
+                maxItems: item.maxItems,
+                minItems: item.minItems,
+                items: item.items,
+              } as AssemblyOptionConfigInput
+            }),
+          },
+        },
+      })
+    }
+  }, [name, required, active, group, handlingSave, createAssembly])
 
   return (
     <Page>
@@ -47,13 +77,13 @@ const RegisterPage = () => {
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
           <Button loading={loading} onClick={handleSave}>
-            Save
+            {intl.formatMessage(messages.saveAction)}
           </Button>
         </PageActions>
       </PageHeader>
       <PageContent>
         <RegisterMessages data={data} error={error} />
-        <RegisterForm />
+        <RegisterForm ref={registerFormRef} />
       </PageContent>
     </Page>
   )

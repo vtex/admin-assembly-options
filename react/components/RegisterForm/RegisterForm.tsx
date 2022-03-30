@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import { useIntl } from 'react-intl'
 import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
+import type { FormikProps } from 'formik'
 import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
+import * as yup from 'yup'
+import uniqid from 'uniqid'
 
 import type { AssemblyGroupType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 import AssemblyGroup from '../AssemblyGroup'
 import { messages } from '../../utils/messages'
+import { useGroupFormContext } from '../../context/GroupFormContext'
 
-const RegisterForm = () => {
+interface FormValues {
+  name: string
+  active: boolean
+  required: boolean
+}
+
+export interface RegisterFormHandle {
+  handleSubmit: () => Promise<void>
+  validateForm: () => boolean
+}
+
+const RegisterForm = forwardRef<RegisterFormHandle>((_props, ref) => {
   const {
-    active,
-    required,
     group,
     setAssemblyActive,
     setAssemblyRequired,
@@ -20,23 +33,43 @@ const RegisterForm = () => {
     setAssemblyGroup,
   } = useRegisterContext()
 
+  const { submitForms, validateForms } = useGroupFormContext()
+
   const intl = useIntl()
-  const handleSubmit = () => {
-    /* eslint-disable no-alert */
-    alert('Values submitted: ')
+
+  const formRef = useRef<FormikProps<FormValues>>(null)
+
+  useImperativeHandle(ref, () => ({
+    async handleSubmit() {
+      await Promise.all([formRef.current?.submitForm(), submitForms()])
+    },
+    validateForm() {
+      return (formRef.current?.isValid && validateForms()) ?? true
+    },
+  }))
+
+  const handleSubmit = ({ name, active, required }: FormValues) => {
+    setAssemblyName(name)
+    setAssemblyActive(active)
+    setAssemblyRequired(required)
   }
+
+  const SchemaValidationError = yup.object().shape({
+    name: yup
+      .string()
+      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+  })
 
   const handleAddGroup = () => {
     const emptyGroup: AssemblyGroupType = {
+      key: uniqid(),
       name: '',
       maxItems: 0,
       minItems: 0,
       items: [],
     }
 
-    const newArray = [...group, emptyGroup]
-
-    setAssemblyGroup(newArray)
+    setAssemblyGroup((previews) => [...previews, emptyGroup])
   }
 
   return (
@@ -44,36 +77,30 @@ const RegisterForm = () => {
       <Formik
         onSubmit={handleSubmit}
         initialValues={{
-          assembly: {
-            name: '',
-            id: '',
-            active: false,
-            required: false,
-          },
+          name: '',
+          active: true,
+          required: false,
         }}
+        validationSchema={SchemaValidationError}
+        innerRef={formRef}
       >
         <form>
           <Card csx={{ width: '712px', margin: '15px auto' }}>
             <Heading>{intl.formatMessage(messages.assemblyFormTitle)}</Heading>
             <Flex direction="column" csx={{ marginTop: '20px' }}>
               <FormikInput
-                name="assembly.name"
+                name="name"
                 label={intl.formatMessage(messages.assemblyNameLabel)}
-                onChange={(e) => {
-                  setAssemblyName(e.target.value)
-                }}
               />
               <FormikToggle
                 csx={{ margin: '5px 0px' }}
-                name="assembly.active"
+                name="active"
                 label={intl.formatMessage(messages.assemblyActive)}
-                onClick={() => setAssemblyActive(!active)}
               />
               <FormikCheckbox
                 csx={{ margin: '5px 0px' }}
-                name="assembly.required"
+                name="required"
                 label={intl.formatMessage(messages.assemblyRequired)}
-                onClick={() => setAssemblyRequired(!required)}
               />
             </Flex>
           </Card>
@@ -90,14 +117,18 @@ const RegisterForm = () => {
             </Button>
           </Flex>
           <Flex direction="column">
-            {group.map((_value, index) => {
-              return <AssemblyGroup key={index} groupIndex={index} />
-            })}
+            {group.map((value, index) => (
+              <AssemblyGroup
+                key={`assembly-group-${value.key}`}
+                groupIndex={index}
+                groupValue={value}
+              />
+            ))}
           </Flex>
         </Card>
       </Flex>
     </>
   )
-}
+})
 
 export default RegisterForm

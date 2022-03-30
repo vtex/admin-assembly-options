@@ -37,7 +37,6 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.assembly-required',
     defaultMessage: '',
   },
-
   assemblyGroupsTitle: {
     id: 'admin/assembly-groups-title',
     defaultMessage: '',
@@ -52,6 +51,10 @@ export const messages = defineMessages({
   },
   keyNameLabel: {
     id: 'admin/assembly.register.key-name-label',
+    defaultMessage: '',
+  },
+  keyNameLabelHelper: {
+    id: 'admin/assembly.register.key-name-label-helper',
     defaultMessage: '',
   },
   keyMinimumLabel: {
@@ -86,11 +89,14 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.sku-items-initial',
     defaultMessage: '',
   },
+  SKUItemInitialGrid: {
+    id: 'admin/assembly.register.sku-items-initial-grid',
+    defaultMessage: '',
+  },
   SKUItemConfirm: {
     id: 'admin/assembly.register.sku-items-confirm',
     defaultMessage: '',
   },
-
   SKUPriceTable: {
     id: 'admin/assembly.register.price-table',
     defaultMessage: '',
@@ -105,6 +111,39 @@ export const messages = defineMessages({
   },
   assemblygraphQLSuccess: {
     id: 'admin/assembly.register.success-graphql',
+    defaultMessage: '',
+  },
+
+  errorNameRequired: {
+    id: 'admin/assembly.register.error-name-required',
+    defaultMessage: '',
+  },
+  errorNumberComparison: {
+    id: 'admin/assembly.register.error-number-comparison',
+    defaultMessage: '',
+  },
+  unamedGroup: {
+    id: 'admin/assembly.register.unamed-group',
+    defaultMessage: '',
+  },
+  nameAlreadyExist: {
+    id: 'admin/assembly.register.name-exists',
+    defaultMessage: '',
+  },
+  formWithError: {
+    id: 'admin/assembly.register.form-with-error',
+    defaultMessage: '',
+  },
+  deleteAction: {
+    id: 'admin/assembly.register.delete-action',
+    defaultMessage: '',
+  },
+  editAction: {
+    id: 'admin/assembly.register.edit-action',
+    defaultMessage: '',
+  },
+  saveAction: {
+    id: 'admin/assembly.register.save-action',
     defaultMessage: '',
   },
   pageTitleList: {
@@ -173,6 +212,14 @@ export const messages = defineMessages({
   },
   paginationNextLabel: {
     id: 'admin/assembly.list.pagination.nextLabel',
+    defaultMessage: '',
+  },
+  errorDefaultMin: {
+    id: 'admin/assembly.register.error-default-min',
+    defaultMessage: '',
+  },
+  errorDefaultMax: {
+    id: 'admin/assembly.register.error-default-max',
     defaultMessage: '',
   },
 })

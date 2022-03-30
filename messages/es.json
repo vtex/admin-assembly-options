@@ -6,22 +6,24 @@
   "admin/assembly.register.assembly-form-title": "Informaciones Basicas",
   "admin/assembly.register.assembly-form-description": "Dados relacionados con las opciones de Assembly Options en su conjunto",
 
-  "admin/assembly.register.assembly-name": "Nombre",
+  "admin/assembly.register.assembly-name": "Nombre*",
   "admin/assembly.register.assembly-name-placeholder": "Nombre del Assembly Options",
   "admin/assembly.register.assembly-active": "Ativo",
   "admin/assembly.register.assembly-required": "Obligatorio",
 
   "admin/assembly.register.add-key": "Agregar Nuevo Grupo",
   "admin/assembly.register.key-name": "Grupo",
-  "admin/assembly.register.key-name-label": "Nombre Clave",
-  "admin/assembly.register.key-minimum-label": "Cantidad Mínima",
-  "admin/assembly.register.key-maximum-label": "Cantidad Máxima",
+  "admin/assembly.register.key-name-label": "Nombre*",
+  "admin/assembly.register.key-name-label-helper": "Nombre del grupo que se mostrará en la página del producto",
+  "admin/assembly.register.key-minimum-label": "Cantidad Mínima*",
+  "admin/assembly.register.key-maximum-label": "Cantidad Máxima*",
   "admin/assembly.register.sku-add": "Agregar nuevo SKU",
-  "admin/assembly.register.sku-price-table": "Nombre de la tabla de precios vinculada",
+  "admin/assembly.register.sku-price-table": "Nombre de la tabla de precios vinculada*",
   "admin/assembly.register.sku-items": "Item",
-  "admin/assembly.register.sku-items-min": "Cantidad mínima",
-  "admin/assembly.register.sku-items-max": "Cantidad máxima",
-  "admin/assembly.register.sku-items-initial": "Cantidad inicial",
+  "admin/assembly.register.sku-items-min": "Cantidad mínima*",
+  "admin/assembly.register.sku-items-max": "Cantidad máxima*",
+  "admin/assembly.register.sku-items-initial": "Cantidad inicial*",
+  "admin/assembly.register.sku-items-initial-grid": "Cantidad inicial",
   "admin/assembly.register.sku-items-confirm": "Confirmar",
   "admin/assembly.register.price-table": "Tabla de precios",
   "admin/assembly.register.actions": "Operaciones",
@@ -38,6 +40,15 @@
   "admin/assembly.register.error-unique-key": "El Assembly Option debe tener un nombre único",
   "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito",
 
+  "admin/assembly.register.error-name-required": "El campo es obligatorio",
+  "admin/assembly.register.error-number-comparison": "El número máximo debe ser mayor que el número mínimo",
+  "admin/assembly.register.unamed-group": "Grupo sem nombre",
+  "admin/assembly.register.name-exists": "Este nombre de Assembly Options ya existe, intente con otro",
+  "admin/assembly.register.form-with-error": "El formulario no se rellenó correctamente, consultar posibles ajustes",
+
+  "admin/assembly.register.delete-action": "Eliminar",
+  "admin/assembly.register.edit-action": "Editar",
+  "admin/assembly.register.save-action": "Ahorrar",
   "admin/assembly.list.page-title": "Assembly Options",
   "admin/assembly.list.new-assembly-option": "Agregar Assembly Option",
   "admin/assembly.list.query-error": "Algo salió mal.",
@@ -54,5 +65,8 @@
   "admin/assembly.list.pagination.preposition": "de",
   "admin/assembly.list.pagination.subject": "resultados",
   "admin/assembly.list.pagination.prevLabel": "Previo",
-  "admin/assembly.list.pagination.nextLabel": "Próximo"
+  "admin/assembly.list.pagination.nextLabel": "Próximo",
+
+  "admin/assembly.register.error-default-min": "El valor inicial es menor que el valor mínimo",
+  "admin/assembly.register.error-default-max": "El valor inicial es mayor que el valor máximo"
 }

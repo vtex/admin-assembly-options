@@ -9,29 +9,43 @@ import {
   MenuItem,
   useMenuState,
   IconPencil,
+  ModalDisclosure,
+  useModalState,
+  Button,
   IconTrash,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 
+import type { SKUType } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 import { useRegisterContext } from '../../context/RegisterContext'
+import SKUModal from '../SKUModal'
 
 interface Props {
   groupIndex: number
 }
 
 const SKUGrid = (props: Props) => {
-  const { group } = useRegisterContext()
+  const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex } = props
   const intl = useIntl()
-  const menuState = useMenuState()
 
-  const skuListNew = group[groupIndex].items.map((value) => {
+  const skuListNew = group[groupIndex].items.map((value, index) => {
     return {
+      id: index,
       skuId: value.skuId,
       priceTable: value.priceTable,
       quantity: `${value.minValue} - ${value.maxValue}`,
       initialQuantity: value.defaultValue,
+      handleDelete: () => {
+        const newGroup = [...group]
+
+        newGroup[groupIndex].items.splice(index, 1)
+
+        setAssemblyGroup(newGroup)
+      },
+      minQuantity: value.minValue,
+      maxQuantity: value.maxValue,
     }
   })
 
@@ -51,23 +65,51 @@ const SKUGrid = (props: Props) => {
       },
       {
         id: 'initialQuantity',
-        header: `${intl.formatMessage(messages.SKUItemInitial)}`,
+        header: `${intl.formatMessage(messages.SKUItemInitialGrid)}`,
       },
       {
         id: 'actions',
         header: `${intl.formatMessage(messages.SKUActions)}`,
         resolver: {
-          type: 'plain',
-          render: function Actions() {
+          type: 'root',
+          render: function Actions({ item }) {
+            const menuState = useMenuState()
+            const modal = useModalState()
+
+            const actualSKU = {
+              skuId: item.skuId,
+              priceTable: item.priceTable,
+              minValue: item.minQuantity,
+              maxValue: item.maxQuantity,
+              defaultValue: item.initialQuantity,
+            }
+
+            const handleClose = (form: SKUType) => {
+              group[groupIndex].items[item.id] = form
+              setAssemblyGroup([...group])
+            }
+
             return (
               <Flex direction="row" csx={{ maxWidth: '80px' }}>
                 <Menu state={menuState} hideOnClick>
                   <MenuButton display="actions" variant="tertiary" />
                   <MenuList aria-label="actions" state={menuState}>
-                    <MenuItem icon={<IconPencil />}> Edit </MenuItem>
-                    <MenuItem icon={<IconTrash />} csx={{ color: '#CC3E3E' }}>
-                      {' '}
-                      Delete{' '}
+                    <ModalDisclosure state={modal}>
+                      <Button icon={<IconPencil />} variant="tertiary">
+                        {intl.formatMessage(messages.editAction)}
+                      </Button>
+                    </ModalDisclosure>
+                    <SKUModal
+                      handleClose={handleClose}
+                      modalState={modal}
+                      initialValue={actualSKU}
+                    />
+                    <MenuItem
+                      onClick={item.handleDelete}
+                      icon={<IconTrash />}
+                      csx={{ color: '#CC3E3E' }}
+                    >
+                      {intl.formatMessage(messages.deleteAction)}
                     </MenuItem>
                   </MenuList>
                 </Menu>
