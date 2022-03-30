@@ -68,17 +68,15 @@ const AssemblyGroup = (props: Props) => {
   }
 
   const SchemaValidationError = yup.object().shape({
-    name: yup
-      .string()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    name: yup.string().required(intl.formatMessage(messages.errorNameRequired)),
     minItems: yup
       .number()
       .integer()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+      .required(intl.formatMessage(messages.errorNameRequired)),
     maxItems: yup
       .number()
       .integer()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`)
+      .required(intl.formatMessage(messages.errorNameRequired))
       .when('minItems', (minItems: number) => {
         return yup
           .number()

@@ -1,6 +1,7 @@
 import React from 'react'
 import type { ModalStateReturn } from '@vtex/admin-ui'
 import {
+  IconX,
   Modal,
   ModalHeader,
   ModalContent,
@@ -12,6 +13,7 @@ import {
   Heading,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
+import type { FormikHelpers } from 'formik'
 import { Formik, Form } from 'formik'
 import { FormikInput, FormikNumericStepper } from '@vtex/admin-formik'
 import * as yup from 'yup'
@@ -82,13 +84,7 @@ const SKUModal = (props: Props) => {
       ),
   })
 
-  const handleSubmit = (
-    values: SKUType,
-    actions: {
-      setSubmitting: (isSubmitting: boolean) => void
-      resetForm: () => void
-    }
-  ) => {
+  const handleSubmit = (values: SKUType, actions: FormikHelpers<SKUType>) => {
     const newSKU: SKUType = {
       skuId: values.skuId,
       priceTable: values.priceTable,
@@ -103,16 +99,32 @@ const SKUModal = (props: Props) => {
 
   return (
     <Box>
-      <Modal aria-label="SKU-modal" state={modalState} size="regular">
+      <Modal
+        aria-label="SKU-modal"
+        state={modalState}
+        size="regular"
+        omitCloseButton
+        hideOnEsc={false}
+        hideOnClickOutside={false}
+      >
         <Formik
           initialValues={initialFormValue}
           onSubmit={handleSubmit}
           validationSchema={SchemaValidationError}
           enableReinitialize
         >
-          {({ values, isValid, dirty }) => (
+          {({ values, isValid, dirty, resetForm }) => (
             <Form>
-              <ModalHeader title="SKU" />
+              <ModalHeader title="SKU">
+                <ModalButton
+                  variant="adaptative-dark"
+                  closeModalOnClick
+                  onClick={() => {
+                    resetForm()
+                  }}
+                  icon={<IconX />}
+                />
+              </ModalHeader>
               <ModalContent>
                 <Flex direction="column">
                   <FormikInput name="skuId" label="SKU ID" />
