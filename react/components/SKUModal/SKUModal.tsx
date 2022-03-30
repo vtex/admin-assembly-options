@@ -137,10 +137,19 @@ const SKUModal = (props: Props) => {
                   {intl.formatMessage(messages.SKUItemHeading)}
                 </Heading>
                 <Flex csx={{ marginTop: 2 }}>
-                  <Box csx={{ width: '1/2', paddingRight: 2 }}>
+                  <Box
+                    csx={{
+                      width: 'full',
+                    }}
+                  >
                     <Flex direction="row">
-                      <Box csx={{ width: '1/2' }}>
-                        <Label csx={{ width: '100px', display: 'flex' }}>
+                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                        <Label
+                          csx={{
+                            width: ['80px', '100px'],
+                            display: 'flex',
+                          }}
+                        >
                           {intl.formatMessage(messages.SKUItemMin)}
                         </Label>
                         <FormikNumericStepper
@@ -149,8 +158,13 @@ const SKUModal = (props: Props) => {
                           label={`${intl.formatMessage(messages.SKUItemMin)}`}
                         />
                       </Box>
-                      <Box csx={{ width: '1/2' }}>
-                        <Label csx={{ width: '100px', display: 'flex' }}>
+                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                        <Label
+                          csx={{
+                            width: ['80px', '100px'],
+                            display: 'flex',
+                          }}
+                        >
                           {intl.formatMessage(messages.SKUItemMax)}
                         </Label>
                         <FormikNumericStepper
@@ -159,17 +173,24 @@ const SKUModal = (props: Props) => {
                           label={`${intl.formatMessage(messages.SKUItemMax)}`}
                         />
                       </Box>
+                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                        <Label
+                          csx={{
+                            width: ['80px', '100px'],
+                            display: 'flex',
+                          }}
+                        >
+                          {intl.formatMessage(messages.SKUItemInitial)}
+                        </Label>
+                        <FormikNumericStepper
+                          name="defaultValue"
+                          label={`${intl.formatMessage(
+                            messages.SKUItemInitial
+                          )}`}
+                        />
+                      </Box>
+                      <Box csx={{ width: ['0px', '25%', '25%'] }} />
                     </Flex>
-                  </Box>
-                  <Box csx={{ width: '1/2' }}>
-                    <Label csx={{ width: '100px', display: 'flex' }}>
-                      {intl.formatMessage(messages.SKUItemInitial)}
-                    </Label>
-                    <FormikNumericStepper
-                      name="defaultValue"
-                      minValue={values.minValue}
-                      label={`${intl.formatMessage(messages.SKUItemInitial)}`}
-                    />
                   </Box>
                 </Flex>
               </ModalContent>

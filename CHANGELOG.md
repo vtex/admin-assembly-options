@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Mobile and Tablet front-end adjustments
 ## [0.6.0] - 2022-03-30
 
 ## [0.5.0] - 2022-03-28

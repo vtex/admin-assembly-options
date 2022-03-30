@@ -17,7 +17,7 @@
     "@rooks/use-did-mount": "^4.11.2",
     "@rooks/use-will-unmount": "^4.11.2",
     "@vtex/admin-formik": "^0.4.1-next.0",
-    "@vtex/admin-ui": "^0.117.1-next.1",
+    "@vtex/admin-ui": "^0.120.3",
     "@vtex/styleguide": "^9.145.2",
     "faker": "^5.5.3",
     "formik": "^2.2.9",
