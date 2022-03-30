@@ -68,17 +68,15 @@ const AssemblyGroup = (props: Props) => {
   }
 
   const SchemaValidationError = yup.object().shape({
-    name: yup
-      .string()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    name: yup.string().required(intl.formatMessage(messages.errorNameRequired)),
     minItems: yup
       .number()
       .integer()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+      .required(intl.formatMessage(messages.errorNameRequired)),
     maxItems: yup
       .number()
       .integer()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`)
+      .required(intl.formatMessage(messages.errorNameRequired))
       .when('minItems', (minItems: number) => {
         return yup
           .number()
@@ -128,7 +126,11 @@ const AssemblyGroup = (props: Props) => {
     >
       {({ values }) => (
         <Form>
-          <Collapsible csx={{ width: '100%', marginTop: '20px' }} state={state}>
+          <Collapsible
+            csx={{ width: '100%', marginTop: '20px' }}
+            state={state}
+            disabled={false}
+          >
             <CollapsibleHeader
               csx={{ padding: '10px 15px' }}
               label={
