@@ -37,6 +37,10 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.assembly-required',
     defaultMessage: '',
   },
+  editPageTitle: {
+    id: 'admin/assembly.edit.page-title',
+    defaultMessage: '',
+  },
   assemblyGroupsTitle: {
     id: 'admin/assembly-groups-title',
     defaultMessage: '',

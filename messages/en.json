@@ -2,7 +2,7 @@
   "admin/assembly.navigation.label-group": "Assembly Options",
   "admin/assembly.navigation.label-main": "Register",
 
-  "admin/assembly.register.page-title": "Assembly Register",
+  "admin/assembly.register.page-title": "Assembly Options Register",
   "admin/assembly.register.assembly-form-title": "Basic Information",
   "admin/assembly.register.assembly-form-description": "Data related to the entire Assembly Options",
 
@@ -68,5 +68,7 @@
   "admin/assembly.list.pagination.nextLabel": "Next",
 
   "admin/assembly.register.error-default-min": "The initial value is lower than the minimum value possible",
-  "admin/assembly.register.error-default-max": "The initial value is higher than the maximum value possible"
+  "admin/assembly.register.error-default-max": "The initial value is higher than the maximum value possible",
+
+  "admin/assembly.edit.page-title": "Edit Assembly Options"
 }
