@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import type { DataGridColumn } from '@vtex/admin-ui'
 import {
   Search,
@@ -12,6 +12,7 @@ import {
   DataViewControls,
   FlexSpacer,
   Pagination,
+  experimental_Filter as Filter,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 import { useQuery } from 'react-apollo'
@@ -20,11 +21,10 @@ import type {
   AssemblyOptionHeader,
   QueryListAssemblyOptionsArgs,
 } from 'vtexbr.assembly-options-graphql'
-import type { UseFilterReturn } from '@vtex/admin-ui/dist/filters'
 
 import LIST_ASSEMBLY_OPTIONS from '../../graphql/listAssemblyOptions.gql'
 import { messages } from '../../utils/messages'
-import FilterStatus from './FilterStatus'
+import { useFilterStatus } from './useFilterStatus'
 
 interface TableColumns extends AssemblyOptionHeader {
   assemblyOptionId: string
@@ -39,9 +39,7 @@ const PAGE_SIZE = 10
 const AssemblyOptionDataGrid = () => {
   const intl = useIntl()
 
-  const [filterStatus, setFilterStatus] = useState<
-    UseFilterReturn | undefined
-  >()
+  const filterStatus = useFilterStatus()
 
   const view = useDataViewState()
 
@@ -115,7 +113,7 @@ const AssemblyOptionDataGrid = () => {
     variables: {
       page: pagination.currentPage,
       perPage: PAGE_SIZE,
-      name: searchState.debouncedValue ?? null,
+      name: searchState.debouncedValue ?? undefined,
       active: filterStatus?.appliedItem
         ? Boolean(filterStatus.appliedItem.value)
         : undefined,
@@ -174,7 +172,7 @@ const AssemblyOptionDataGrid = () => {
           state={searchState}
           placeholder={intl.formatMessage(messages.listSearchPlaceholder)}
         />
-        <FilterStatus onStateChange={(state) => setFilterStatus(state)} />
+        <Filter state={filterStatus} />
         <FlexSpacer />
         <Pagination
           state={pagination}
