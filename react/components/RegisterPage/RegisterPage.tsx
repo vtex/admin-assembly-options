@@ -14,6 +14,8 @@ import type {
   AssemblyOptionConfigInput,
 } from 'vtexbr.assembly-options-graphql'
 import { useMutation } from 'react-apollo'
+import { useRuntime } from 'vtex.render-runtime'
+import { showToast } from 'vtex.admin-shell-utils'
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
@@ -25,16 +27,32 @@ import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
 const RegisterPage = () => {
   const intl = useIntl()
 
+  const { navigate } = useRuntime()
+
   const [handlingSave, setHandlingSave] = useState(false)
 
   const registerFormRef = useRef<RegisterFormHandle>(null)
 
   const { name, required, active, group } = useRegisterContext()
 
-  const [createAssembly, { data, error, loading }] = useMutation<
+  const goToListPage = () => {
+    navigate({
+      page: 'admin.app.assembly-options-list',
+    })
+  }
+
+  const [createAssembly, { error, loading }] = useMutation<
     AssemblyOption,
     MutationCreateAssemblyOptionArgs
-  >(CREATE_ASSEMBLY)
+  >(CREATE_ASSEMBLY, {
+    onCompleted: () => {
+      showToast({
+        payload: intl.formatMessage(messages.assemblygraphQLSuccess),
+      })
+
+      goToListPage()
+    },
+  })
 
   const handleSave = async () => {
     await registerFormRef?.current?.handleSubmit()
@@ -44,6 +62,10 @@ const RegisterPage = () => {
     if (formIsValid) {
       setHandlingSave(true)
     }
+  }
+
+  const handleBackAction = () => {
+    goToListPage()
   }
 
   // effect to get form values updated from Register Context
@@ -73,7 +95,7 @@ const RegisterPage = () => {
 
   return (
     <Page>
-      <PageHeader>
+      <PageHeader onPopNavigation={handleBackAction}>
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
           <Button loading={loading} onClick={handleSave}>
@@ -82,7 +104,7 @@ const RegisterPage = () => {
         </PageActions>
       </PageHeader>
       <PageContent>
-        <RegisterMessages data={data} error={error} />
+        <RegisterMessages error={error} />
         <RegisterForm ref={registerFormRef} />
       </PageContent>
     </Page>
