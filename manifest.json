@@ -9,7 +9,8 @@
     "postreleasy": "vtex publish"
   },
   "dependencies": {
-    "vtexbr.assembly-options-graphql": "0.x"
+    "vtexbr.assembly-options-graphql": "0.x",
+    "vtex.admin-shell-utils": "0.x"
   },
   "builders": {
     "react": "3.x",

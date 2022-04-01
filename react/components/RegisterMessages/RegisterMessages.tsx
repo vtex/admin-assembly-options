@@ -1,6 +1,5 @@
 import { Alert, IconXOctagon, List } from '@vtex/admin-ui'
 import React from 'react'
-import type { AssemblyOption } from 'vtexbr.assembly-options-graphql'
 import { FormattedMessage, useIntl } from 'react-intl'
 
 import { messages } from '../../utils/messages'
@@ -23,7 +22,6 @@ interface ApolloError {
 }
 
 interface Props {
-  data: AssemblyOption | null | undefined
   error?: ApolloError
 }
 
@@ -44,8 +42,7 @@ type ErrorKeys =
   | 'skuSumDefaultValueValidate'
   | 'uniqueKeyValidate'
 
-const RegisterMessages = (props: Props) => {
-  const { data, error } = props
+const RegisterMessages = ({ error }: Props) => {
   const intl = useIntl()
   const errorMessages: { [key in ErrorKeys]: string } = {
     configIncreasingValueRange:
@@ -140,22 +137,6 @@ const RegisterMessages = (props: Props) => {
         <small>
           <p>{error.graphQLErrors[0].message}</p>
         </small>
-      </Alert>
-    )
-  }
-
-  if (data) {
-    return (
-      <Alert
-        visible
-        tone="positive"
-        csx={{
-          display: 'flex important',
-          height: 'fit-content !important',
-          marginTop: '20px',
-        }}
-      >
-        {intl.formatMessage(messages.assemblygraphQLSuccess)}
       </Alert>
     )
   }

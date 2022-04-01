@@ -2205,6 +2205,10 @@ vtex-tachyons@^3.2.0:
   resolved "https://registry.yarnpkg.com/vtex-tachyons/-/vtex-tachyons-3.2.2.tgz#e9e39d939778ef7d80a92c476cecf7417f79a6e8"
   integrity sha512-4M53uuvV+2XEjplVYiPgpBuaI5dtGksVgz/20NNjbZkXklJM7Lwgod/hOoh3PtIn36+95zZVVgXYfs3e6EU8YA==
 
+"vtex.admin-shell-utils@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils":
+  version "0.6.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils#a3c1f3577b78ad79df30793cf6006830dbd6efc2"
+
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
   version "8.132.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
