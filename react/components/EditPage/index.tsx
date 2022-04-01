@@ -13,7 +13,7 @@ import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 
-const RegisterPage = () => {
+const EditPage = () => {
   const intl = useIntl()
 
   return (
@@ -34,11 +34,11 @@ const RegisterPage = () => {
         </PageActions>
       </PageHeader>
       <PageContent>
-        <RegisterMessages data={undefined} />
+        <RegisterMessages />
         <RegisterForm />
       </PageContent>
     </Page>
   )
 }
 
-export default RegisterPage
+export default EditPage
