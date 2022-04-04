@@ -14,7 +14,6 @@ import type {
   AssemblyOptionConfigInput,
 } from 'vtexbr.assembly-options-graphql'
 import { useMutation } from 'react-apollo'
-import { useRuntime } from 'vtex.render-runtime'
 import { showToast } from 'vtex.admin-shell-utils'
 
 import { messages } from '../../utils/messages'
@@ -23,23 +22,18 @@ import type { RegisterFormHandle } from '../RegisterForm/RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 import { useRegisterContext } from '../../context/RegisterContext'
 import CREATE_ASSEMBLY from '../../graphql/CREATE_ASSEMBLY.gql'
+import { useRedirect } from '../../hooks/useRedirect'
 
 const RegisterPage = () => {
   const intl = useIntl()
 
-  const { navigate } = useRuntime()
+  const { goToListPage } = useRedirect()
 
   const [handlingSave, setHandlingSave] = useState(false)
 
   const registerFormRef = useRef<RegisterFormHandle>(null)
 
   const { name, required, active, group } = useRegisterContext()
-
-  const goToListPage = () => {
-    navigate({
-      page: 'admin.app.assembly-options-list',
-    })
-  }
 
   const [createAssembly, { error, loading }] = useMutation<
     AssemblyOption,
@@ -62,10 +56,6 @@ const RegisterPage = () => {
     if (formIsValid) {
       setHandlingSave(true)
     }
-  }
-
-  const handleBackAction = () => {
-    goToListPage()
   }
 
   // effect to get form values updated from Register Context
@@ -95,7 +85,7 @@ const RegisterPage = () => {
 
   return (
     <Page>
-      <PageHeader onPopNavigation={handleBackAction}>
+      <PageHeader onPopNavigation={goToListPage}>
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
           <Button loading={loading} onClick={handleSave}>

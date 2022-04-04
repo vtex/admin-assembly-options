@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import {
   Page,
   PageHeader,
@@ -8,27 +8,22 @@ import {
   Button,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
-import { useRuntime } from 'vtex.render-runtime'
 
 import { messages } from '../../utils/messages'
 import AssemblyOptionDataGrid from './AssemblyOptionDataGrid'
+import { useRedirect } from '../../hooks/useRedirect'
 
 const ListPage = () => {
   const intl = useIntl()
-  const { navigate } = useRuntime()
 
-  const handleAddNew = useCallback(() => {
-    navigate({
-      page: 'admin.app.assembly-options-register',
-    })
-  }, [navigate])
+  const { goToRegisterPage } = useRedirect()
 
   return (
     <Page>
       <PageHeader>
         <PageTitle>{intl.formatMessage(messages.pageTitleList)}</PageTitle>
         <PageActions>
-          <Button onClick={handleAddNew}>
+          <Button onClick={goToRegisterPage}>
             {intl.formatMessage(messages.addAssemblyOption)}
           </Button>
         </PageActions>
