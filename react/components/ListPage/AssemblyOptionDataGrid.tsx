@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import type { DataGridColumn } from '@vtex/admin-ui'
 import {
+  Skeleton,
   Search,
   useSearchState,
   usePaginationState,
@@ -108,7 +109,11 @@ const AssemblyOptionDataGrid = () => {
       header: intl.formatMessage(messages.listActions),
       resolver: {
         type: 'root',
-        render: ({ item }) => {
+        render: ({ item, context }) => {
+          if (context.status === 'loading') {
+            return <Skeleton csx={{ height: 24 }} />
+          }
+
           return <Actions item={item} />
         },
       },
