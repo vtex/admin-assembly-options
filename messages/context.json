@@ -66,6 +66,8 @@
   "admin/assembly.list.pagination.subject": "results",
   "admin/assembly.list.pagination.prevLabel": "Previous",
   "admin/assembly.list.pagination.nextLabel": "Next",
+  "admin/assembly.list.actions": "Actions",
+  "admin/assembly.list.edit-action": "Edit",
 
   "admin/assembly.register.error-default-min": "The initial value is lower than the minimum value possible",
   "admin/assembly.register.error-default-max": "The initial value is higher than the maximum value possible",
