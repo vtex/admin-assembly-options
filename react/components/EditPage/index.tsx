@@ -8,13 +8,64 @@ import {
   Button,
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
+import { useRuntime } from 'vtex.render-runtime'
+import { useQuery } from 'react-apollo'
+import type {
+  Query,
+  QueryGetAssemblyOptionArgs,
+} from 'vtexbr.assembly-options-graphql'
+import { showToast } from 'vtex.admin-shell-utils'
 
 import { messages } from '../../utils/messages'
 import RegisterForm from '../RegisterForm'
 import RegisterMessages from '../RegisterMessages'
+import GET_ASSEMBLY_OPTION from '../../graphql/getAssemblyOption.gql'
+import { HTTP_STATUS } from '../../utils/httpStatus'
 
 const EditPage = () => {
   const intl = useIntl()
+
+  const {
+    navigate,
+    route: {
+      params: { assemblyOptionId },
+    },
+  } = useRuntime()
+
+  const { data, loading } = useQuery<
+    Query['getAssemblyOption'],
+    QueryGetAssemblyOptionArgs
+  >(GET_ASSEMBLY_OPTION, {
+    variables: {
+      id: assemblyOptionId,
+    },
+    onError: (error) => {
+      if (
+        error?.graphQLErrors[0]?.extensions?.exception?.response?.status ===
+        HTTP_STATUS.NOT_FOUND
+      ) {
+        showToast({
+          payload: intl.formatMessage(messages.editNotFound),
+        })
+      } else {
+        showToast({
+          payload: intl.formatMessage(messages.editErrorOnLoad),
+        })
+      }
+
+      navigate({
+        page: 'admin.app.assembly-options-list',
+      })
+    },
+  })
+
+  if (loading || !data) {
+    return null
+  }
+
+  // TODO: this data should be passed to the form
+  // eslint-disable-next-line no-console
+  console.log('data', data)
 
   return (
     <Page>

@@ -68,5 +68,7 @@
   "admin/assembly.list.pagination.prevLabel": "Anterior",
   "admin/assembly.list.pagination.nextLabel": "Próximo",
 
-  "admin/assembly.edit.page-title": "Editar Assembly Options"
+  "admin/assembly.edit.page-title": "Editar Assembly Options",
+  "admin/assembly.edit.not-found": "Assembly Option não encontrado",
+  "admin/assembly.edit.error-on-load": "Alguma coisa deu errado ao carregar o Assembly Option"
 }

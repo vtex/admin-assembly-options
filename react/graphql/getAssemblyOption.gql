@@ -1,0 +1,19 @@
+query ($id: ID!) {
+  getAssemblyOption(id: $id) {
+    name
+    isRequired
+    isActive
+    configs {
+      name
+      minItems
+      maxItems
+      items {
+        skuId
+        defaultValue
+        priceTable
+        minValue
+        maxValue
+      }
+    }
+  }
+}

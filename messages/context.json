@@ -70,5 +70,7 @@
   "admin/assembly.register.error-default-min": "The initial value is lower than the minimum value possible",
   "admin/assembly.register.error-default-max": "The initial value is higher than the maximum value possible",
 
-  "admin/assembly.edit.page-title": "Edit Assembly Options"
+  "admin/assembly.edit.page-title": "Edit Assembly Options",
+  "admin/assembly.edit.not-found": "Assembly Option not found",
+  "admin/assembly.edit.error-on-load": "Something went wrong"
 }

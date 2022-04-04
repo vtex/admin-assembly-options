@@ -226,4 +226,12 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.error-default-max',
     defaultMessage: '',
   },
+  editNotFound: {
+    id: 'admin/assembly.edit.not-found',
+    defaultMessage: '',
+  },
+  editErrorOnLoad: {
+    id: 'admin/assembly.edit.error-on-load',
+    defaultMessage: '',
+  },
 })
