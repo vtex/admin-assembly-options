@@ -9,8 +9,8 @@ import {
 } from '@vtex/admin-ui'
 import React from 'react'
 import { useIntl } from 'react-intl'
-import { useRuntime } from 'vtex.render-runtime'
 
+import { useRedirect } from '../../hooks/useRedirect'
 import { messages } from '../../utils/messages'
 import type { TableColumns } from './AssemblyOptionDataGrid'
 
@@ -21,7 +21,7 @@ interface Props {
 const Actions = ({ item }: Props) => {
   const intl = useIntl()
 
-  const { navigate } = useRuntime()
+  const { goToEditPage } = useRedirect()
 
   const menuState = useMenuState()
 
@@ -32,12 +32,7 @@ const Actions = ({ item }: Props) => {
         <MenuList aria-label="actions" state={menuState}>
           <MenuItem
             onClick={() => {
-              navigate({
-                page: 'admin.app.assembly-options-edit',
-                params: {
-                  assemblyOptionId: item.assemblyOptionId,
-                },
-              })
+              goToEditPage(item.assemblyOptionId)
             }}
             icon={<IconPencil />}
           >
