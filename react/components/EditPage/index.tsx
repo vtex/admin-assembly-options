@@ -21,12 +21,14 @@ import RegisterForm from '../RegisterForm'
 import RegisterMessages from '../RegisterMessages'
 import GET_ASSEMBLY_OPTION from '../../graphql/getAssemblyOption.gql'
 import { HTTP_STATUS } from '../../utils/httpStatus'
+import { useRedirect } from '../../hooks/useRedirect'
 
 const EditPage = () => {
   const intl = useIntl()
 
+  const { goToListPage } = useRedirect()
+
   const {
-    navigate,
     route: {
       params: { assemblyOptionId },
     },
@@ -53,9 +55,7 @@ const EditPage = () => {
         })
       }
 
-      navigate({
-        page: 'admin.app.assembly-options-list',
-      })
+      goToListPage()
     },
   })
 
@@ -69,7 +69,7 @@ const EditPage = () => {
 
   return (
     <Page>
-      <PageHeader>
+      <PageHeader onPopNavigation={goToListPage}>
         <PageTitle>{intl.formatMessage(messages.editPageTitle)}</PageTitle>
         <PageActions>
           <Button
