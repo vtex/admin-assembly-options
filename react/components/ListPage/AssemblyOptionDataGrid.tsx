@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import type { DataGridColumn } from '@vtex/admin-ui'
 import {
+  Skeleton,
   Search,
   useSearchState,
   usePaginationState,
@@ -25,8 +26,9 @@ import type {
 import LIST_ASSEMBLY_OPTIONS from '../../graphql/listAssemblyOptions.gql'
 import { messages } from '../../utils/messages'
 import { useFilterStatus } from './useFilterStatus'
+import Actions from './Actions'
 
-interface TableColumns extends AssemblyOptionHeader {
+export interface TableColumns extends AssemblyOptionHeader {
   assemblyOptionId: string
 }
 
@@ -100,6 +102,20 @@ const AssemblyOptionDataGrid = () => {
               size="small"
             />
           ),
+      },
+    },
+    {
+      id: 'actions',
+      header: intl.formatMessage(messages.listActions),
+      resolver: {
+        type: 'root',
+        render: ({ item, context }) => {
+          if (context.status === 'loading') {
+            return <Skeleton csx={{ height: 24 }} />
+          }
+
+          return <Actions item={item} />
+        },
       },
     },
   ]

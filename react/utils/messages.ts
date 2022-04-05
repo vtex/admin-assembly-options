@@ -218,6 +218,14 @@ export const messages = defineMessages({
     id: 'admin/assembly.list.pagination.nextLabel',
     defaultMessage: '',
   },
+  listActions: {
+    id: 'admin/assembly.list.actions',
+    defaultMessage: '',
+  },
+  listEditAction: {
+    id: 'admin/assembly.list.edit-action',
+    defaultMessage: '',
+  },
   errorDefaultMin: {
     id: 'admin/assembly.register.error-default-min',
     defaultMessage: '',
