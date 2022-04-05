@@ -5,7 +5,7 @@
   },
   "admin.app.assembly-options-edit": {
     "component": "AssemblyEdit",
-    "path": "/admin/app/assembly-options/edit"
+    "path": "/admin/app/assembly-options/edit/:assemblyOptionId"
   },
   "admin.app.assembly-options-list": {
     "component": "AssemblyList",

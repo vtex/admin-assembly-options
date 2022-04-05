@@ -218,12 +218,28 @@ export const messages = defineMessages({
     id: 'admin/assembly.list.pagination.nextLabel',
     defaultMessage: '',
   },
+  listActions: {
+    id: 'admin/assembly.list.actions',
+    defaultMessage: '',
+  },
+  listEditAction: {
+    id: 'admin/assembly.list.edit-action',
+    defaultMessage: '',
+  },
   errorDefaultMin: {
     id: 'admin/assembly.register.error-default-min',
     defaultMessage: '',
   },
   errorDefaultMax: {
     id: 'admin/assembly.register.error-default-max',
+    defaultMessage: '',
+  },
+  editNotFound: {
+    id: 'admin/assembly.edit.not-found',
+    defaultMessage: '',
+  },
+  editErrorOnLoad: {
+    id: 'admin/assembly.edit.error-on-load',
     defaultMessage: '',
   },
 })
