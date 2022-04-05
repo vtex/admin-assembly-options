@@ -41,6 +41,8 @@ type ErrorKeys =
   | 'skuQuantityOutOfAssemblyOptionRange'
   | 'skuSumDefaultValueValidate'
   | 'uniqueKeyValidate'
+  | 'configWithEmptySkuArray'
+  | 'configDoesNotExist'
 
 const RegisterMessages = ({ error }: Props) => {
   const intl = useIntl()
@@ -58,6 +60,8 @@ const RegisterMessages = ({ error }: Props) => {
     skuSumDefaultValueValidate:
       'admin/assembly.register.error-sku-range-assembly-default',
     uniqueKeyValidate: 'admin/assembly.register.error-unique-key',
+    configWithEmptySkuArray: 'admin/assembly.register.error-no-skus',
+    configDoesNotExist: 'admin/assembly.register.error-no-groups',
   }
 
   if (error) {
