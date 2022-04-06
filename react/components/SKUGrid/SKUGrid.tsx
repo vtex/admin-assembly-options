@@ -124,7 +124,13 @@ const SKUGrid = (props: Props) => {
   })
 
   return (
-    <Flex csx={{ width: '100%', overflowX: ['scroll', 'unset'] }}>
+    <Flex
+      csx={{
+        width: '100%',
+        overflowX: 'scroll',
+        '@tablet': { overflowX: 'unset' },
+      }}
+    >
       <DataGrid csx={{ marginTop: 5, width: '100%' }} state={state} />
     </Flex>
   )

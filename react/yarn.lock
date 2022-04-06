@@ -2213,13 +2213,13 @@ vtex-tachyons@^3.2.0:
   version "8.132.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
 
-"vtexbr.admin-assembly-options@https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.6.0+build1648833475/public/@types/vtexbr.admin-assembly-options":
-  version "0.6.0"
-  resolved "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.6.0+build1648833475/public/@types/vtexbr.admin-assembly-options#ca4e947a2e8f6678f89a5dc8bb00d8170170f0e8"
+"vtexbr.admin-assembly-options@https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649191192/public/@types/vtexbr.admin-assembly-options":
+  version "0.10.0"
+  resolved "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649191192/public/@types/vtexbr.admin-assembly-options#b2fd5b7dfbb57c7df4112d1fe32accb890b2f8a6"
 
-"vtexbr.assembly-options-graphql@https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649188431/public/@types/vtexbr.assembly-options-graphql":
+"vtexbr.assembly-options-graphql@https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649191067/public/@types/vtexbr.assembly-options-graphql":
   version "0.2.0"
-  resolved "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649188431/public/@types/vtexbr.assembly-options-graphql#21222e41bf09e6cdeb84177ef959a50537280f5a"
+  resolved "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649191067/public/@types/vtexbr.assembly-options-graphql#3b4aca797161e263d6a6d1c41877ff691b5286da"
 
 warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
   version "4.0.3"
