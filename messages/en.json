@@ -74,5 +74,5 @@
 
   "admin/assembly.edit.page-title": "Edit Assembly Options",
   "admin/assembly.edit.not-found": "Assembly Option no encontrado",
-  "admin/assembly.edit.error-on-load": "Algo salió mal"
+  "admin/assembly.edit.error-on-load": "Something went wrong"
 }
