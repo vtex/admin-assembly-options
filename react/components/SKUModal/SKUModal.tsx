@@ -143,11 +143,21 @@ const SKUModal = (props: Props) => {
                     }}
                   >
                     <Flex direction="row">
-                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                      <Box
+                        csx={{
+                          width: '33%',
+                          '@tablet': {
+                            width: '25%',
+                          },
+                        }}
+                      >
                         <Label
                           csx={{
-                            width: ['80px', '100px'],
+                            width: '80px',
                             display: 'flex',
+                            '@tablet': {
+                              width: '100px',
+                            },
                           }}
                         >
                           {intl.formatMessage(messages.SKUItemMin)}
@@ -158,11 +168,21 @@ const SKUModal = (props: Props) => {
                           label={`${intl.formatMessage(messages.SKUItemMin)}`}
                         />
                       </Box>
-                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                      <Box
+                        csx={{
+                          width: '33%',
+                          '@tablet': {
+                            width: '25%',
+                          },
+                        }}
+                      >
                         <Label
                           csx={{
-                            width: ['80px', '100px'],
+                            width: '80px',
                             display: 'flex',
+                            '@tablet': {
+                              width: '100px',
+                            },
                           }}
                         >
                           {intl.formatMessage(messages.SKUItemMax)}
@@ -173,11 +193,21 @@ const SKUModal = (props: Props) => {
                           label={`${intl.formatMessage(messages.SKUItemMax)}`}
                         />
                       </Box>
-                      <Box csx={{ width: ['33%', '25%', '25%'] }}>
+                      <Box
+                        csx={{
+                          width: '33%',
+                          '@tablet': {
+                            width: '25%',
+                          },
+                        }}
+                      >
                         <Label
                           csx={{
-                            width: ['80px', '100px'],
+                            width: '80px',
                             display: 'flex',
+                            '@tablet': {
+                              width: '100px',
+                            },
                           }}
                         >
                           {intl.formatMessage(messages.SKUItemInitial)}
@@ -189,7 +219,14 @@ const SKUModal = (props: Props) => {
                           )}`}
                         />
                       </Box>
-                      <Box csx={{ width: ['0px', '25%', '25%'] }} />
+                      <Box
+                        csx={{
+                          width: '0px',
+                          '@tablet': {
+                            width: '25%',
+                          },
+                        }}
+                      />
                     </Flex>
                   </Box>
                 </Flex>

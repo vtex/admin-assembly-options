@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Listing Page Reponsive CSX
+- CSX implementation is not deprecated anymore
+
 ## [0.10.1] - 2022-04-06
 ### Fixed
 
