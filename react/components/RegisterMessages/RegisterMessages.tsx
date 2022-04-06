@@ -134,9 +134,11 @@ const RegisterMessages = ({ error }: Props) => {
         }}
       >
         <strong>{intl.formatMessage(messages.formWithError)}</strong>
-        <small>
-          <p>{error.graphQLErrors[0].message}</p>
-        </small>
+        {error?.graphQLErrors[0]?.message && (
+          <small>
+            <p>{error.graphQLErrors[0].message}</p>
+          </small>
+        )}
       </Alert>
     )
   }

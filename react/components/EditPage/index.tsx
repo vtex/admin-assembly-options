@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Page,
   PageHeader,
@@ -9,9 +9,11 @@ import {
 } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 import { useRuntime } from 'vtex.render-runtime'
-import { useQuery } from 'react-apollo'
+import { useMutation, useQuery } from 'react-apollo'
 import type {
   AssemblyOption,
+  AssemblyOptionConfigInput,
+  MutationUpdateAssemblyOptionArgs,
   QueryGetAssemblyOptionArgs,
 } from 'vtexbr.assembly-options-graphql'
 import { showToast } from 'vtex.admin-shell-utils'
@@ -22,6 +24,9 @@ import RegisterMessages from '../RegisterMessages'
 import GET_ASSEMBLY_OPTION from '../../graphql/getAssemblyOption.gql'
 import { HTTP_STATUS } from '../../utils/httpStatus'
 import { useRedirect } from '../../hooks/useRedirect'
+import type { RegisterFormHandle } from '../RegisterForm/RegisterForm'
+import UPDATE_ASSEMBLY_OPTION from '../../graphql/updateAssemblyOption.gql'
+import { useRegisterContext } from '../../context/RegisterContext'
 
 const EditPage = () => {
   const intl = useIntl()
@@ -34,10 +39,17 @@ const EditPage = () => {
     },
   } = useRuntime()
 
-  const { data, loading } = useQuery<
+  const [handlingSave, setHandlingSave] = useState(false)
+
+  const registerFormRef = useRef<RegisterFormHandle>(null)
+
+  const { name, required, active, group } = useRegisterContext()
+
+  const { data, loading: getLoading } = useQuery<
     { getAssemblyOption: AssemblyOption },
     QueryGetAssemblyOptionArgs
   >(GET_ASSEMBLY_OPTION, {
+    fetchPolicy: 'no-cache',
     variables: {
       id: assemblyOptionId,
     },
@@ -59,7 +71,66 @@ const EditPage = () => {
     },
   })
 
-  if (loading || !data) {
+  const [updateAssembly, { error, loading: updateLoading }] = useMutation<
+    AssemblyOption,
+    MutationUpdateAssemblyOptionArgs
+  >(UPDATE_ASSEMBLY_OPTION, {
+    onCompleted: () => {
+      showToast({
+        payload: intl.formatMessage(messages.editUpdateSuccess),
+      })
+
+      goToListPage()
+    },
+  })
+
+  const handleSave = async () => {
+    await registerFormRef?.current?.handleSubmit()
+
+    const formIsValid = registerFormRef?.current?.validateForm()
+
+    if (formIsValid) {
+      setHandlingSave(true)
+    }
+  }
+
+  // effect to get form values updated from Register Context
+  useEffect(() => {
+    if (handlingSave) {
+      setHandlingSave(false)
+
+      if (data?.getAssemblyOption.id) {
+        updateAssembly({
+          variables: {
+            id: data.getAssemblyOption.id,
+            assemblyOption: {
+              name,
+              isRequired: required,
+              isActive: active,
+              configs: group.map((item) => {
+                return {
+                  name: item.name,
+                  maxItems: item.maxItems,
+                  minItems: item.minItems,
+                  items: item.items,
+                } as AssemblyOptionConfigInput
+              }),
+            },
+          },
+        })
+      }
+    }
+  }, [
+    name,
+    required,
+    active,
+    group,
+    handlingSave,
+    updateAssembly,
+    data?.getAssemblyOption.id,
+  ])
+
+  if (getLoading || !data) {
     return null
   }
 
@@ -68,21 +139,17 @@ const EditPage = () => {
       <PageHeader onPopNavigation={goToListPage}>
         <PageTitle>{intl.formatMessage(messages.editPageTitle)}</PageTitle>
         <PageActions>
-          <Button
-            loading={false}
-            onClick={() => {
-              // TODO: handle save will be implementade in next version
-              // eslint-disable-next-line no-console
-              console.log('Save')
-            }}
-          >
+          <Button loading={updateLoading} onClick={handleSave}>
             {intl.formatMessage(messages.saveAction)}
           </Button>
         </PageActions>
       </PageHeader>
       <PageContent>
-        <RegisterMessages />
-        <RegisterForm assemblyOption={data.getAssemblyOption} />
+        <RegisterMessages error={error} />
+        <RegisterForm
+          ref={registerFormRef}
+          assemblyOption={data.getAssemblyOption}
+        />
       </PageContent>
     </Page>
   )

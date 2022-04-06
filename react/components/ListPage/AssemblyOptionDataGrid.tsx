@@ -126,6 +126,7 @@ const AssemblyOptionDataGrid = () => {
     },
     QueryListAssemblyOptionsArgs
   >(LIST_ASSEMBLY_OPTIONS, {
+    fetchPolicy: 'no-cache',
     variables: {
       page: pagination.currentPage,
       perPage: PAGE_SIZE,

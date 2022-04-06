@@ -1,4 +1,9 @@
-query ($page: Int, $perPage: Int, $name: String, $active: Boolean) {
+query ListAssemblyOptions(
+  $page: Int
+  $perPage: Int
+  $name: String
+  $active: Boolean
+) {
   listAssemblyOptions(
     page: $page
     perPage: $perPage
