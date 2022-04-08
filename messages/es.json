@@ -78,5 +78,6 @@
 
   "admin/assembly.edit.page-title": "Editar Assembly Options",
   "admin/assembly.edit.not-found": "Assembly Option no encontrado",
-  "admin/assembly.edit.error-on-load": "Algo salió mal"
+  "admin/assembly.edit.error-on-load": "Algo salió mal",
+  "admin/assembly.edit.update-success": "El Assembly Option se actualizó con éxito"
 }

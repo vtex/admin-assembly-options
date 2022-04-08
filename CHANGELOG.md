@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.10.3] - 2022-04-08
 
+### Added
+
+- Edit Assembly Option page
+
 ## [0.10.2] - 2022-04-06
 
 ### Fixed
