@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
   Page,
   PageHeader,
@@ -94,6 +94,26 @@ const EditPage = () => {
     }
   }
 
+  const buildVariables = useCallback(
+    (id: string) => ({
+      id,
+      assemblyOption: {
+        name,
+        isRequired: required,
+        isActive: active,
+        configs: group.map((item) => {
+          return {
+            name: item.name,
+            maxItems: item.maxItems,
+            minItems: item.minItems,
+            items: item.items,
+          } as AssemblyOptionConfigInput
+        }),
+      },
+    }),
+    [active, group, name, required]
+  )
+
   // effect to get form values updated from Register Context
   useEffect(() => {
     if (handlingSave) {
@@ -101,34 +121,11 @@ const EditPage = () => {
 
       if (data?.getAssemblyOption.id) {
         updateAssembly({
-          variables: {
-            id: data.getAssemblyOption.id,
-            assemblyOption: {
-              name,
-              isRequired: required,
-              isActive: active,
-              configs: group.map((item) => {
-                return {
-                  name: item.name,
-                  maxItems: item.maxItems,
-                  minItems: item.minItems,
-                  items: item.items,
-                } as AssemblyOptionConfigInput
-              }),
-            },
-          },
+          variables: buildVariables(data?.getAssemblyOption.id),
         })
       }
     }
-  }, [
-    name,
-    required,
-    active,
-    group,
-    handlingSave,
-    updateAssembly,
-    data?.getAssemblyOption.id,
-  ])
+  }, [buildVariables, data?.getAssemblyOption.id, handlingSave, updateAssembly])
 
   if (getLoading || !data) {
     return null
