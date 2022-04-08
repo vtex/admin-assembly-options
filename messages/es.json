@@ -39,7 +39,7 @@
   "admin/assembly.register.error-sku-max-value": "La cantidad de SKU {skuId} es mayor que el valor máximo permitido por el grupo {configName}",
   "admin/assembly.register.error-sku-range-assembly": "La cantidad de SKU {skuId} está fuera del rango del grupo {configName}",
   "admin/assembly.register.error-sku-range-assembly-default": "La suma de los valores de SKU es mayor que la cantidad máxima permitida por el grupo {configName}",
-  "admin/assembly.register.error-unique-key": "El Assembly Option debe tener un nombre único",
+  "admin/assembly.register.error-unique-key": "Los grupos de Assembly Option deben tener claves únicas",
   "admin/assembly.register.success-graphql": "El Assembly Option se creó con éxito",
 
   "admin/assembly.register.error-name-required": "El campo es obligatorio",
@@ -77,6 +77,6 @@
   "admin/assembly.register.error-default-max": "El valor inicial es mayor que el valor máximo",
 
   "admin/assembly.edit.page-title": "Editar Assembly Options",
-  "admin/assembly.edit.not-found": "Assembly Option not found",
-  "admin/assembly.edit.error-on-load": "Something went wrong"
+  "admin/assembly.edit.not-found": "Assembly Option no encontrado",
+  "admin/assembly.edit.error-on-load": "Algo salió mal"
 }

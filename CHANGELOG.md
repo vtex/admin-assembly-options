@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+
 - Fix SKU field to allow only numbers
+
+## [0.10.3] - 2022-04-08
 
 ## [0.10.2] - 2022-04-06
 
@@ -18,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CSX implementation is not deprecated anymore
 
 ## [0.10.1] - 2022-04-06
+
 ### Fixed
 
 - Fixed messages for the validations "configDoesNotExist" and "configWithEmptySkuArray"
@@ -37,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Mobile and Tablet front-end adjustments
+
 ## [0.6.0] - 2022-03-30
 
 ## [0.5.0] - 2022-03-28

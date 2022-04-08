@@ -11,7 +11,7 @@ import { useIntl } from 'react-intl'
 import { useRuntime } from 'vtex.render-runtime'
 import { useQuery } from 'react-apollo'
 import type {
-  Query,
+  AssemblyOption,
   QueryGetAssemblyOptionArgs,
 } from 'vtexbr.assembly-options-graphql'
 import { showToast } from 'vtex.admin-shell-utils'
@@ -35,7 +35,7 @@ const EditPage = () => {
   } = useRuntime()
 
   const { data, loading } = useQuery<
-    Query['getAssemblyOption'],
+    { getAssemblyOption: AssemblyOption },
     QueryGetAssemblyOptionArgs
   >(GET_ASSEMBLY_OPTION, {
     variables: {
@@ -63,10 +63,6 @@ const EditPage = () => {
     return null
   }
 
-  // TODO: this data should be passed to the form
-  // eslint-disable-next-line no-console
-  console.log('data', data)
-
   return (
     <Page>
       <PageHeader onPopNavigation={goToListPage}>
@@ -86,7 +82,7 @@ const EditPage = () => {
       </PageHeader>
       <PageContent>
         <RegisterMessages />
-        <RegisterForm />
+        <RegisterForm assemblyOption={data.getAssemblyOption} />
       </PageContent>
     </Page>
   )
