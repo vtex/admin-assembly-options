@@ -1,5 +1,6 @@
-query ($id: ID!) {
+query GetAssemblyOption($id: ID!) {
   getAssemblyOption(id: $id) {
+    id
     name
     isRequired
     isActive
