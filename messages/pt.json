@@ -46,6 +46,8 @@
   "admin/assembly.register.unamed-group": "Grupo não nomeado",
   "admin/assembly.register.name-exists": "Esse nome do Assembly Options já existe, tente outro",
   "admin/assembly.register.form-with-error": "O formulário não foi preenchido corretamente, verifique possíveis ajustes",
+  "admin/assembly.register.error-no-skus": "O Assembly Option {configName} deve conter pelo menos um SKU cadastrado",
+  "admin/assembly.register.error-no-groups": "O Assembly Option deve conter pelo menos um grupo cadastrado",
 
   "admin/assembly.register.delete-action": "Deletar",
   "admin/assembly.register.edit-action": "Editar",

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import type { DataGridColumn } from '@vtex/admin-ui'
 import {
+  Flex,
   Skeleton,
   Search,
   useSearchState,
@@ -11,7 +12,6 @@ import {
   useDataGridState,
   Tag,
   DataViewControls,
-  FlexSpacer,
   Pagination,
   experimental_Filter as Filter,
 } from '@vtex/admin-ui'
@@ -184,20 +184,54 @@ const AssemblyOptionDataGrid = () => {
   return (
     <DataView state={view}>
       <DataViewControls>
-        <Search
-          id="search"
-          state={searchState}
-          placeholder={intl.formatMessage(messages.listSearchPlaceholder)}
-        />
-        <Filter state={filterStatus} />
-        <FlexSpacer />
-        <Pagination
-          state={pagination}
-          preposition={intl.formatMessage(messages.paginationPreposition)}
-          subject={intl.formatMessage(messages.paginationSubject)}
-          prevLabel={intl.formatMessage(messages.paginationPrevLabel)}
-          nextLabel={intl.formatMessage(messages.paginationNextLabel)}
-        />
+        <Flex
+          csx={{
+            flexDirection: 'column',
+            width: '100%',
+            '@tablet': {
+              flexDirection: 'row',
+            },
+          }}
+        >
+          <Flex
+            csx={{
+              width: '100%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              '@tablet': {
+                width: '50%',
+              },
+            }}
+          >
+            <Search
+              csx={{ marginRight: '10px' }}
+              id="search"
+              state={searchState}
+              placeholder={intl.formatMessage(messages.listSearchPlaceholder)}
+            />
+            <Filter state={filterStatus} />
+          </Flex>
+          <Flex
+            csx={{
+              width: '100%',
+              justifyContent: 'flex-start',
+              marginTop: '10px',
+              '@tablet': {
+                width: '50%',
+                justifyContent: 'end',
+                marginTop: '0px',
+              },
+            }}
+          >
+            <Pagination
+              state={pagination}
+              preposition={intl.formatMessage(messages.paginationPreposition)}
+              subject={intl.formatMessage(messages.paginationSubject)}
+              prevLabel={intl.formatMessage(messages.paginationPrevLabel)}
+              nextLabel={intl.formatMessage(messages.paginationNextLabel)}
+            />
+          </Flex>
+        </Flex>
       </DataViewControls>
       <DataGrid state={grid} />
     </DataView>

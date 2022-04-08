@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.3] - 2022-04-08
+
+## [0.10.2] - 2022-04-06
+
+### Fixed
+
+- Listing Page Reponsive CSX
+- CSX implementation is not deprecated anymore
+
+## [0.10.1] - 2022-04-06
+### Fixed
+
+- Fixed messages for the validations "configDoesNotExist" and "configWithEmptySkuArray"
+
 ## [0.10.0] - 2022-04-05
 
 ## [0.9.0] - 2022-04-05
