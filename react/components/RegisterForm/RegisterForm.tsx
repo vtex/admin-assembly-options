@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Card, Heading, Flex, Button } from '@vtex/admin-ui'
 import type { FormikProps } from 'formik'
@@ -6,12 +6,18 @@ import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
 import * as yup from 'yup'
 import uniqid from 'uniqid'
+import type { AssemblyOption } from 'vtexbr.assembly-options-graphql'
+import useDidMount from '@rooks/use-did-mount'
 
 import type { AssemblyGroupType } from '../../context/RegisterContext'
 import { useRegisterContext } from '../../context/RegisterContext'
 import AssemblyGroup from '../AssemblyGroup'
 import { messages } from '../../utils/messages'
 import { useGroupFormContext } from '../../context/GroupFormContext'
+
+interface Props {
+  assemblyOption?: AssemblyOption
+}
 
 interface FormValues {
   name: string
@@ -24,111 +30,144 @@ export interface RegisterFormHandle {
   validateForm: () => boolean
 }
 
-const RegisterForm = forwardRef<RegisterFormHandle>((_props, ref) => {
-  const {
-    group,
-    setAssemblyActive,
-    setAssemblyRequired,
-    setAssemblyName,
-    setAssemblyGroup,
-  } = useRegisterContext()
+const RegisterForm = forwardRef<RegisterFormHandle, Props>(
+  ({ assemblyOption }, ref) => {
+    const {
+      group,
+      setAssemblyActive,
+      setAssemblyRequired,
+      setAssemblyName,
+      setAssemblyGroup,
+    } = useRegisterContext()
 
-  const { submitForms, validateForms } = useGroupFormContext()
+    const { submitForms, validateForms } = useGroupFormContext()
 
-  const intl = useIntl()
+    const intl = useIntl()
 
-  const formRef = useRef<FormikProps<FormValues>>(null)
-
-  useImperativeHandle(ref, () => ({
-    async handleSubmit() {
-      await Promise.all([formRef.current?.submitForm(), submitForms()])
-    },
-    validateForm() {
-      return (formRef.current?.isValid && validateForms()) ?? true
-    },
-  }))
-
-  const handleSubmit = ({ name, active, required }: FormValues) => {
-    setAssemblyName(name)
-    setAssemblyActive(active)
-    setAssemblyRequired(required)
-  }
-
-  const SchemaValidationError = yup.object().shape({
-    name: yup
-      .string()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
-  })
-
-  const handleAddGroup = () => {
-    const emptyGroup: AssemblyGroupType = {
-      key: uniqid(),
+    const [initialValues, setInitialValues] = useState({
       name: '',
-      maxItems: 0,
-      minItems: 0,
-      items: [],
+      active: true,
+      required: false,
+    })
+
+    const formRef = useRef<FormikProps<FormValues>>(null)
+
+    useImperativeHandle(ref, () => ({
+      async handleSubmit() {
+        await Promise.all([formRef.current?.submitForm(), submitForms()])
+      },
+      validateForm() {
+        return (formRef.current?.isValid && validateForms()) ?? true
+      },
+    }))
+
+    const handleSubmit = ({ name, active, required }: FormValues) => {
+      setAssemblyName(name)
+      setAssemblyActive(active)
+      setAssemblyRequired(required)
     }
 
-    setAssemblyGroup((previews) => [...previews, emptyGroup])
-  }
+    const SchemaValidationError = yup.object().shape({
+      name: yup
+        .string()
+        .required(intl.formatMessage(messages.errorNameRequired)),
+    })
 
-  return (
-    <>
-      <Formik
-        onSubmit={handleSubmit}
-        initialValues={{
-          name: '',
-          active: true,
-          required: false,
-        }}
-        validationSchema={SchemaValidationError}
-        innerRef={formRef}
-      >
-        <form>
-          <Card csx={{ maxWidth: '712px', margin: '15px auto' }}>
-            <Heading>{intl.formatMessage(messages.assemblyFormTitle)}</Heading>
-            <Flex direction="column" csx={{ marginTop: '20px' }}>
-              <FormikInput
-                name="name"
-                label={intl.formatMessage(messages.assemblyNameLabel)}
-              />
-              <FormikToggle
-                csx={{ margin: '5px 0px' }}
-                name="active"
-                label={intl.formatMessage(messages.assemblyActive)}
-              />
-              <FormikCheckbox
-                csx={{ margin: '5px 0px' }}
-                name="required"
-                label={intl.formatMessage(messages.assemblyRequired)}
-              />
+    const handleAddGroup = () => {
+      const emptyGroup: AssemblyGroupType = {
+        key: uniqid(),
+        name: '',
+        minItems: 0,
+        maxItems: 0,
+        items: [],
+      }
+
+      setAssemblyGroup((previews) => [...previews, emptyGroup])
+    }
+
+    useDidMount(() => {
+      if (!assemblyOption) return
+
+      const { name, isActive, isRequired, configs } = assemblyOption
+
+      setInitialValues({
+        name,
+        active: isActive,
+        required: isRequired,
+      })
+
+      setAssemblyGroup(
+        configs.map((config) => {
+          const { name: configName, minItems, maxItems, items } = config
+
+          return {
+            key: uniqid(),
+            name: configName,
+            minItems,
+            maxItems,
+            items,
+          } as AssemblyGroupType
+        })
+      )
+    })
+
+    return (
+      <>
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={{ ...initialValues }}
+          validationSchema={SchemaValidationError}
+          innerRef={formRef}
+          enableReinitialize
+        >
+          <form>
+            <Card csx={{ maxWidth: '712px', margin: '15px auto' }}>
+              <Heading>
+                {intl.formatMessage(messages.assemblyFormTitle)}
+              </Heading>
+              <Flex direction="column" csx={{ marginTop: '20px' }}>
+                <FormikInput
+                  name="name"
+                  label={intl.formatMessage(messages.assemblyNameLabel)}
+                />
+                <FormikToggle
+                  csx={{ margin: '5px 0px' }}
+                  name="active"
+                  label={intl.formatMessage(messages.assemblyActive)}
+                />
+                <FormikCheckbox
+                  csx={{ margin: '5px 0px' }}
+                  name="required"
+                  label={intl.formatMessage(messages.assemblyRequired)}
+                />
+              </Flex>
+            </Card>
+          </form>
+        </Formik>
+        <Flex direction="column">
+          <Card csx={{ maxWidth: '712px', width: '100%', margin: '15px auto' }}>
+            <Flex direction="row" justify="space-between" align="center">
+              <Heading>
+                {intl.formatMessage(messages.assemblyGroupsTitle)}
+              </Heading>
+              <Button variant="secondary" onClick={handleAddGroup}>
+                {intl.formatMessage(messages.addKeyButton)}
+              </Button>
+            </Flex>
+            <Flex direction="column">
+              {group.map((value, index) => (
+                <AssemblyGroup
+                  key={`assembly-group-${value.key}`}
+                  groupIndex={index}
+                  groupValue={value}
+                />
+              ))}
             </Flex>
           </Card>
-        </form>
-      </Formik>
-      <Flex direction="column">
-        <Card csx={{ maxWidth: '712px', width: '100%', margin: '15px auto' }}>
-          <Flex direction="row" justify="space-between" align="center">
-            <Heading>
-              {intl.formatMessage(messages.assemblyGroupsTitle)}
-            </Heading>
-            <Button variant="secondary" onClick={handleAddGroup}>
-              {intl.formatMessage(messages.addKeyButton)}
-            </Button>
-          </Flex>
-          <Flex direction="column">
-            {group.map((value, index) => (
-              <AssemblyGroup
-                key={`assembly-group-${value.key}`}
-                groupIndex={index}
-                groupValue={value}
-              />
-            ))}
-          </Flex>
-        </Card>
-      </Flex>
-    </>
-  )
-})
+        </Flex>
+      </>
+    )
+  }
+)
 
 export default RegisterForm
