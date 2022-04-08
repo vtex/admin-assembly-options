@@ -73,6 +73,14 @@ export const messages = defineMessages({
     id: 'admin/assembly.register.sku-add',
     defaultMessage: '',
   },
+  SKUModalTitle: {
+    id: 'admin/assembly.register.sku-modal-title',
+    defaultMessage: '',
+  },
+  SKUId: {
+    id: 'admin/assembly.register.sku-id',
+    defaultMessage: '',
+  },
   SKUPriceTableLabel: {
     id: 'admin/assembly.register.sku-price-table',
     defaultMessage: '',
