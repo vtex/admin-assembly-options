@@ -22,17 +22,25 @@ import type { SKUType } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
 import SKUInput from './SKUInput'
 
+interface FormProps {
+  skuId: string
+  priceTable: string
+  minValue: number
+  maxValue: number
+  defaultValue: number
+}
+
 interface Props {
   handleClose: (form: SKUType) => void
   modalState: ModalStateReturn
-  initialValue?: SKUType
+  initialValue?: FormProps
 }
 
 const SKUModal = (props: Props) => {
   const { handleClose, modalState, initialValue } = props
   const intl = useIntl()
 
-  const defaultValue: SKUType = {
+  const defaultValue: FormProps = {
     skuId: '',
     priceTable: '',
     minValue: 0,
@@ -85,9 +93,12 @@ const SKUModal = (props: Props) => {
       ),
   })
 
-  const handleSubmit = (values: SKUType, actions: FormikHelpers<SKUType>) => {
+  const handleSubmit = (
+    values: FormProps,
+    actions: FormikHelpers<FormProps>
+  ) => {
     const newSKU: SKUType = {
-      skuId: values.skuId,
+      skuId: Number(values.skuId),
       priceTable: values.priceTable,
       minValue: values.minValue,
       maxValue: values.maxValue,

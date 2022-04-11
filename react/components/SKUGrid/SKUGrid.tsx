@@ -77,7 +77,7 @@ const SKUGrid = (props: Props) => {
             const modal = useModalState()
 
             const actualSKU = {
-              skuId: item.skuId,
+              skuId: `${item.skuId}`,
               priceTable: item.priceTable,
               minValue: item.minQuantity,
               maxValue: item.maxQuantity,

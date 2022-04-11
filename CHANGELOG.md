@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed data type of skuId from string to number
+
 ### Fixed
 
 - Fix SKU field to allow only numbers
