@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed data type of skuId from string to number
+
+### Fixed
+
+- Fix SKU field to allow only numbers
+
+## [0.10.3] - 2022-04-08
+
 ### Added
 
 - Edit Assembly Option page
-
-## [0.10.3] - 2022-04-08
 
 ## [0.10.2] - 2022-04-06
 

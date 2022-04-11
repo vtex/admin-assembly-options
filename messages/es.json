@@ -18,6 +18,8 @@
   "admin/assembly.register.key-minimum-label": "Cantidad Mínima*",
   "admin/assembly.register.key-maximum-label": "Cantidad Máxima*",
   "admin/assembly.register.sku-add": "Agregar nuevo SKU",
+  "admin/assembly.register.sku-modal-title": "SKU",
+  "admin/assembly.register.sku-id": "SKU Id*",
   "admin/assembly.register.sku-price-table": "Nombre de la tabla de precios vinculada*",
   "admin/assembly.register.sku-items": "Item",
   "admin/assembly.register.sku-items-min": "Cantidad mínima*",

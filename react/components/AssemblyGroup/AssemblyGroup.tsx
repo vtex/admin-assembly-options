@@ -80,10 +80,7 @@ const AssemblyGroup = (props: Props) => {
       .when('minItems', (minItems: number) => {
         return yup
           .number()
-          .min(
-            minItems,
-            `${intl.formatMessage(messages.errorNumberComparison)}`
-          )
+          .min(minItems, intl.formatMessage(messages.errorNumberComparison))
           .required()
       }),
   })
@@ -135,8 +132,8 @@ const AssemblyGroup = (props: Props) => {
               csx={{ padding: '10px 15px' }}
               label={
                 values.name
-                  ? `${values.name}`
-                  : `${intl.formatMessage(messages.unamedGroup)}`
+                  ? values.name
+                  : intl.formatMessage(messages.unamedGroup)
               }
             >
               <Menu state={menuState} hideOnClick>
@@ -158,7 +155,7 @@ const AssemblyGroup = (props: Props) => {
                   <FormikInput
                     id={`assembly-group-name-${groupIndex}`}
                     name="name"
-                    label={`${intl.formatMessage(messages.keyNameLabel)}`}
+                    label={intl.formatMessage(messages.keyNameLabel)}
                     helperText={intl.formatMessage(messages.keyNameLabelHelper)}
                     csx={{ margin: '0px' }}
                   />
