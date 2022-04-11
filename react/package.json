@@ -12,8 +12,8 @@
     "typescript": "3.9.7",
     "vtex.admin-shell-utils": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime",
-    "vtexbr.admin-assembly-options": "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649191192/public/@types/vtexbr.admin-assembly-options",
-    "vtexbr.assembly-options-graphql": "https://assembly4--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649191067/public/@types/vtexbr.assembly-options-graphql"
+    "vtexbr.admin-assembly-options": "https://assembly5--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649273878/public/@types/vtexbr.admin-assembly-options",
+    "vtexbr.assembly-options-graphql": "https://assembly5--sesnick.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.1+build1649449398/public/@types/vtexbr.assembly-options-graphql"
   },
   "dependencies": {
     "@rooks/use-did-mount": "^4.11.2",

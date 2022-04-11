@@ -38,6 +38,14 @@ const Actions = ({ item }: Props) => {
           >
             {intl.formatMessage(messages.listEditAction)}
           </MenuItem>
+          <MenuItem
+            onClick={() => {
+              goToEditPage(item.assemblyOptionId)
+            }}
+            icon={<IconPencil />}
+          >
+            {`DELETE`}
+          </MenuItem>
         </MenuList>
       </Menu>
     </Flex>
