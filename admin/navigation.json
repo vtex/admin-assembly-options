@@ -1,15 +1,21 @@
-{
-  "section": "products",
-  "titleId": "admin/assembly.navigation.label-group",
-  "subSection": "example",
-  "subSectionItems": [
-    {
-      "labelId": "admin/assembly.navigation.label-main",
-      "path": "/admin/assembly-options/register"
-    },
-    {
-      "labelId": "admin/assembly.navigation.label-group",
-      "path": "/admin/assembly-options"
-    }
-  ]
-}
+[
+  {
+    "section": "products",
+    "titleId": "admin/assembly.navigation.label-group",
+    "subSection": "AssemblyOptions",
+    "path": "/admin/assembly-options",
+    "adminVersion": 3
+  },
+  {
+    "section": "products",
+    "subSection": "catalog",
+    "titleId": "admin/assembly.navigation.label-group",
+    "adminVersion": 4,
+    "subSectionItems": [
+      {
+        "labelId": "admin/assembly.navigation.label-group",
+        "path": "/admin/assembly-options"
+      }
+    ]
+  }
+]

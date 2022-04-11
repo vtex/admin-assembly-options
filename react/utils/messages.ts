@@ -242,4 +242,8 @@ export const messages = defineMessages({
     id: 'admin/assembly.edit.error-on-load',
     defaultMessage: '',
   },
+  editUpdateSuccess: {
+    id: 'admin/assembly.edit.update-success',
+    defaultMessage: '',
+  },
 })
