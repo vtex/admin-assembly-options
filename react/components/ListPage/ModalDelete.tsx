@@ -13,12 +13,17 @@ import { useIntl } from 'react-intl'
 
 import { messages } from '../../utils/messages'
 
+interface DeleteFunctionParams {
+  variables: {
+    id: string
+  }
+}
+
 interface Props {
   name: string
   id: string
   state: DialogStateReturn
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  deleteAction: any
+  deleteAction: (params: DeleteFunctionParams) => void
 }
 
 const ModalDelete = (props: Props) => {
@@ -34,7 +39,7 @@ const ModalDelete = (props: Props) => {
       </ModalContent>
       <ModalFooter>
         <Flex justify="end">
-          <ModalButton variant="secondary" closeModalOnClick>
+          <ModalButton variant="tertiary" closeModalOnClick>
             {intl.formatMessage(messages.adminCancel)}
           </ModalButton>
           <ModalButton
