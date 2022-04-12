@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.8.1+build1649182886/public/@types/vtexbr.admin-assembly-options: Request failed "500 Internal Server Error"
+  Error: https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649365934/public/@types/vtexbr.admin-assembly-options: Request failed "500 Internal Server Error"
       at ResponseError.ExtendableBuiltin (/Users/gabrielbarros/.config/yarn/global/node_modules/yarn/lib/cli.js:696:66)
       at new ResponseError (/Users/gabrielbarros/.config/yarn/global/node_modules/yarn/lib/cli.js:802:124)
       at Request.<anonymous> (/Users/gabrielbarros/.config/yarn/global/node_modules/yarn/lib/cli.js:67058:16)
@@ -41,7 +41,7 @@ npm manifest:
       "typescript": "3.9.7",
       "vtex.admin-shell-utils": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils",
       "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime",
-      "vtexbr.admin-assembly-options": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.8.1+build1649182886/public/@types/vtexbr.admin-assembly-options",
+      "vtexbr.admin-assembly-options": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649365934/public/@types/vtexbr.admin-assembly-options",
       "vtexbr.assembly-options-graphql": "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649182995/public/@types/vtexbr.assembly-options-graphql"
     },
     "dependencies": {
@@ -2278,13 +2278,13 @@ Lockfile:
     version "8.132.4"
     resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
   
-  "vtexbr.admin-assembly-options@https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.8.1+build1649182886/public/@types/vtexbr.admin-assembly-options":
-    version "0.8.1"
-    resolved "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.8.1+build1649182886/public/@types/vtexbr.admin-assembly-options#e11160c1caaa872550085a593d6736e9fd783c52"
+  "vtexbr.admin-assembly-options@https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649365934/public/@types/vtexbr.admin-assembly-options":
+    version "0.10.0"
+    resolved "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.admin-assembly-options@0.10.0+build1649365934/public/@types/vtexbr.admin-assembly-options#820d3c2bfe3873f3c334cb050d0ca192e60efcf5"
   
-  "vtexbr.assembly-options-graphql@https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649182995/public/@types/vtexbr.assembly-options-graphql":
-    version "0.2.0"
-    resolved "https://submit--wagnerlduarte.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.0+build1649182995/public/@types/vtexbr.assembly-options-graphql#cc7e4e0d77480a9b6d36dafdf43225106927c171"
+  "vtexbr.assembly-options-graphql@https://wagnerlduarte--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.2+build1649446351/public/@types/vtexbr.assembly-options-graphql":
+    version "0.2.2"
+    resolved "https://wagnerlduarte--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtexbr.assembly-options-graphql@0.2.2+build1649446351/public/@types/vtexbr.assembly-options-graphql#88c73a8f45b463d27f81593d7138c6ad78d16f05"
   
   warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
     version "4.0.3"

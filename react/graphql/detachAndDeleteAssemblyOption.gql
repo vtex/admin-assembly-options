@@ -1,0 +1,3 @@
+mutation detachAndDeleteAssembly($id: ID!) {
+  detachAndDeleteAssembly(id: $id)
+}

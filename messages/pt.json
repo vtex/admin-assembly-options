@@ -77,5 +77,10 @@
   "admin/assembly.edit.page-title": "Editar Assembly Options",
   "admin/assembly.edit.not-found": "Assembly Option não encontrado",
   "admin/assembly.edit.error-on-load": "Alguma coisa deu errado ao carregar o Assembly Option",
-  "admin/assembly.edit.update-success": "O Assembly Option foi atualizado com sucesso"
+  "admin/assembly.edit.update-success": "O Assembly Option foi atualizado com sucesso",
+
+  "admin/assembly.list.delete-success": "O Assembly foi deletado corretamente",
+  "admin/assembly.list.delete-error": "Houve um erro ao deletar o Assembly, tente novamente",
+  "admin/assembly.list.delete-message": "Deseja realmente deletar o Assembly Option? Isso irá desvincular o anexo a qualquer SKU e deletar o Assembly da base de dados definitivamente",
+  "admin/assembly.cancel": "Cancelar"
 }
