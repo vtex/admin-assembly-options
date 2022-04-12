@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added the Delete Option within the Assembly List and connected it with the delete mutation on graphQL
+
 ## [0.10.6] - 2022-04-12
 
 ## [0.10.5] - 2022-04-12
