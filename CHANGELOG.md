@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.4] - 2022-04-12
+
 ### Fixed
 
 - Fix SKU field to allow only numbers
