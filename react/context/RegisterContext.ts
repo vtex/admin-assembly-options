@@ -9,7 +9,7 @@ interface AssemblyGroupType {
 }
 
 interface SKUType {
-  skuId: string
+  skuId: number
   priceTable: string
   minValue: number
   maxValue: number
