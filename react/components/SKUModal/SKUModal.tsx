@@ -20,6 +20,7 @@ import * as yup from 'yup'
 
 import type { SKUType } from '../../context/RegisterContext'
 import { messages } from '../../utils/messages'
+import SKUInput from './SKUInput'
 
 interface Props {
   handleClose: (form: SKUType) => void
@@ -115,7 +116,7 @@ const SKUModal = (props: Props) => {
         >
           {({ values, isValid, dirty, resetForm }) => (
             <Form>
-              <ModalHeader title="SKU">
+              <ModalHeader title={intl.formatMessage(messages.SKUModalTitle)}>
                 <ModalButton
                   variant="adaptative-dark"
                   closeModalOnClick
@@ -127,10 +128,13 @@ const SKUModal = (props: Props) => {
               </ModalHeader>
               <ModalContent>
                 <Flex direction="column">
-                  <FormikInput name="skuId" label="SKU ID" />
+                  <SKUInput
+                    name="skuId"
+                    label={intl.formatMessage(messages.SKUId)}
+                  />
                   <FormikInput
                     name="priceTable"
-                    label={`${intl.formatMessage(messages.SKUPriceTableLabel)}`}
+                    label={intl.formatMessage(messages.SKUPriceTableLabel)}
                   />
                 </Flex>
                 <Heading csx={{ marginTop: 5 }}>
@@ -165,7 +169,7 @@ const SKUModal = (props: Props) => {
                         <FormikNumericStepper
                           name="minValue"
                           minValue={0}
-                          label={`${intl.formatMessage(messages.SKUItemMin)}`}
+                          label={intl.formatMessage(messages.SKUItemMin)}
                         />
                       </Box>
                       <Box
@@ -190,7 +194,7 @@ const SKUModal = (props: Props) => {
                         <FormikNumericStepper
                           name="maxValue"
                           minValue={values.minValue}
-                          label={`${intl.formatMessage(messages.SKUItemMax)}`}
+                          label={intl.formatMessage(messages.SKUItemMax)}
                         />
                       </Box>
                       <Box
@@ -214,9 +218,7 @@ const SKUModal = (props: Props) => {
                         </Label>
                         <FormikNumericStepper
                           name="defaultValue"
-                          label={`${intl.formatMessage(
-                            messages.SKUItemInitial
-                          )}`}
+                          label={intl.formatMessage(messages.SKUItemInitial)}
                         />
                       </Box>
                       <Box
