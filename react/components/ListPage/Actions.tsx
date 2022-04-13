@@ -11,12 +11,12 @@ import {
   useModalState,
   Text,
   FlexSpacer,
+  useToast,
 } from '@vtex/admin-ui'
 import React from 'react'
 import { useIntl } from 'react-intl'
 import { useMutation } from 'react-apollo'
 import type { MutationDetachAndDeleteAssemblyArgs } from 'vtexbr.assembly-options-graphql'
-import { showToast } from 'vtex.admin-shell-utils'
 
 import { useRedirect } from '../../hooks/useRedirect'
 import { messages } from '../../utils/messages'
@@ -37,18 +37,24 @@ const Actions = ({ item }: Props) => {
 
   const menuState = useMenuState()
 
+  const showToast = useToast()
+
   const [detachAndDeleteAssemblyOption] = useMutation<
     boolean,
     MutationDetachAndDeleteAssemblyArgs
   >(DETACH_AND_DELETE_ASSEMBLY, {
     onError: () => {
       showToast({
-        payload: intl.formatMessage(messages.deleteError),
+        tone: 'critical',
+        message: intl.formatMessage(messages.deleteError),
+        duration: 3000,
       })
     },
     onCompleted: () => {
       showToast({
-        payload: intl.formatMessage(messages.deleteSuccess),
+        tone: 'positive',
+        message: intl.formatMessage(messages.deleteSuccess),
+        duration: 3000,
       })
     },
   })
@@ -79,7 +85,9 @@ const Actions = ({ item }: Props) => {
             name={item.name}
             id={item.assemblyOptionId}
             state={stateModal}
-            deleteAction={detachAndDeleteAssemblyOption}
+            deleteAction={(id) =>
+              detachAndDeleteAssemblyOption({ variables: { id } })
+            }
           />
         </MenuList>
       </Menu>
