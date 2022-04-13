@@ -41,6 +41,7 @@ const Actions = ({ item }: Props) => {
     boolean,
     MutationDetachAndDeleteAssemblyArgs
   >(DETACH_AND_DELETE_ASSEMBLY, {
+    fetchPolicy: 'no-cache',
     onError: () => {
       showToast({
         payload: intl.formatMessage(messages.deleteError),
