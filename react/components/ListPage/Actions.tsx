@@ -51,6 +51,7 @@ const Actions = ({ item }: Props) => {
         payload: intl.formatMessage(messages.deleteSuccess),
       })
     },
+    refetchQueries: ['ListAssemblyOptions'],
   })
 
   return (
