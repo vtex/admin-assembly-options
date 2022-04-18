@@ -79,5 +79,10 @@
   "admin/assembly.edit.page-title": "Edit Assembly Options",
   "admin/assembly.edit.not-found": "Assembly Option not found",
   "admin/assembly.edit.error-on-load": "Something went wrong",
-  "admin/assembly.edit.update-success": "The Assembly Option was succesfully updated"
+  "admin/assembly.edit.update-success": "The Assembly Option was succesfully updated",
+
+  "admin/assembly.list.delete-success": "The Assembly was succesfully deleted",
+  "admin/assembly.list.delete-error": "There was an error on deleting the Assembly, try again",
+  "admin/assembly.list.delete-message": "Do you really want to delete the Assembly Option? This will unbind the attachment to any SKU and delete the assembly from the database permanently",
+  "admin/assembly.cancel": "Cancel"
 }

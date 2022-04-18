@@ -1,5 +1,5 @@
 import React from 'react'
-import { createSystem } from '@vtex/admin-ui'
+import { createSystem, ToastProvider } from '@vtex/admin-ui'
 
 import ListPage from './components/ListPage'
 
@@ -10,7 +10,9 @@ const AssemblyRegister = () => {
 
   return (
     <ThemeProvider>
-      <ListPage />
+      <ToastProvider>
+        <ListPage />
+      </ToastProvider>
     </ThemeProvider>
   )
 }

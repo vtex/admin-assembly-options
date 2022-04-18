@@ -254,4 +254,20 @@ export const messages = defineMessages({
     id: 'admin/assembly.edit.update-success',
     defaultMessage: '',
   },
+  deleteSuccess: {
+    id: 'admin/assembly.list.delete-success',
+    defaultMessage: '',
+  },
+  deleteError: {
+    id: 'admin/assembly.list.delete-error',
+    defaultMessage: '',
+  },
+  deleteMessage: {
+    id: 'admin/assembly.list.delete-message',
+    defaultMessage: '',
+  },
+  adminCancel: {
+    id: 'admin/assembly.cancel',
+    defaultMessage: '',
+  },
 })
