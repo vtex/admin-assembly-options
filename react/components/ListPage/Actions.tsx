@@ -23,13 +23,13 @@ import { messages } from '../../utils/messages'
 import type { TableColumns } from './AssemblyOptionDataGrid'
 import ModalDelete from './ModalDelete'
 import DETACH_AND_DELETE_ASSEMBLY from '../../graphql/detachAndDeleteAssemblyOption.gql'
-import LIST_ASSEMBLY_OPTIONS from '../../graphql/listAssemblyOptions.gql'
 
 interface Props {
   item: TableColumns
+  refetchAction: () => void
 }
 
-const Actions = ({ item }: Props) => {
+const Actions = ({ item, refetchAction }: Props) => {
   const intl = useIntl()
 
   const stateModal = useModalState()
@@ -44,7 +44,6 @@ const Actions = ({ item }: Props) => {
     boolean,
     MutationDetachAndDeleteAssemblyArgs
   >(DETACH_AND_DELETE_ASSEMBLY, {
-    fetchPolicy: 'no-cache',
     onError: () => {
       showToast({
         tone: 'critical',
@@ -53,13 +52,13 @@ const Actions = ({ item }: Props) => {
       })
     },
     onCompleted: () => {
+      refetchAction()
       showToast({
         tone: 'positive',
         message: intl.formatMessage(messages.deleteSuccess),
         duration: 3000,
       })
     },
-    refetchQueries: [LIST_ASSEMBLY_OPTIONS],
   })
 
   return (
