@@ -53,6 +53,57 @@ const AssemblyOptionDataGrid = () => {
     timeoutMs: 500,
   })
 
+  const {
+    data: queryData,
+    loading,
+    refetch,
+  } = useQuery<
+    {
+      listAssemblyOptions: AssemblyOptionPageResponseData
+    },
+    QueryListAssemblyOptionsArgs
+  >(LIST_ASSEMBLY_OPTIONS, {
+    fetchPolicy: 'no-cache',
+    notifyOnNetworkStatusChange: true,
+    variables: {
+      page: pagination.currentPage,
+      perPage: PAGE_SIZE,
+      name: searchState.debouncedValue ?? undefined,
+      active: filterStatus?.appliedItem
+        ? Boolean(filterStatus.appliedItem.value)
+        : undefined,
+    },
+    onCompleted: (resultData) => {
+      if (
+        pagination.total !== resultData.listAssemblyOptions.pagination.total
+      ) {
+        pagination.paginate({
+          type: 'setTotal',
+          total: resultData
+            ? resultData.listAssemblyOptions.pagination.total
+            : 0,
+        })
+      }
+
+      if (resultData.listAssemblyOptions.data.length > 0) {
+        view.setStatus({
+          type: 'ready',
+        })
+      } else {
+        view.setStatus({
+          type: 'empty',
+          message: intl.formatMessage(messages.noResults),
+        })
+      }
+    },
+    onError: () => {
+      view.setStatus({
+        type: 'error',
+        message: intl.formatMessage(messages.queryError),
+      })
+    },
+  })
+
   const columns: Array<DataGridColumn<TableColumns>> = [
     {
       id: 'assemblyOptionId',
@@ -114,62 +165,16 @@ const AssemblyOptionDataGrid = () => {
             return <Skeleton csx={{ height: 24 }} />
           }
 
-          return <Actions item={item} />
+          return <Actions item={item} refetchAction={refetch} />
         },
       },
     },
   ]
 
-  const { data, loading } = useQuery<
-    {
-      listAssemblyOptions: AssemblyOptionPageResponseData
-    },
-    QueryListAssemblyOptionsArgs
-  >(LIST_ASSEMBLY_OPTIONS, {
-    fetchPolicy: 'no-cache',
-    variables: {
-      page: pagination.currentPage,
-      perPage: PAGE_SIZE,
-      name: searchState.debouncedValue ?? undefined,
-      active: filterStatus?.appliedItem
-        ? Boolean(filterStatus.appliedItem.value)
-        : undefined,
-    },
-    onCompleted: (resultData) => {
-      if (
-        pagination.total !== resultData.listAssemblyOptions.pagination.total
-      ) {
-        pagination.paginate({
-          type: 'setTotal',
-          total: resultData
-            ? resultData.listAssemblyOptions.pagination.total
-            : 0,
-        })
-      }
-
-      if (resultData.listAssemblyOptions.data.length > 0) {
-        view.setStatus({
-          type: 'ready',
-        })
-      } else {
-        view.setStatus({
-          type: 'empty',
-          message: intl.formatMessage(messages.noResults),
-        })
-      }
-    },
-    onError: () => {
-      view.setStatus({
-        type: 'error',
-        message: intl.formatMessage(messages.queryError),
-      })
-    },
-  })
-
   const grid = useDataGridState({
     view,
     columns,
-    items: data ? data.listAssemblyOptions.data : [],
+    items: queryData ? queryData.listAssemblyOptions.data : [],
     length: 5,
   })
 
