@@ -1,6 +1,6 @@
 {
   "name": "vtex.admin-ui-example",
-  "version": "0.10.6",
+  "version": "0.10.7",
   "devDependencies": {
     "@types/faker": "^5.5.9",
     "@types/node": "^11.12.1",
