@@ -3,23 +3,6 @@
 
 # Assembly Options (On Progress)
 
----
-
-VTEX IO based admin app example with the [admin-ui design system](https://admin-ui.vercel.app/).
-
-Live demo on [adminuiexample--teamadmin.myvtex.com/admin/example](https://adminuiexample--teamadmin.myvtex.com/admin/example/)
-
-## Features
-- Register Form of a new Assembly Options ans its related SKUs
-
-## Contribute
-
-Feel free to let us know in the [issues](https://github.com/vtex/admin-ui-example/issues) if you would like to see a specific feature.
-
-
-
-# Admin Collections
-
 > Currently on BETA :construction:
 
 New admin app for controlling and managing the Assembly Options of a store.
@@ -35,8 +18,9 @@ If for some reason the account you are working with does not have this option, y
 If everything went well, you can find the  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
 
 <div style="text-align:center">
-<img src="ADMIN_COLLECTIONS.png" alt="Admin Collections location"/>
+<img width="285" alt="image" src="https://user-images.githubusercontent.com/53904010/164321700-a253b633-a638-497f-9208-4588044343b9.png">
 </div>
+
 
 ## Main Features
 
