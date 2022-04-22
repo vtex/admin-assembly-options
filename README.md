@@ -3,6 +3,23 @@
 
 # Assembly Options (On Progress)
 
+---
+
+VTEX IO based admin app example with the [admin-ui design system](https://admin-ui.vercel.app/).
+
+Live demo on [adminuiexample--teamadmin.myvtex.com/admin/example](https://adminuiexample--teamadmin.myvtex.com/admin/example/)
+
+## Features
+- Register Form of a new Assembly Options ans its related SKUs
+
+## Contribute
+
+Feel free to let us know in the [issues](https://github.com/vtex/admin-ui-example/issues) if you would like to see a specific feature.
+
+
+
+# Admin Collections
+
 > Currently on BETA :construction:
 
 New admin app for controlling and managing the Assembly Options of a store.
@@ -18,34 +35,37 @@ If for some reason the account you are working with does not have this option, y
 If everything went well, you can find the  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
 
 <div style="text-align:center">
-<img width="285" alt="image" src="https://user-images.githubusercontent.com/53904010/164321700-a253b633-a638-497f-9208-4588044343b9.png">
+<img src="ADMIN_COLLECTIONS.png" alt="Admin Collections location"/>
 </div>
-
 
 ## Main Features
 
-- Create and remove collections
-- Add and remove products in a collection
-- Change the order of products in a collection
-- Search and filter collections and products
-- Schedule collections
+- Create and remove Assembly Options
+- Create Groups inside every Assembly option
+- Add SKUs and it's configurations to a specific Assembly Options
+- Search and filter Assembly options
 - Import and export products
 
-## Frequently Asked Questions
+## Structure
 
-<details>
-<summary>Why can't I create or edit collections?</summary>
+The application is composed of 2 main pages: `List` and `Register / Edit`.
 
-You need to have an [access profile](https://help.vtex.com/en/tutorial/access-profiles--7HKK5Uau2H6wxE1rH5oRbc?locale=en) with the **Writing Collections** resource in **Collections** section on the **Catalog** Profiles.
+### List
 
-</details>
+- This page shows all existing Assembly Options on the current store.
+- Main data of each Assembly Option item is avaiable (ID / Name / Status / Required)
+- It's possible to search and filter the listing data
+- It's to delete or edit the Assembly Options
 
-<details>
-<summary>What are the Collections Types?</summary>
+### Register / Edit
 
-You can see about this [here](https://help.vtex.com/en/tutorial/collection-types--5tKnhh8tMGIrVL7Fqirq7n#).
+- This page contains the entire form required to create or update an Assembly Option
+- The first step is to add the item its main informations (Name / Required / Active)
+- The second step is to add the SKU Groups that will be part of the structure, and its configurations (Group Name/ Minimum Quantity/ Maximum Quantity)
+- The third step is to add the desired SKUs on each group accordingly to its rules (SKU ID/ Price Table / Minimum Quantity / Maximum Quantity / Default Quantity )
+- The screen have validations to prevent user errors on filling the form
+- There is a button to save the data added into the Form
 
-</details>
 
 ## Development
 
