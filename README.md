@@ -70,19 +70,19 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 <details id="listing">
 <summary> <strong>Listing</strong> </summary>
 
-![list](https://user-images.githubusercontent.com/53904010/164764575-d25acd45-6b54-468d-b77f-f015e8dcc195.mov)
+![Listing](https://user-images.githubusercontent.com/53904010/164768650-f85f8670-3058-4952-9a8e-af86739dc4f9.gif)
 </details>
 
 <details id="search">
 <summary> <strong>Search</strong> </summary>
 
-![search](https://user-images.githubusercontent.com/53904010/164764831-f4904973-7738-4640-9e4d-7f58dc383e54.mov)
+![Search](https://user-images.githubusercontent.com/53904010/164768723-1dc5b5cc-527f-4de0-8a11-91845c8a31bd.gif)
 </details>
 
 <details id="filters">
 <summary> <strong>Filter Assembly Status</strong> </summary>
 
-![filter](https://user-images.githubusercontent.com/53904010/164765127-7beb95eb-31d6-4de5-896b-2ad97fccd641.mov)
+![Filter](https://user-images.githubusercontent.com/53904010/164768777-87e44f13-c965-4d1b-9d96-24ee07fa8903.gif)
 </details>
 
 <details id="creation">
@@ -94,13 +94,13 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 <details id="edition">
 <summary> <strong>Edit Assembly Option</strong> </summary>
 
-![edition](https://user-images.githubusercontent.com/53904010/164765725-cde354f1-7c6b-4064-a9e9-d6eb01fc220d.mov)
+![Edit](https://user-images.githubusercontent.com/53904010/164768873-553f9a4b-c759-453f-8601-d490aece1155.gif)
 </details>
 
 <details id="deletion">
 <summary> <strong>Delete Assembly Option</strong> </summary>
 
-![deletion](https://user-images.githubusercontent.com/53904010/164766047-6cb8c4ca-4642-4c16-9da2-26d8f24cc391.mov)
+![Delete](https://user-images.githubusercontent.com/53904010/164768964-4fb41cc8-4a39-4d5e-bd48-6ee4028d8e07.gif)
 </details>
 
 <details id="validation">
@@ -108,17 +108,4 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 
 ![validation](https://user-images.githubusercontent.com/53904010/164766263-2ac91cfc-3889-4c57-a62a-fb5bc3d2cbe0.mov)
 </details>
-
-
-## Development
-
-Use **vtex link** to develop locally on your workspace
-
-1. Clone this repository
-2. `cd admin-collections/`
-3. `vtex link`
-
-#### End-to-end
-
-We use [cypress](https://www.cypress.io/) as our e2e testing tool and you can run them using the command: `yarn test:e2e` or `npm run test:e2e`. The tests run on every push via git-hooks and you can ignore them with the `--no-verify` option (You should avoid this, though).
 
