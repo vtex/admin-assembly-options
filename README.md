@@ -16,12 +16,6 @@ Live demo on [adminuiexample--teamadmin.myvtex.com/admin/example](https://adminu
 
 Feel free to let us know in the [issues](https://github.com/vtex/admin-ui-example/issues) if you would like to see a specific feature.
 
-
-
-# Admin Collections
-
-> Currently on BETA :construction:
-
 New admin app for controlling and managing the Assembly Options of a store.
 
 ## Installing this app using [VTEX IO CLI](https://github.com/vtex/toolbelt)
@@ -35,8 +29,9 @@ If for some reason the account you are working with does not have this option, y
 If everything went well, you can find the  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
 
 <div style="text-align:center">
-<img src="ADMIN_COLLECTIONS.png" alt="Admin Collections location"/>
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/53904010/164763210-b1d19376-eac3-48ee-92a1-d495c6365b36.png">
 </div>
+
 
 ## Main Features
 
