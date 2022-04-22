@@ -33,13 +33,17 @@ If everything went well, you can find the  **Admin > Products > Assembly Options
 </div>
 
 
-## Main Features
+## ✅ Features
 
-- Create and remove Assembly Options
-- Create Groups inside every Assembly option
-- Add SKUs and it's configurations to a specific Assembly Options
-- Search and filter Assembly options
-- Import and export products
+- [x] [Listing](#listing)
+- [x] [Search](#search)
+- [x] [Filter Assembly Option Status](#filters)
+- [x] [Create Assembly Option](#creation)
+- [x] [Edit Assembly Option](#edition)
+- [x] [Delete Assembly Option](#deletion)
+- [x] [Error validations](#validation)
+- [ ] Search SKUs on Register
+- [ ] Search Price Table on Register
 
 ## Structure
 
@@ -60,6 +64,50 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 - The third step is to add the desired SKUs on each group accordingly to its rules (SKU ID/ Price Table / Minimum Quantity / Maximum Quantity / Default Quantity )
 - The screen have validations to prevent user errors on filling the form
 - There is a button to save the data added into the Form
+
+## 🎥 Demonstration
+
+<details id="listing">
+<summary> <strong>Listing</strong> </summary>
+
+![list](https://user-images.githubusercontent.com/53904010/164764575-d25acd45-6b54-468d-b77f-f015e8dcc195.mov)
+</details>
+
+<details id="search">
+<summary> <strong>Search</strong> </summary>
+
+![search](https://user-images.githubusercontent.com/53904010/164764831-f4904973-7738-4640-9e4d-7f58dc383e54.mov)
+</details>
+
+<details id="filters">
+<summary> <strong>Filter Assembly Status</strong> </summary>
+
+![filter](https://user-images.githubusercontent.com/53904010/164765127-7beb95eb-31d6-4de5-896b-2ad97fccd641.mov)
+</details>
+
+<details id="creation">
+<summary> <strong>Create Assembly Option</strong> </summary>
+
+![creation](https://user-images.githubusercontent.com/53904010/164765461-c008636a-070a-4077-b921-41db4ea75df0.mov)
+</details>
+
+<details id="edition">
+<summary> <strong>Edit Assembly Option</strong> </summary>
+
+![edition](https://user-images.githubusercontent.com/53904010/164765725-cde354f1-7c6b-4064-a9e9-d6eb01fc220d.mov)
+</details>
+
+<details id="deletion">
+<summary> <strong>Delete Assembly Option</strong> </summary>
+
+![deletion](https://user-images.githubusercontent.com/53904010/164766047-6cb8c4ca-4642-4c16-9da2-26d8f24cc391.mov)
+</details>
+
+<details id="validation">
+<summary> <strong>Error Validations</strong> </summary>
+
+![validation](https://user-images.githubusercontent.com/53904010/164766263-2ac91cfc-3889-4c57-a62a-fb5bc3d2cbe0.mov)
+</details>
 
 
 ## Development
