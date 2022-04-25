@@ -77,7 +77,7 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 <details id="creation">
 <summary> <strong>Create Assembly Option</strong> </summary>
 
-![creation](https://user-images.githubusercontent.com/53904010/164765461-c008636a-070a-4077-b921-41db4ea75df0.mov)
+![Creation2](https://user-images.githubusercontent.com/53904010/165098542-946b5450-b458-48b4-9d3c-808309760d0c.gif)
 </details>
 
 <details id="edition">
@@ -95,6 +95,6 @@ The application is composed of 2 main pages: `List` and `Register / Edit`.
 <details id="validation">
 <summary> <strong>Error Validations</strong> </summary>
 
-![validation](https://user-images.githubusercontent.com/53904010/164766263-2ac91cfc-3889-4c57-a62a-fb5bc3d2cbe0.mov)
+![Validation2](https://user-images.githubusercontent.com/53904010/165098615-dfec4974-91e3-439b-953f-bd7585aab149.gif)
 </details>
 
