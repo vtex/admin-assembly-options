@@ -13,9 +13,9 @@ The app should already be installed in any new VTEX Store, inside the sidebar me
 If for some reason the account you are working with does not have this option, you can manually install this by following the steps below:
 
 1. Run `vtex switch <account-name>` to switch to the target account
-2. `vtex install vtex.admin-assembly-options@0.x`
+2. `vtex install vtexbr.admin-assembly-options@0.x`
 
-If everything went well, you can find the  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
+If everything went well, you can find the app by acessing  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
 
 <div style="text-align:center">
 <img width="284" alt="image" src="https://user-images.githubusercontent.com/53904010/164763210-b1d19376-eac3-48ee-92a1-d495c6365b36.png">
