@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+### Added
+
+- BillingOption object as free, allowing the app to be installed on any account
+
 ## [0.11.0] - 2022-04-18
 
 ### Added
