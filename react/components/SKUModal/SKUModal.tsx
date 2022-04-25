@@ -180,6 +180,7 @@ const SKUModal = (props: Props) => {
                         <FormikNumericStepper
                           name="minValue"
                           minValue={0}
+                          maxValue={values.maxValue}
                           label={intl.formatMessage(messages.SKUItemMin)}
                         />
                       </Box>
@@ -229,6 +230,8 @@ const SKUModal = (props: Props) => {
                         </Label>
                         <FormikNumericStepper
                           name="defaultValue"
+                          minValue={values.minValue}
+                          maxValue={values.maxValue}
                           label={intl.formatMessage(messages.SKUItemInitial)}
                         />
                       </Box>

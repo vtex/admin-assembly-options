@@ -20,7 +20,7 @@
   "billingOptions": {
     "type": "free",
     "availableCountries": ["*"],
-    "support": { 
+    "support": {
       "url": "https://support.vtex.com/hc/requests"
     }
   },

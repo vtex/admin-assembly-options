@@ -168,6 +168,7 @@ const AssemblyGroup = (props: Props) => {
                         name="minItems"
                         label="Minimum Items"
                         minValue={0}
+                        maxValue={values.maxItems}
                       />
                     </Box>
                     <Box csx={{ width: '1/2', marginTop: 3 }}>
