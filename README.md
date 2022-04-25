@@ -1,11 +1,11 @@
 
 <img alt="VTEX Admin" src="./assets/vtex-logo.svg" height="100" width="117" />
 
-# Assembly Options (On Progress)
+# Assembly Options
 
 ---
 
-New admin app for controlling and managing the Assembly Options of a store.
+New admin app for controlling and managing the Assembly Options of a specific account. The Assembly Options function let the user to add more complex attachmenta on a product, setting the possibility to create a better customization structure based on SKUs.
 
 ## Installing this app using [VTEX IO CLI](https://github.com/vtex/toolbelt)
 
@@ -15,7 +15,7 @@ If for some reason the account you are working with does not have this option, y
 1. Run `vtex switch <account-name>` to switch to the target account
 2. `vtex install vtexbr.admin-assembly-options@0.x`
 
-If everything went well, you can find the app by acessing  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
+If everything went well, you can find the app by ac  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
 
 <div style="text-align:center">
 <img width="284" alt="image" src="https://user-images.githubusercontent.com/53904010/164763210-b1d19376-eac3-48ee-92a1-d495c6365b36.png">
