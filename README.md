@@ -23,6 +23,7 @@ If everything went well, you can find the  **Admin > Products > Assembly Options
 
 
 ## ✅ Features
+The list below presents every feature of this application, where the ones that are checked are already implemented. The features that are yet to come are unchecked.
 
 - [x] [Listing](#listing)
 - [x] [Search](#search)
