@@ -21,6 +21,9 @@ If everything went well, you can find the app by ac  **Admin > Products > Assemb
 <img width="284" alt="image" src="https://user-images.githubusercontent.com/53904010/164763210-b1d19376-eac3-48ee-92a1-d495c6365b36.png">
 </div>
 
+**OBS**: This function has the Assembly Options GraphQL as a dependency, if you want to learn more about this app you can access the repository below
+https://github.com/vtex/assembly-options-graphql
+
 
 ## ✅ Features
 The list below presents every feature of this application, where the ones that are checked are already implemented. The features that are yet to come are unchecked.
