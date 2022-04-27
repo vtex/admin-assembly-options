@@ -1,7 +1,7 @@
 {
   "name": "admin-assembly-options",
   "vendor": "vtexbr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "title": "Assembly Options Functionality inside Admin",
   "description": "",
   "mustUpdateAt": "2022-08-28",
