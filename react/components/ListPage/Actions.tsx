@@ -16,7 +16,7 @@ import {
 import React from 'react'
 import { useIntl } from 'react-intl'
 import { useMutation } from 'react-apollo'
-import type { MutationDetachAndDeleteAssemblyArgs } from 'vtexbr.assembly-options-graphql'
+import type { MutationDetachAndDeleteAssemblyArgs } from 'vtex.assembly-options-graphql'
 
 import { useRedirect } from '../../hooks/useRedirect'
 import { messages } from '../../utils/messages'
