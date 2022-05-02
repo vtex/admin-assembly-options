@@ -50,6 +50,8 @@ const RegisterForm = forwardRef<RegisterFormHandle, Props>(
       required: false,
     })
 
+    const groupLength = group.length
+
     const formRef = useRef<FormikProps<FormValues>>(null)
 
     useImperativeHandle(ref, () => ({
@@ -163,6 +165,15 @@ const RegisterForm = forwardRef<RegisterFormHandle, Props>(
                 />
               ))}
             </Flex>
+            {groupLength > 1 ? (
+              <Flex direction="row" justify="end" csx={{ marginTop: '20px' }}>
+                <Button variant="secondary" onClick={handleAddGroup}>
+                  {intl.formatMessage(messages.addKeyButton)}
+                </Button>
+              </Flex>
+            ) : (
+              <></>
+            )}
           </Card>
         </Flex>
       </>

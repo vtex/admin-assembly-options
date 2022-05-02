@@ -134,7 +134,10 @@ const EditPage = () => {
   return (
     <Page>
       <PageHeader onPopNavigation={goToListPage}>
-        <PageTitle>{intl.formatMessage(messages.editPageTitle)}</PageTitle>
+        <PageTitle>
+          {data.getAssemblyOption.name ||
+            intl.formatMessage(messages.editPageTitle)}
+        </PageTitle>
         <PageActions>
           <Button loading={updateLoading} onClick={handleSave}>
             {intl.formatMessage(messages.saveAction)}

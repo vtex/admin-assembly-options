@@ -84,7 +84,7 @@ const RegisterPage = () => {
   }, [name, required, active, group, handlingSave, createAssembly])
 
   return (
-    <Page>
+    <Page csx={{ paddingBottom: '8em' }}>
       <PageHeader onPopNavigation={goToListPage}>
         <PageTitle>{intl.formatMessage(messages.pageTitle)}</PageTitle>
         <PageActions>
