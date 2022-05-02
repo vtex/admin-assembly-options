@@ -2209,17 +2209,13 @@ vtex-tachyons@^3.2.0:
   version "0.6.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils#a3c1f3577b78ad79df30793cf6006830dbd6efc2"
 
-"vtex.assembly-options-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.assembly-options-graphql@1.0.0/public/@types/vtex.assembly-options-graphql":
+"vtex.assembly-options-graphql@https://assembly7--sesnick.myvtex.com/_v/private/typings/linked/v1/vtex.assembly-options-graphql@1.0.0+build1651261085/public/@types/vtex.assembly-options-graphql":
   version "1.0.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.assembly-options-graphql@1.0.0/public/@types/vtex.assembly-options-graphql#261be94f1267525858cc969fe1a94dc070be40fd"
+  resolved "https://assembly7--sesnick.myvtex.com/_v/private/typings/linked/v1/vtex.assembly-options-graphql@1.0.0+build1651261085/public/@types/vtex.assembly-options-graphql#90a120ce961e9d579f7b9f19c11743271c79e045"
 
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
   version "8.132.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
-
-"vtexbr.admin-assembly-options@http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.admin-assembly-options@0.11.1/public/@types/vtexbr.admin-assembly-options":
-  version "0.11.1"
-  resolved "http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.admin-assembly-options@0.11.1/public/@types/vtexbr.admin-assembly-options#4d9a41a319fd1129797451614230a98f2e78ddd9"
 
 warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
   version "4.0.3"

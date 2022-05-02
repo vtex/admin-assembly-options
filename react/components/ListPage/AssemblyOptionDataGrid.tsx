@@ -21,7 +21,7 @@ import type {
   AssemblyOptionPageResponse,
   AssemblyOptionHeader,
   QueryListAssemblyOptionsArgs,
-} from 'vtexbr.assembly-options-graphql'
+} from 'vtex.assembly-options-graphql'
 
 import LIST_ASSEMBLY_OPTIONS from '../../graphql/listAssemblyOptions.gql'
 import { messages } from '../../utils/messages'
@@ -172,6 +172,7 @@ const AssemblyOptionDataGrid = () => {
   ]
 
   const grid = useDataGridState({
+    density: 'compact',
     view,
     columns,
     items: queryData ? queryData.listAssemblyOptions.data : [],
