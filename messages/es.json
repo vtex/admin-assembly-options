@@ -54,10 +54,10 @@
   "admin/assembly.register.edit-action": "Editar",
   "admin/assembly.register.save-action": "Ahorrar",
   "admin/assembly.list.page-title": "Assembly Options",
-  "admin/assembly.list.new-assembly-option": "Agregar Assembly Option",
+  "admin/assembly.list.new-assembly-option": "Crear Assembly Option",
   "admin/assembly.list.query-error": "Algo salió mal.",
   "admin/assembly.list.query-no-results": "Ningún resultado encontrado.",
-  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.id": "ID",
   "admin/assembly.list.header.name": "Nombre",
   "admin/assembly.list.header.status": "Estado",
   "admin/assembly.list.header.required": "Requerido",
@@ -83,6 +83,8 @@
 
   "admin/assembly.list.delete-success": "El Assembly se eliminó correctamente",
   "admin/assembly.list.delete-error": "Hubo un error al eliminar el Assembly, intente nuevamente",
-  "admin/assembly.list.delete-message": "¿Realmente desea eliminar el Assembly Option? Esto desvinculará el archivo adjunto a cualquier SKU y eliminará el Assembly de la base de datos de forma permanente.",
-  "admin/assembly.cancel": "Cancelar"
+  "admin/assembly.list.delete-message-title": "¿Realmente desea eliminar el Assembly Option {name} - id: {id}?",
+  "admin/assembly.list.delete-message": "Esto desvinculará el archivo adjunto a cualquier SKU y eliminará el Assembly de la base de datos de forma permanente.",
+  "admin/assembly.cancel": "Cancelar",
+  "admin/assembly.delete-title": "Eliminar Assembly Option"
 }

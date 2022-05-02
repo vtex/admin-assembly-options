@@ -270,4 +270,8 @@ export const messages = defineMessages({
     id: 'admin/assembly.cancel',
     defaultMessage: '',
   },
+  deleteTitle: {
+    id: 'admin/assembly.delete-title',
+    defaultMessage: '',
+  },
 })
