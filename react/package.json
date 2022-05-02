@@ -11,8 +11,9 @@
     "react-dom": "^16.8.6",
     "typescript": "3.9.7",
     "vtex.admin-shell-utils": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.admin-shell-utils@0.6.0/public/@types/vtex.admin-shell-utils",
+    "vtex.assembly-options-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.assembly-options-graphql@1.0.0/public/@types/vtex.assembly-options-graphql",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime",
-    "vtexbr.assembly-options-graphql": "http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.assembly-options-graphql@0.3.0/public/@types/vtexbr.assembly-options-graphql"
+    "vtexbr.admin-assembly-options": "http://vtexbr.vtexassets.com/_v/public/typings/v1/vtexbr.admin-assembly-options@0.11.1/public/@types/vtexbr.admin-assembly-options"
   },
   "dependencies": {
     "@rooks/use-did-mount": "^4.11.2",

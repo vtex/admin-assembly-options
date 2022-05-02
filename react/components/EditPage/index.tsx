@@ -15,7 +15,7 @@ import type {
   AssemblyOptionConfigInput,
   MutationUpdateAssemblyOptionArgs,
   QueryGetAssemblyOptionArgs,
-} from 'vtexbr.assembly-options-graphql'
+} from 'vtex.assembly-options-graphql'
 import { showToast } from 'vtex.admin-shell-utils'
 
 import { messages } from '../../utils/messages'

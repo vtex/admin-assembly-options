@@ -12,7 +12,7 @@ import type {
   MutationCreateAssemblyOptionArgs,
   AssemblyOption,
   AssemblyOptionConfigInput,
-} from 'vtexbr.assembly-options-graphql'
+} from 'vtex.assembly-options-graphql'
 import { useMutation } from 'react-apollo'
 import { showToast } from 'vtex.admin-shell-utils'
 

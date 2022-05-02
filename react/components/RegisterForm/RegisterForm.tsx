@@ -6,7 +6,7 @@ import { Formik } from 'formik'
 import { FormikInput, FormikCheckbox, FormikToggle } from '@vtex/admin-formik'
 import * as yup from 'yup'
 import uniqid from 'uniqid'
-import type { AssemblyOption } from 'vtexbr.assembly-options-graphql'
+import type { AssemblyOption } from 'vtex.assembly-options-graphql'
 import useDidMount from '@rooks/use-did-mount'
 
 import type { AssemblyGroupType } from '../../context/RegisterContext'
