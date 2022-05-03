@@ -120,7 +120,7 @@ const AssemblyOptionDataGrid = () => {
       resolver: {
         type: 'plain',
         render: ({ data }) =>
-          data ? <IconCheckCircle csx={{ color: '#38853C' }} /> : <></>,
+          data ? <IconCheckCircle csx={{ color: '#38853C' }} /> : null,
       },
     },
     {
