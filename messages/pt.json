@@ -81,7 +81,7 @@
 
   "admin/assembly.list.delete-success": "O Assembly foi deletado corretamente",
   "admin/assembly.list.delete-error": "Houve um erro ao deletar o Assembly, tente novamente",
-  "admin/assembly.list.delete-message-title": "Deseja realmente deletar o Assembly Option {name} - id: {id}?",
+  "admin/assembly.list.delete-message-title": "Deseja realmente deletar o Assembly Option {name} - ID: {id}?",
   "admin/assembly.list.delete-message": "Isso irá desvincular o anexo a qualquer SKU e deletar o Assembly da base de dados definitivamente",
   "admin/assembly.cancel": "Cancelar",
   "admin/assembly.delete-title": "Deletar assembly option"
