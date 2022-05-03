@@ -83,7 +83,7 @@
 
   "admin/assembly.list.delete-success": "The Assembly was succesfully deleted",
   "admin/assembly.list.delete-error": "There was an error on deleting the Assembly, try again",
-  "admin/assembly.list.delete-message-title": "Do you really want to delete the Assembly Option {name} - id: {id}?",
+  "admin/assembly.list.delete-message-title": "Do you really want to delete the Assembly Option {name} - ID: {id}?",
   "admin/assembly.list.delete-message": "This will unbind the attachment to any SKU and delete the assembly from the database permanently",
   "admin/assembly.cancel": "Cancel",
   "admin/assembly.delete-title": "Delete Assembly Option"
