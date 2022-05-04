@@ -163,6 +163,13 @@ const RegisterForm = forwardRef<RegisterFormHandle, Props>(
                 />
               ))}
             </Flex>
+            {group.length > 1 ? (
+              <Flex direction="row" justify="end" csx={{ marginTop: '20px' }}>
+                <Button variant="secondary" onClick={handleAddGroup}>
+                  {intl.formatMessage(messages.addKeyButton)}
+                </Button>
+              </Flex>
+            ) : null}
           </Card>
         </Flex>
       </>

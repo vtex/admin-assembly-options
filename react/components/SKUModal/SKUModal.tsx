@@ -248,7 +248,7 @@ const SKUModal = (props: Props) => {
                 </Flex>
               </ModalContent>
               <ModalFooter>
-                <Flex justify="end">
+                <Flex justify="end" csx={{ width: '100%' }}>
                   <ModalButton
                     type="submit"
                     closeModalOnClick={isValid && dirty}

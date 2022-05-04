@@ -28,6 +28,7 @@ interface Props {
 const SKUGrid = (props: Props) => {
   const { group, setAssemblyGroup } = useRegisterContext()
   const { groupIndex } = props
+  const skuLength = group[groupIndex].items.length
   const intl = useIntl()
 
   const skuListNew = group[groupIndex].items.map((value, index) => {
@@ -35,7 +36,7 @@ const SKUGrid = (props: Props) => {
       id: index,
       skuId: value.skuId,
       priceTable: value.priceTable,
-      quantity: `${value.minValue} - ${value.maxValue}`,
+      quantity: `${value.minValue} – ${value.maxValue}`,
       initialQuantity: value.defaultValue,
       handleDelete: () => {
         const newGroup = [...group]
@@ -50,6 +51,7 @@ const SKUGrid = (props: Props) => {
   })
 
   const state = useDataGridState({
+    density: 'compact',
     columns: [
       {
         id: 'skuId',
@@ -69,7 +71,7 @@ const SKUGrid = (props: Props) => {
       },
       {
         id: 'actions',
-        header: `${intl.formatMessage(messages.SKUActions)}`,
+        header: '',
         resolver: {
           type: 'root',
           render: function Actions({ item }) {
@@ -123,17 +125,21 @@ const SKUGrid = (props: Props) => {
     items: skuListNew,
   })
 
-  return (
-    <Flex
-      csx={{
-        width: '100%',
-        overflowX: 'scroll',
-        '@tablet': { overflowX: 'unset' },
-      }}
-    >
-      <DataGrid csx={{ marginTop: 5, width: '100%' }} state={state} />
-    </Flex>
-  )
+  if (skuLength > 0) {
+    return (
+      <Flex
+        csx={{
+          width: '100%',
+          overflowX: 'scroll',
+          '@tablet': { overflowX: 'unset' },
+        }}
+      >
+        <DataGrid csx={{ marginTop: 5, width: '100%' }} state={state} />
+      </Flex>
+    )
+  }
+
+  return null
 }
 
 export default SKUGrid
