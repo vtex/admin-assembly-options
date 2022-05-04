@@ -7,9 +7,10 @@ import {
   ModalButton,
   Text,
   Flex,
+  Heading,
 } from '@vtex/admin-ui'
 import type { DialogStateReturn } from 'reakit/ts/Dialog/DialogState'
-import { useIntl } from 'react-intl'
+import { useIntl, FormattedMessage } from 'react-intl'
 
 import { messages } from '../../utils/messages'
 
@@ -26,10 +27,21 @@ const ModalDelete = (props: Props) => {
   const { state, name, id, deleteAction } = props
 
   return (
-    <Modal state={state} aria-label="Delete modal">
-      <ModalHeader title={`ID: ${id} - ${name}`} />
+    <Modal size="small" state={state} aria-label="Delete modal">
+      <ModalHeader title={intl.formatMessage(messages.deleteTitle)} />
       <ModalContent>
-        <Text>{intl.formatMessage(messages.deleteMessage)}</Text>
+        <Heading as="h3" csx={{ fontSize: '0.9rem', paddingBottom: '10px' }}>
+          <FormattedMessage
+            id="admin/assembly.list.delete-message-title"
+            values={{
+              name,
+              id,
+            }}
+          />
+        </Heading>
+        <Text variant="body">
+          <FormattedMessage id="admin/assembly.list.delete-message" />
+        </Text>
       </ModalContent>
       <ModalFooter>
         <Flex justify="end">

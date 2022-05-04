@@ -11,6 +11,7 @@ import {
   useDataViewState,
   useDataGridState,
   Tag,
+  IconCheckCircle,
   DataViewControls,
   Pagination,
   experimental_Filter as Filter,
@@ -114,6 +115,15 @@ const AssemblyOptionDataGrid = () => {
       header: intl.formatMessage(messages.listHeaderName),
     },
     {
+      id: 'isRequired',
+      header: intl.formatMessage(messages.listHeaderRequired),
+      resolver: {
+        type: 'plain',
+        render: ({ data }) =>
+          data ? <IconCheckCircle csx={{ color: '#38853C' }} /> : null,
+      },
+    },
+    {
       id: 'isActive',
       header: intl.formatMessage(messages.listHeaderStatus),
       resolver: {
@@ -135,29 +145,8 @@ const AssemblyOptionDataGrid = () => {
       },
     },
     {
-      id: 'isRequired',
-      header: intl.formatMessage(messages.listHeaderRequired),
-      resolver: {
-        type: 'plain',
-        render: ({ data }) =>
-          data ? (
-            <Tag
-              label={intl.formatMessage(messages.listColumnRequiredTrue)}
-              palette="green"
-              size="small"
-            />
-          ) : (
-            <Tag
-              label={intl.formatMessage(messages.listColumnRequiredFalse)}
-              palette="red"
-              size="small"
-            />
-          ),
-      },
-    },
-    {
       id: 'actions',
-      header: intl.formatMessage(messages.listActions),
+      header: '',
       resolver: {
         type: 'root',
         render: ({ item, context }) => {

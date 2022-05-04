@@ -54,10 +54,10 @@
   "admin/assembly.register.edit-action": "Edit",
   "admin/assembly.register.save-action": "Save",
   "admin/assembly.list.page-title": "Assembly Options",
-  "admin/assembly.list.new-assembly-option": "Add Assembly Option",
+  "admin/assembly.list.new-assembly-option": "Create Assembly Option",
   "admin/assembly.list.query-error": "Something went wrong.",
   "admin/assembly.list.query-no-results": "No results found.",
-  "admin/assembly.list.header.id": "Id",
+  "admin/assembly.list.header.id": "ID",
   "admin/assembly.list.header.name": "Name",
   "admin/assembly.list.header.status": "Status",
   "admin/assembly.list.header.required": "Required",
@@ -83,6 +83,8 @@
 
   "admin/assembly.list.delete-success": "The Assembly was succesfully deleted",
   "admin/assembly.list.delete-error": "There was an error on deleting the Assembly, try again",
-  "admin/assembly.list.delete-message": "Do you really want to delete the Assembly Option? This will unbind the attachment to any SKU and delete the assembly from the database permanently",
-  "admin/assembly.cancel": "Cancel"
+  "admin/assembly.list.delete-message-title": "Do you really want to delete the Assembly Option {name} - ID: {id}?",
+  "admin/assembly.list.delete-message": "This will unbind the attachment to any SKU and delete the assembly from the database permanently",
+  "admin/assembly.cancel": "Cancel",
+  "admin/assembly.delete-title": "Delete Assembly Option"
 }
