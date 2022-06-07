@@ -1,104 +1,45 @@
+# Assembly Options app
 
-<img alt="VTEX Admin" src="./assets/vtex-logo.svg" height="100" width="117" />
+> ⚠ This app is available only for stores developed in [VTEX IO](https://vtex.com/br-pt/store-framework/).
 
-# Assembly Options
+The Assembly Options app provides an interface on VTEX Admin to create and manage product customization options available to customers in a specific store.
 
----
-
-New admin app for controlling and managing the Assembly Options of a specific account. The Assembly Options function let the user to add more complex attachmenta on a product, setting the possibility to create a better customization structure based on SKUs.
-
-## Installing this app using [VTEX IO CLI](https://github.com/vtex/toolbelt)
-
-The app should already be installed in any new VTEX Store, inside the sidebar menu 'Product" section.
-If for some reason the account you are working with does not have this option, you can manually install this by following the steps below:
-
-1. Run `vtex switch <account-name>` to switch to the target account
-2. `vtex install vtexbr.admin-assembly-options@0.x`
-
-If everything went well, you can find the app by ac  **Admin > Products > Assembly Options** or acessing the URL `/admin/assembly-options/`:
-
-<div style="text-align:center">
-<img width="284" alt="image" src="https://user-images.githubusercontent.com/53904010/164763210-b1d19376-eac3-48ee-92a1-d495c6365b36.png">
-</div>
-
-**OBS**: This function has the Assembly Options GraphQL as a dependency, if you want to learn more about this app you can access the repository below
-https://github.com/vtex/assembly-options-graphql
+At VTEX, [Assembly Options](https://help.vtex.com/en/tutorial/assembly-options--5x5FhNr4f5RUGDEGWzV1nH) consist on creating [attachments](https://help.vtex.com/pt/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) for complex scenarios, where it is necessary to offer various combinations of SKUs, quantities, additional items and costs.
 
 
-## ✅ Features
-The list below presents every feature of this application, where the ones that are checked are already implemented. The features that are yet to come are unchecked.
+## Before you start
 
-- [x] [Listing](#listing)
-- [x] [Search](#search)
-- [x] [Filter Assembly Option Status](#filters)
-- [x] [Create Assembly Option](#creation)
-- [x] [Edit Assembly Option](#edition)
-- [x] [Delete Assembly Option](#deletion)
-- [x] [Error validations](#validation)
-- [ ] Search SKUs on Register
-- [ ] Search Price Table on Register
+To use Assembly Options, you must first install and configure [Product Customizer](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-customizer) in your store.
 
-## Structure
+We also recommend reading our [Assembly Options](https://help.vtex.com/en/tutorial/assembly-options--5x5FhNr4f5RUGDEGWzV1nH) documentation for more information on this feature.
 
-The application is composed of 2 main pages: `List` and `Register / Edit`.
 
-### List
+## Installation
 
-- This page shows all existing Assembly Options on the current store.
-- Main data of each Assembly Option item is avaiable (ID / Name / Status / Required)
-- It's possible to search and filter the listing data
-- It's to delete or edit the Assembly Options
+> ⚠ When this app is installed in a [seller account](https://help.vtex.com/en/tutorial/what-is-a-seller--5FkLvhZ3Few4CWWIuYOK2w), the Assembly Option is displayed at checkout. To display it on the product page, you must install the app in a [marketplace account](https://help.vtex.com/tutorial/what-is-a-marketplace--680lLJTnmEAmekcC0MIea8#).
 
-### Register / Edit
+For stores using `edition-store@5.x` onwards, the app is installed automatically.
 
-- This page contains the entire form required to create or update an Assembly Option
-- The first step is to add the item its main informations (Name / Required / Active)
-- The second step is to add the SKU Groups that will be part of the structure, and its configurations (Group Name/ Minimum Quantity/ Maximum Quantity)
-- The third step is to add the desired SKUs on each group accordingly to its rules (SKU ID/ Price Table / Minimum Quantity / Maximum Quantity / Default Quantity )
-- The screen have validations to prevent user errors on filling the form
-- There is a button to save the data added into the Form
+For previous versions of `edition-store`, it is necessary to install the app for free in the [VTEX App Store](https://apps.vtex.com/) or by using the [VTEX IO CLI](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-vtex-io-cli-installation-and-command-reference), by running vtex install `vtexbr.admin-assembly-options@0.x` in your terminal.
 
-## 🎥 Demonstration
 
-<details id="listing">
-<summary> <strong>Listing</strong> </summary>
+After the installation, you can find the app's interface on VTEX Admin, by accessing *Products > Assembly options* or  by going directly to the URL `{accountName}.myvtex.com/admin/assembly-options/`, replacing `{accountName}` with your VTEX account.
 
-![Listing](https://user-images.githubusercontent.com/53904010/164768650-f85f8670-3058-4952-9a8e-af86739dc4f9.gif)
-</details>
+This app installs Assembly Options GraphQL as a dependency. Learn more about it by accessing the [assembly-options-graphql](https://github.com/vtex/assembly-options-graphql) repository.
 
-<details id="search">
-<summary> <strong>Search</strong> </summary>
 
-![Search](https://user-images.githubusercontent.com/53904010/164768723-1dc5b5cc-527f-4de0-8a11-91845c8a31bd.gif)
-</details>
+    
+## How the app works
 
-<details id="filters">
-<summary> <strong>Filter Assembly Status</strong> </summary>
+The app inserts a new menu in the VTEX Admin, which you can access on _Products > Assembly options_.
 
-![Filter](https://user-images.githubusercontent.com/53904010/164768777-87e44f13-c965-4d1b-9d96-24ee07fa8903.gif)
-</details>
+![](https://i.imgur.com/os1XQBi.png)
 
-<details id="creation">
-<summary> <strong>Create Assembly Option</strong> </summary>
+The Assembly Options interface allows you to:
 
-![Creation2](https://user-images.githubusercontent.com/53904010/165098542-946b5450-b458-48b4-9d3c-808309760d0c.gif)
-</details>
+- View a searchable and filterable list of existing Assembly Options.
+- Edit Assembly Options.
+- Create Assembly Options.
+- Delete Assembly Options.
 
-<details id="edition">
-<summary> <strong>Edit Assembly Option</strong> </summary>
-
-![Edit](https://user-images.githubusercontent.com/53904010/164768873-553f9a4b-c759-453f-8601-d490aece1155.gif)
-</details>
-
-<details id="deletion">
-<summary> <strong>Delete Assembly Option</strong> </summary>
-
-![Delete](https://user-images.githubusercontent.com/53904010/164768964-4fb41cc8-4a39-4d5e-bd48-6ee4028d8e07.gif)
-</details>
-
-<details id="validation">
-<summary> <strong>Error Validations</strong> </summary>
-
-![Validation2](https://user-images.githubusercontent.com/53904010/165098615-dfec4974-91e3-439b-953f-bd7585aab149.gif)
-</details>
-
+For more information on how to use this interface, read our user guide [Assembly Options app]().
