@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "เพิ่ม SKU",
   "admin/assembly.register.sku-modal-title": "เพิ่ม SKU",
   "admin/assembly.register.sku-id": "รหัส SKU*",
-  "admin/assembly.register.sku-price-table": "ชื่อตารางราคาที่เชื่อมโยง*",
+  "admin/assembly.register.sku-price-table": "ชื่อตารางราคาที่เชื่อมโยง",
   "admin/assembly.register.sku-items": "สินค้า",
   "admin/assembly.register.sku-items-min": "ปริมาณต่ำสุด*",
   "admin/assembly.register.sku-items-max": "ปริมาณสูงสุด*",

@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "SKU toevoegen",
   "admin/assembly.register.sku-modal-title": "SKU toevoegen",
   "admin/assembly.register.sku-id": "SKU ID*",
-  "admin/assembly.register.sku-price-table": "Gekoppelde prijs tabel naam*",
+  "admin/assembly.register.sku-price-table": "Gekoppelde prijs tabel naam",
   "admin/assembly.register.sku-items": "Item",
   "admin/assembly.register.sku-items-min": "Minimale hoeveelheid*",
   "admin/assembly.register.sku-items-max": "Maximale hoeveelheid*",

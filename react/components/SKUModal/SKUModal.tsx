@@ -54,9 +54,7 @@ const SKUModal = (props: Props) => {
     skuId: yup
       .string()
       .required(`${intl.formatMessage(messages.errorNameRequired)}`),
-    priceTable: yup
-      .string()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    priceTable: yup.string(),
     minValue: yup
       .number()
       .integer()
@@ -175,13 +173,12 @@ const SKUModal = (props: Props) => {
                             },
                           }}
                         >
-                          {intl.formatMessage(messages.SKUItemMin)}
+                          {intl.formatMessage(messages.SKUItemMax)}
                         </Label>
                         <FormikNumericStepper
-                          name="minValue"
-                          minValue={0}
-                          maxValue={values.maxValue}
-                          label={intl.formatMessage(messages.SKUItemMin)}
+                          name="maxValue"
+                          minValue={values.minValue}
+                          label={intl.formatMessage(messages.SKUItemMax)}
                         />
                       </Box>
                       <Box
@@ -201,12 +198,13 @@ const SKUModal = (props: Props) => {
                             },
                           }}
                         >
-                          {intl.formatMessage(messages.SKUItemMax)}
+                          {intl.formatMessage(messages.SKUItemMin)}
                         </Label>
                         <FormikNumericStepper
-                          name="maxValue"
-                          minValue={values.minValue}
-                          label={intl.formatMessage(messages.SKUItemMax)}
+                          name="minValue"
+                          minValue={0}
+                          maxValue={values.maxValue}
+                          label={intl.formatMessage(messages.SKUItemMin)}
                         />
                       </Box>
                       <Box

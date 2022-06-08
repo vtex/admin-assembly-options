@@ -160,6 +160,16 @@ const AssemblyGroup = (props: Props) => {
                     csx={{ margin: '0px' }}
                   />
                   <Flex csx={{ paddingRight: 3 }}>
+                    <Box csx={{ width: '1/2', marginTop: 3 }}>
+                      <Label csx={{ width: '100%' }}>
+                        {intl.formatMessage(messages.keyMaximumLabel)}
+                      </Label>
+                      <FormikNumericStepper
+                        name="maxItems"
+                        label="Maximum Items"
+                        minValue={0}
+                      />
+                    </Box>
                     <Box csx={{ width: '1/2', paddingRight: 2, marginTop: 3 }}>
                       <Label csx={{ width: '100%' }}>
                         {intl.formatMessage(messages.keyMinimumLabel)}
@@ -169,16 +179,6 @@ const AssemblyGroup = (props: Props) => {
                         label="Minimum Items"
                         minValue={0}
                         maxValue={values.maxItems}
-                      />
-                    </Box>
-                    <Box csx={{ width: '1/2', marginTop: 3 }}>
-                      <Label csx={{ width: '100%' }}>
-                        {intl.formatMessage(messages.keyMaximumLabel)}
-                      </Label>
-                      <FormikNumericStepper
-                        name="maxItems"
-                        label="Maximum Items"
-                        minValue={0}
                       />
                     </Box>
                   </Flex>

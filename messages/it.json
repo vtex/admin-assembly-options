@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "Aggiungi SKU",
   "admin/assembly.register.sku-modal-title": "Aggiungi SKU",
   "admin/assembly.register.sku-id": "ID SKU*",
-  "admin/assembly.register.sku-price-table": "Nome della tabella prezzi associata*",
+  "admin/assembly.register.sku-price-table": "Nome della tabella prezzi associata",
   "admin/assembly.register.sku-items": "Articolo",
   "admin/assembly.register.sku-items-min": "Quantità minima*",
   "admin/assembly.register.sku-items-max": "Quantità massima*",

@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "SKU を追加する",
   "admin/assembly.register.sku-modal-title": "SKU を追加する",
   "admin/assembly.register.sku-id": "SKU ID*",
-  "admin/assembly.register.sku-price-table": "リンクした価格表名*",
+  "admin/assembly.register.sku-price-table": "リンクした価格表名",
   "admin/assembly.register.sku-items": "項目",
   "admin/assembly.register.sku-items-min": "最小数*",
   "admin/assembly.register.sku-items-max": "最大数*",

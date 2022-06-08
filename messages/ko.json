@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "SKU 추가",
   "admin/assembly.register.sku-modal-title": "SKU 추가",
   "admin/assembly.register.sku-id": "SKU ID*",
-  "admin/assembly.register.sku-price-table": "연결된 가격표 이름*",
+  "admin/assembly.register.sku-price-table": "연결된 가격표 이름",
   "admin/assembly.register.sku-items": "품목",
   "admin/assembly.register.sku-items-min": "최소 수량*",
   "admin/assembly.register.sku-items-max": "최대 수량*",

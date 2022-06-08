@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "Adaugă SKU",
   "admin/assembly.register.sku-modal-title": "Adaugă SKU",
   "admin/assembly.register.sku-id": "ID SKU*",
-  "admin/assembly.register.sku-price-table": "Denumirea tabelului de prețuri conectat*",
+  "admin/assembly.register.sku-price-table": "Denumirea tabelului de prețuri conectat",
   "admin/assembly.register.sku-items": "Articol",
   "admin/assembly.register.sku-items-min": "Cantitatea minimă*",
   "admin/assembly.register.sku-items-max": "Cantitatea maximă",

@@ -17,7 +17,7 @@
   "admin/assembly.register.sku-add": "Добавяне на SKU",
   "admin/assembly.register.sku-modal-title": "Добавяне на SKU",
   "admin/assembly.register.sku-id": "ИД на ИЕ*",
-  "admin/assembly.register.sku-price-table": "Име на свързаната ценова листа*",
+  "admin/assembly.register.sku-price-table": "Име на свързаната ценова листа",
   "admin/assembly.register.sku-items": "Артикул",
   "admin/assembly.register.sku-items-min": "Минимално количество*",
   "admin/assembly.register.sku-items-max": "Максимално количество*",
