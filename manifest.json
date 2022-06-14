@@ -1,6 +1,6 @@
 {
   "name": "admin-assembly-options",
-  "vendor": "vtex",
+  "vendor": "vtexbr",
   "version": "2.0.0",
   "title": "Assembly Options Functionality inside Admin",
   "description": "",
@@ -19,9 +19,7 @@
   },
   "billingOptions": {
     "type": "free",
-    "availableCountries": [
-      "*"
-    ],
+    "availableCountries": ["*"],
     "support": {
       "url": "https://support.vtex.com/hc/requests"
     }
