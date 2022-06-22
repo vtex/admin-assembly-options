@@ -20,6 +20,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Unused assets folder.
 
+## [2.0.1] - 2022-06-22
+
+### Added
+
+- English and Spanish metadata translations.
+
+## [2.0.0] - 2022-06-10
+
+### Fixed
+
+- Maximum and minimum SKU's validations fixed
+
+## [1.1.1] - 2022-06-08
+
+### Fixed
+
+- French translations.
+
 ## [1.1.0] - 2022-05-19
 
 ### Added

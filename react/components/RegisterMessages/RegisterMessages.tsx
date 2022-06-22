@@ -38,7 +38,7 @@ type ErrorKeys =
   | 'skuDefaultValueValidate'
   | 'skuIncreasingValueRange'
   | 'skuMaxQuantityValidate'
-  | 'skuQuantityOutOfAssemblyOptionRange'
+  | 'skuMinQuantityValidate'
   | 'skuSumDefaultValueValidate'
   | 'uniqueKeyValidate'
   | 'configWithEmptySkuArray'
@@ -55,8 +55,7 @@ const RegisterMessages = ({ error }: Props) => {
     skuIncreasingValueRange:
       'admin/assembly.register.error-sku-increasing-value',
     skuMaxQuantityValidate: 'admin/assembly.register.error-sku-max-value',
-    skuQuantityOutOfAssemblyOptionRange:
-      'admin/assembly.register.error-sku-range-assembly',
+    skuMinQuantityValidate: 'admin/assembly.register.error-sku-range-assembly',
     skuSumDefaultValueValidate:
       'admin/assembly.register.error-sku-range-assembly-default',
     uniqueKeyValidate: 'admin/assembly.register.error-unique-key',

@@ -54,9 +54,7 @@ const SKUModal = (props: Props) => {
     skuId: yup
       .string()
       .required(`${intl.formatMessage(messages.errorNameRequired)}`),
-    priceTable: yup
-      .string()
-      .required(`${intl.formatMessage(messages.errorNameRequired)}`),
+    priceTable: yup.string(),
     minValue: yup
       .number()
       .integer()
@@ -175,32 +173,6 @@ const SKUModal = (props: Props) => {
                             },
                           }}
                         >
-                          {intl.formatMessage(messages.SKUItemMin)}
-                        </Label>
-                        <FormikNumericStepper
-                          name="minValue"
-                          minValue={0}
-                          maxValue={values.maxValue}
-                          label={intl.formatMessage(messages.SKUItemMin)}
-                        />
-                      </Box>
-                      <Box
-                        csx={{
-                          width: '33%',
-                          '@tablet': {
-                            width: '25%',
-                          },
-                        }}
-                      >
-                        <Label
-                          csx={{
-                            width: '80px',
-                            display: 'flex',
-                            '@tablet': {
-                              width: '100px',
-                            },
-                          }}
-                        >
                           {intl.formatMessage(messages.SKUItemMax)}
                         </Label>
                         <FormikNumericStepper
@@ -233,6 +205,32 @@ const SKUModal = (props: Props) => {
                           minValue={values.minValue}
                           maxValue={values.maxValue}
                           label={intl.formatMessage(messages.SKUItemInitial)}
+                        />
+                      </Box>
+                      <Box
+                        csx={{
+                          width: '33%',
+                          '@tablet': {
+                            width: '25%',
+                          },
+                        }}
+                      >
+                        <Label
+                          csx={{
+                            width: '80px',
+                            display: 'flex',
+                            '@tablet': {
+                              width: '100px',
+                            },
+                          }}
+                        >
+                          {intl.formatMessage(messages.SKUItemMin)}
+                        </Label>
+                        <FormikNumericStepper
+                          name="minValue"
+                          minValue={0}
+                          maxValue={values.maxValue}
+                          label={intl.formatMessage(messages.SKUItemMin)}
                         />
                       </Box>
                       <Box
