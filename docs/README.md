@@ -37,9 +37,41 @@ The app inserts a new menu in the VTEX Admin, which you can access on _Products 
 
 The Assembly Options interface allows you to:
 
-- View a searchable and filterable list of existing Assembly Options.
-- Edit Assembly Options.
-- Create Assembly Options.
-- Delete Assembly Options.
+
+<details>
+<summary>View a list of existing Assembly Options.</summary>
+
+![Listing](https://user-images.githubusercontent.com/53904010/164768650-f85f8670-3058-4952-9a8e-af86739dc4f9.gif)
+</details>
+
+<details id="search">
+<summary>Search for Assembly Options.</summary>
+
+![Search](https://user-images.githubusercontent.com/53904010/164768723-1dc5b5cc-527f-4de0-8a11-91845c8a31bd.gif)
+</details> 
+
+<details id="filters">
+<summary>Filter Assembly Options by Status.</summary>
+
+![Filter](https://user-images.githubusercontent.com/53904010/164768777-87e44f13-c965-4d1b-9d96-24ee07fa8903.gif)
+</details>
+
+<details id="creation">
+<summary>Create Assembly Options.</summary>
+
+![Creation2](https://user-images.githubusercontent.com/53904010/165098542-946b5450-b458-48b4-9d3c-808309760d0c.gif)
+</details>
+
+<details id="edition">
+<summary>Edit Assembly Options.</summary>
+
+![Edit](https://user-images.githubusercontent.com/53904010/164768873-553f9a4b-c759-453f-8601-d490aece1155.gif)
+</details>
+
+<details id="deletion">
+<summary>Delete Assembly Options.</summary>
+
+![Delete](https://user-images.githubusercontent.com/53904010/164768964-4fb41cc8-4a39-4d5e-bd48-6ee4028d8e07.gif)
+</details>
 
 For more information on how to use this interface, read our user guide [Assembly Options app](https://help.vtex.com/en/tutorial/assembly-options-app--54mWg37mojrqOgCA79iqqk).
