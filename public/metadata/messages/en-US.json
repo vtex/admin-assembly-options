@@ -1,11 +1,11 @@
 {
   "name": "Assembly Options",
-  "headline": "Gerencie seus Assembly Options, personalizando a compra de um produto adicionando outros produtos complementares.",
-  "overview": "Com esse aplicativo será possível configurar e personalizar os Assembly Options de um produto, permitindo ao cliente escolher quais opções devem ser adicionadas ao carrinho de compras.",
+  "headline": "Manage your assembly options and customize the buying experience of a product by adding complementary products.",
+  "overview": "With this app, you can configure and customize the assembly options of a product, allowing customers to choose which options should be added to the shopping cart.",
   "features": [
-    "Crie e gerencie seus Assembly Options no Admin",
-    "Interface amigável: validação das informações de forma intuitiva",
-    "Acesse seus Assembly Options de forma rápida e fácil"
+    "Create and manage your assembly options in the Admin.",
+    "Friendly interface: Intuitively validate information.",
+    "Accessing your assembly option is quick and easy."
   ],
   "websiteURL": "https://vtex.com/",
   "support": {
