@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- docs folder.
+- VTEX IO docs builder in manifest.json.
+ 
+### Changed
+
+- README.md file. 
+
+### Removed
+
+- Unused assets folder.
+
 ## [2.0.1] - 2022-06-22
 
 ### Added
