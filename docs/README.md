@@ -20,7 +20,7 @@ We also recommend reading our [Assembly Options](https://help.vtex.com/en/tutori
 
 > ⚠ When this app is installed in a [seller account](https://help.vtex.com/en/tutorial/what-is-a-seller--5FkLvhZ3Few4CWWIuYOK2w), the Assembly Option is displayed at checkout. To display it on the product page, you must install the app in a [marketplace account](https://help.vtex.com/tutorial/what-is-a-marketplace--680lLJTnmEAmekcC0MIea8#).
 
-You can install the app for free in the [VTEX App Store](https://apps.vtex.com/vtex-admin-assembly-options/p) or using the [VTEX IO CLI](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-vtex-io-cli-installation-and-command-reference), by running vtex install `vtexbr.admin-assembly-options@0.x` in your terminal.
+You can install the app for free in the [VTEX App Store](https://apps.vtex.com/vtex-admin-assembly-options/p) or using the [VTEX IO CLI](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-vtex-io-cli-installation-and-command-reference), by running vtex install `vtex.admin-assembly-options@2.x` in your terminal.
 
 
 After the installation, you can find the app's interface on VTEX Admin, by accessing *Products > Assembly options* or  by going directly to the URL `{accountName}.myvtex.com/admin/assembly-options/`, replacing `{accountName}` with your VTEX account.
