@@ -1,0 +1,14 @@
+{
+  "name": "Assembly Options",
+  "headline": "Gestiona tus assembly options (opciones de ensamblaje) y personaliza la compra de un producto al añadir otros productos complementarios.",
+  "overview": "Con esta aplicación, puedes configurar y personalizar las assembly options de un producto y permitirle al cliente escoger las opciones que se deben añadir al carrito de compra.",
+  "features": [
+    "Crea y gestiona tus assembly options en el Admin.",
+    "Interfaz amigable: validación de la información de forma intuitiva.",
+    "Accede a tus assembly options de forma rápida y fácil."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://support.vtex.com/hc/requests"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Assembly Options",
+  "headline": "Manage your assembly options and customize the buying experience of a product by adding complementary products.",
+  "overview": "With this app, you can configure and customize the assembly options of a product, allowing customers to choose which options should be added to the shopping cart.",
+  "features": [
+    "Create and manage your assembly options in the Admin.",
+    "Friendly interface: Intuitively validate information.",
+    "Accessing your assembly option is quick and easy."
+  ],
+  "websiteURL": "https://vtex.com/",
+  "support": {
+    "url": "https://support.vtex.com/hc/requests"
+  }
+}
