@@ -37,7 +37,7 @@
   "admin/assembly.register.error-sku-range-assembly-default": "A soma dos valores padrão do SKU é maior que a quantidade máxima permitida para o grupo {configName}",
   "admin/assembly.register.error-unique-key": "Os grupos de Assembly options devem ter chaves únicas",
   "admin/assembly.register.success-graphql": "A Assembly option foi criada com êxito",
-  "admin/assembly.register.error-name-required": "Este campo é obrigatório",
+  "admin/assembly.register.error-name-required": "Esse campo é obrigatório",
   "admin/assembly.register.error-number-comparison": "O número máximo deve ser maior que o número mínimo",
   "admin/assembly.register.unamed-group": "Grupo sem nome",
   "admin/assembly.register.name-exists": "Este nome já existe. Por favor, escolha outro.",
