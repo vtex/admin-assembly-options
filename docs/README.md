@@ -1,5 +1,7 @@
 # Assembly Options app
 
+> ⚠️ This app is no longer maintained by VTEX. This means support and maintenance are no longer provided.
+
 > ⚠ This app is available only for stores developed in [VTEX IO](https://vtex.com/br-pt/store-framework/).
 
 At VTEX, [Assembly Options](https://help.vtex.com/en/tutorial/assembly-options--5x5FhNr4f5RUGDEGWzV1nH) consist on creating [attachments](https://help.vtex.com/en/tutorial/what-is-an-attachment--aGICk0RVbqKg6GYmQcWUm) for complex scenarios, where it is necessary to offer various combinations of SKUs, quantities, additional items and costs.
